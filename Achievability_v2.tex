@@ -9,13 +9,11 @@ Given a mean-payoff game $\mathcal{G}$ and an $\epsilon > 0$, we say that a play
     \item If Player 1 deviates $\pi_i$, then for each vertex $v \in \pi_i$, Player 0 employs a memoryless strategy that establishes $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c_i \land \underline{\mathbf{MP}}_1 > d_i - \epsilon$, where $d_i = \underline{\mathbf{MP}}_1(\pi_i)$.
 \end{itemize}
 
-\begin{conjecture}
+\begin{theorem}
 \label{ConjAchiev}
 For all mean-payoff games $\mathcal{G}$, for all vertices $v$ in $\mathcal{G}$ and for all $\epsilon > 0$ we have that $\mathbf{ASV}^{\epsilon}(v)$ is achievable.
-\end{conjecture}
+\end{theorem}
 \begin{proof}
-Let $\mathbf{ASV}^{\epsilon}(v) = c$.
-
 From \textbf{\cref{CorASVEqASVFin}}, we know that $\mathbf{ASV}^{\epsilon}(v) = \mathbf{ASV}^{\epsilon}_{\mathsf{FIN}}(v)$, i.e., the Adversarial Stackleberg Value for fixed $\epsilon$ from vertex $v$ of a game $\mathcal{G}$ remains the same even if we restrict Player 0 to only using finite memory strategies.
 
 % Without loss of generality, we can disregard the mean-payoff games where $\mathbf{ASV}^{\epsilon}(v)$ can be achieved by a finite memory strategy of Player 0. Hence, we consider the mean-payoff games where Player 0 requires at least infinite memory to achieve $\mathbf{ASV}^{\epsilon}(v)$.
@@ -23,6 +21,7 @@ From \textbf{\cref{CorASVEqASVFin}}, we know that $\mathbf{ASV}^{\epsilon}(v) = 
 We consider below the interesting case, where $\mathbf{ASV}^{\epsilon}(v)$ cannot be achieved by a finite memory strategy.
 We show that for such cases it can indeed be achieved by an infinite memory strategy.
  
+Let $\mathbf{ASV}^{\epsilon}(v) = c$.
 For every $c' < c$, from \textbf{\cref{LemFinMemWitnessASV}}, we can see that there exists a finite memory strategy $\sigma_0$ such that $\mathbf{ASV}^{\epsilon}(\sigma_0)(v) > c'$.
 
 
@@ -30,7 +29,7 @@ Now, consider a sequence of increasing real numbers $c_1 < c_2 < c_3 < \dotsc < 
 We note from \textbf{\cref{LemFinMemWitnessASV}} that there exists a witness $\pi_i$ for $ \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$ for each $\sigma_0^i$ where $\pi_i= \pi_{1i}(l^{\alpha \cdot k_i}_{1i} \cdot \pi_{2i} \cdot l^{\beta \cdot k_i}_{2i} \cdot \pi_{3i})^{\omega}$, i.e, the strategy $\sigma_0^i$ is described as follows:
 \begin{itemize}
     \item Player 0 follows $\pi_i$ if Player 1 does not deviate from $\pi_i$.
-    \item If Player 1 deviates $\pi_i$, then for each vertex $v \in \pi_i$, Player 0 employs a memoryless strategy that establishes $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c_i \land \underline{\mathbf{MP}}_1 > d_i - \epsilon$, where $d_i = \underline{\mathbf{MP}}_1(\pi_i)$.
+    \item If Player 1 deviates from $\pi_i$, then for each vertex $v \in \pi_i$, Player 0 employs a memoryless strategy that establishes $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c_i \land \underline{\mathbf{MP}}_1 > d_i - \epsilon$, where $d_i = \underline{\mathbf{MP}}_1(\pi_i)$.
 \end{itemize}
 
 \begin{proposition}
@@ -51,7 +50,7 @@ $\alpha_i = \alpha_j = \alpha, \beta_i = \beta_j = \beta, \pi_{1i} = \pi_{1j}, \
 
 \begin{remark} 
 \label{RemarkStratEqual} 
-We note that for the sequence of strategies $(\sigma_0^i)_{i \in \mathbb{N}}$, we have that the memoryless strategies which Player 0 uses when Player 1 deviates from $\pi_i$ are the same for all $i \in \mathbb{N}$.
+We note that for the sequence of strategies $(\sigma_0^i)_{i \in \mathbb{N}}$, the memoryless strategies which Player 0 uses when Player 1 deviates from $\pi_i$ are the same for all $i \in \mathbb{N}$.
 \end{remark}
 
 For the sequence of strategies $(\sigma_0^i)_{i \in \mathbb{N}}$, we note that the mean-payoff of Player 1 for the play $\pi_i$ changes monotonically with $i$. This is a result of proportional increase of $\alpha \cdot k_i$ and $\beta \cdot k_i$ with $i$. Formally, for the sequence of plays $(\pi_i)_{i \in \mathbb{N}}$ which are witnesses $(\mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i)_{i \in \mathbb{N}}$ by the strategies $(\sigma_0^i)_{i \in \mathbb{N}}$, we let $\underline{\mathbf{MP}}_1(\pi_i) = d_i$. Thus, we claim:
@@ -61,7 +60,7 @@ For the sequence of strategies $(\sigma_0^i)_{i \in \mathbb{N}}$, we note that t
 The sequence $(d_i)_{i \in \mathbb{N}}$ is monotonic. 
 \end{proposition}
 
-We have that $\lim \limits_{i \to \infty} \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) = c$. Let $\pi_{i \to \infty} = \pi_* = \pi_1 \rho_1 \rho_2 \rho_3 \dotsc$ where $\rho_i = (l^{\alpha}_{1})^i \cdot \pi_{2} \cdot (l^{\beta}_{2})^i \cdot \pi_{3}$. We have that $\underline{\mathbf{MP}}_0(\pi_*) = c$, and we let $\underline{\mathbf{MP}}_1(\pi_*) = d$. Note that at the limit, Player 0 uses an infinite memory strategy. Let $\sigma_0^*$ be this infinite memory strategy of Player 0.
+We have that $\lim \limits_{i \to \infty} \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) = c$. Let $\pi_{i \to \infty} = \pi_* = \pi_1 \rho_1 \rho_2 \rho_3 \dotsc$ where $\rho_i = (l^{\alpha}_{1})^i \cdot \pi_{2} \cdot (l^{\beta}_{2})^i \cdot \pi_{3}$. We have that $\underline{\mathbf{MP}}_0(\pi_*) = c$, and we let $\underline{\mathbf{MP}}_1(\pi_*) = d$. Note that in the limit, Player 0 uses an infinite memory strategy. Let $\sigma_0^*$ be this infinite memory strategy of Player 0.
 
 Now, we prove that any play that could be enforced by Player 1 in response to Player 0's strategy $\sigma_0^*$ could be enforced in response to any strategy $\sigma_0^i$ of Player 0, for all $i \in \mathbb{N}$. Formally, we state that:
 
