@@ -22,11 +22,11 @@ We consider below the interesting case, where $\mathbf{ASV}^{\epsilon}(v)$ canno
 We show that for such cases it can indeed be achieved by an infinite memory strategy.
  
 Let $\mathbf{ASV}^{\epsilon}(v) = c$.
-For every $c' < c$, from \textbf{\cref{LemFinMemWitnessASV}}, we can see that there exists a finite memory strategy $\sigma_0$ such that $\mathbf{ASV}^{\epsilon}(\sigma_0)(v) > c'$.
+For every $c' < c$, from \textbf{\cref{ThmNpForASV}}, we can see that there exists a finite memory strategy $\sigma_0$ such that $\mathbf{ASV}^{\epsilon}(\sigma_0)(v) > c'$.
 
 
 Now, consider a sequence of increasing real numbers $c_1 < c_2 < c_3 < \dotsc < c$ for which there exist finite memory strategies $\sigma_0^{1}, \sigma_0^{2}, \sigma_0^{3}, \dotsc$ such that for each $c_i$, we have that $ \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$.
-We note from \textbf{\cref{LemFinMemWitnessASV}} that there exists a witness $\pi_i$ for $ \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$ for each $\sigma_0^i$ where $\pi_i= \pi_{1i}(l^{\alpha \cdot k_i}_{1i} \cdot \pi_{2i} \cdot l^{\beta \cdot k_i}_{2i} \cdot \pi_{3i})^{\omega}$, i.e, the strategy $\sigma_0^i$ is described as follows:
+We note from \textbf{\cref{LemPlaysAsWitnessForASV}} that there exists a witness $\pi_i$ for $ \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$ for each $\sigma_0^i$ where $\pi_i= \pi_{1i}(l^{\alpha \cdot k_i}_{1i} \cdot \pi_{2i} \cdot l^{\beta \cdot k_i}_{2i} \cdot \pi_{3i})^{\omega}$, i.e, the strategy $\sigma_0^i$ is described as follows:
 \begin{itemize}
     \item Player 0 follows $\pi_i$ if Player 1 does not deviate from $\pi_i$.
     \item If Player 1 deviates from $\pi_i$, then for each vertex $v \in \pi_i$, Player 0 employs a memoryless strategy that establishes $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c_i \land \underline{\mathbf{MP}}_1 > d_i - \epsilon$, where $d_i = \underline{\mathbf{MP}}_1(\pi_i)$.
@@ -97,7 +97,7 @@ Assume for contradiction that $\mathbf{ASV}^{\epsilon}(v)$ is not achievable, i.
 
 Since ($d_i$)$_{i \in \mathbb{N}}$ is non-decreasing, for all $j \in \mathbb{N}$ we have that $d' > d_j - \epsilon$. We know that the sequence ($c_i$)$_{i \in \mathbb{N}}$ is increasing. Thus, there exists a $j \in \mathbb{N}$ such that $c' \leqslant c_j$. Note that if $\pi'$ is a result of the deviation of Player 1 following some path $\pi_{j'}$ for some index $j'$, we consider the $j$ which is also greater than $j'$.
 
-Consider the strategy $\sigma_0^j$ of Player 0 which follows the play $\pi_j$. We know that $\underline{\mathbf{MP}}_0(\pi_j) > c_j$ and $\underline{\mathbf{MP}}_1(\pi_j) = d_j$. We also know from \textbf{\cref{LemFinMemWitnessASV}} that the play $\pi_j$ does not cross a $(c_j, d_j)^{\epsilon}$-bad vertex. 
+Consider the strategy $\sigma_0^j$ of Player 0 which follows the play $\pi_j$. We know that $\underline{\mathbf{MP}}_0(\pi_j) > c_j$ and $\underline{\mathbf{MP}}_1(\pi_j) = d_j$. We also know from \textbf{\cref{LemPlaysAsWitnessForASV}} that the play $\pi_j$ does not cross a $(c_j, d_j)^{\epsilon}$-bad vertex. 
 
 *****************************************
 
@@ -111,7 +111,7 @@ Since the sequence ($d_i$)$_{i \in \mathbb{N}}$ is monotonically decreasing, we 
 
 We know that since ($c_i$)$_{i \in \mathbb{N}}$ is a strictly increasing sequence, there must exist $j \geqslant i$ such that $c_j > c'$. Note that if $\pi'$ is a result of the deviation of Player 1 following some path $\pi_{j'}$ for some index $j'$, we consider the $j$ which is also greater than $j'$.
 
-Consider the strategy $\sigma_0^j$ of Player 0 which follows the play $\pi_j$. We know that $\underline{\mathbf{MP}}_0(\pi_j) > c_j$ and $ \underline{\mathbf{MP}}_1(\pi_j) = d_j$. We also know from \textbf{\cref{LemFinMemWitnessASV}}, the play $\pi_j$ does not cross a $(c_j, d_j)^{\epsilon}$-bad vertex. 
+Consider the strategy $\sigma_0^j$ of Player 0 which follows the play $\pi_j$. We know that $\underline{\mathbf{MP}}_0(\pi_j) > c_j$ and $ \underline{\mathbf{MP}}_1(\pi_j) = d_j$. We also know from \textbf{\cref{LemPlaysAsWitnessForASV}}, the play $\pi_j$ does not cross a $(c_j, d_j)^{\epsilon}$-bad vertex. 
 
 From \textbf{\cref{PropContradictionPlayEnforcable}}, we have that $\pi'$ can be enforced in response to strategy $\sigma_0^j$ of Player 0. Thus, we can establish that the play $\pi_j$ crosses a $(c_j, d_j)^{\epsilon}$-bad vertex $v$ as $\underline{\mathbf{MP}}_0(\pi') < c_j$ and $ \underline{\mathbf{MP}}_1(\pi') > d_j-\epsilon$ and $\pi'(0) = \pi_j(0) = v$. This implies that the existence of $\pi'$ is a contradiction. We conclude that the $\mathbf{ASV}^{\epsilon}(v)$ is achievable.
 
