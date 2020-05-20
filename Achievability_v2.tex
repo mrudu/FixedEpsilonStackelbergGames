@@ -1,6 +1,11 @@
 % \sgcomment{Add an intro for this section: What this section is about.}
-While it has been shown in \cite{FGR20} that \textbf{$\mathbf{ASV}$} may not be achievable, in this section, we show that $\mathbf{ASV}^{\epsilon}$ is indeed achievable (\ref{ConjAchiev}).
-The entire section is devoted towards proving this theorem.
+While it has been shown in \cite{FGR20} that \textbf{$\mathbf{ASV}$} may not be achievable, in this section, we show that $\mathbf{ASV}^{\epsilon}$ is indeed achievable. This is expressed in the following theorem:
+\begin{theorem}
+    \label{ConjAchiev}
+    For all mean-payoff games $\mathcal{G}$, for all vertices $v$ in $\mathcal{G}$ and for all $\epsilon > 0$ we have that $\mathbf{ASV}^{\epsilon}(v)$ is achievable.
+\end{theorem}
+
+The rest of this section is devoted entirely to proving \textbf{\cref{ConjAchiev}}. We start by defining the concept of a witness for $\mathbf{ASV}^{\epsilon}(\sigma_0^i)$.
 
 \textbf{Witness for $\mathbf{ASV}^{\epsilon}(\sigma_0^i)$}
 Given a mean-payoff game $\mathcal{G}$ and an $\epsilon > 0$, we say that a play $\pi_i$ is a witness for $\mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$ for the strategy $\sigma_0^i$ of Player 0 if the strategy $\sigma_0^i$ is defined as follows:
@@ -9,11 +14,6 @@ Given a mean-payoff game $\mathcal{G}$ and an $\epsilon > 0$, we say that a play
     \item If Player 1 deviates $\pi_i$, then for each vertex $v \in \pi_i$, Player 0 employs a memoryless strategy that establishes $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c_i \land \underline{\mathbf{MP}}_1 > d_i - \epsilon$, where $d_i = \underline{\mathbf{MP}}_1(\pi_i)$.
 \end{itemize}
 
-\begin{theorem}
-\label{ConjAchiev}
-For all mean-payoff games $\mathcal{G}$, for all vertices $v$ in $\mathcal{G}$ and for all $\epsilon > 0$ we have that $\mathbf{ASV}^{\epsilon}(v)$ is achievable.
-\end{theorem}
-\begin{proof}
 From \textbf{\cref{CorASVEqASVFin}}, we know that $\mathbf{ASV}^{\epsilon}(v) = \mathbf{ASV}^{\epsilon}_{\mathsf{FIN}}(v)$, i.e., the Adversarial Stackleberg Value for fixed $\epsilon$ from vertex $v$ of a game $\mathcal{G}$ remains the same even if we restrict Player 0 to only using finite memory strategies.
 
 % Without loss of generality, we can disregard the mean-payoff games where $\mathbf{ASV}^{\epsilon}(v)$ can be achieved by a finite memory strategy of Player 0. Hence, we consider the mean-payoff games where Player 0 requires at least infinite memory to achieve $\mathbf{ASV}^{\epsilon}(v)$.
@@ -33,31 +33,31 @@ We note from \textbf{\cref{LemPlaysAsWitnessForASV}} that there exists a witness
 \end{itemize}
 
 \begin{proposition}
-\label{PropConvergenceStrategies}
-There exists a sequence of increasing real numbers, $c_1 < c_2 < c_3 < \dotsc < c$, and finite memory strategies $\sigma_0^1, \sigma_0^2, \sigma_0^3, \dotsc$ of Player 0 such that for each $c_i$, we have $\mathbf{ASV}^{\epsilon} (\sigma_0^i)(v) > c_i$, and  $\forall i, j \in \mathbb{N}$, for the plays $\pi_i= \pi_{1i}(l^{\alpha_i \cdot k_i}_{1i} \cdot \pi_{2i} \cdot l^{\beta_i \cdot k_i}_{2i} \cdot \pi_{3i})^{\omega}$ and the play $\pi_j= \pi_{1j}(l^{\alpha_j \cdot k_j}_{1j} \cdot \pi_{2j} \cdot l^{\beta_j \cdot k_j}_{2j} \cdot \pi_{3j})^{\omega}$ which are witnesses for $ \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$ and $ \mathbf{ASV}^{\epsilon}(\sigma_0^j)(v) > c_j$ respectively, we have that:
-$\alpha_i = \alpha_j = \alpha, \beta_i = \beta_j = \beta, \pi_{1i} = \pi_{1j} = \pi_1, \pi_{2i} = \pi_{2j} = \pi_2, \pi_{3i} = \pi_{3j} = \pi_3, l_{1i} = l_{1j} = l_1$ and $l_{2i} = l_{2j} = l_2$ where $\pi_1, \pi_2$ and $\pi_3$ are some finite plays and $l_1, l_2$ are simple cycles in the game $\mathcal{G}$.
+    \label{PropConvergenceStrategies}
+    There exists a sequence of increasing real numbers, $c_1 < c_2 < c_3 < \dotsc < c$, and finite memory strategies $\sigma_0^1, \sigma_0^2, \sigma_0^3, \dotsc$ of Player 0 such that for each $c_i$, we have $\mathbf{ASV}^{\epsilon} (\sigma_0^i)(v) > c_i$, and  $\forall i, j \in \mathbb{N}$, for the plays $\pi_i= \pi_{1i}(l^{\alpha_i \cdot k_i}_{1i} \cdot \pi_{2i} \cdot l^{\beta_i \cdot k_i}_{2i} \cdot \pi_{3i})^{\omega}$ and the play $\pi_j= \pi_{1j}(l^{\alpha_j \cdot k_j}_{1j} \cdot \pi_{2j} \cdot l^{\beta_j \cdot k_j}_{2j} \cdot \pi_{3j})^{\omega}$ which are witnesses for $ \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$ and $ \mathbf{ASV}^{\epsilon}(\sigma_0^j)(v) > c_j$ respectively, we have that:
+    $\alpha_i = \alpha_j = \alpha, \beta_i = \beta_j = \beta, \pi_{1i} = \pi_{1j} = \pi_1, \pi_{2i} = \pi_{2j} = \pi_2, \pi_{3i} = \pi_{3j} = \pi_3, l_{1i} = l_{1j} = l_1$ and $l_{2i} = l_{2j} = l_2$ where $\pi_1, \pi_2$ and $\pi_3$ are some finite plays and $l_1, l_2$ are simple cycles in the game $\mathcal{G}$.
 \end{proposition}
 \begin{proof}
-For every $\delta > 0$, there exists $i \in \mathbb{N}$ such that $c - \delta < c_i < c$. Now, we consider the play $\pi_i = \pi_{1i}(l^{\alpha \cdot k_i}_{1i} \cdot \pi_{2i} \cdot l^{\beta \cdot k_i}_{2i} \cdot \pi_{3i})^{\omega}$ which is a witness for $ \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$ for the strategy $\sigma_0^i$ such that $\mathbf{ASV}^{\epsilon} (\sigma_0^i)(v) > c_i$. Let $\underline{\mathbf{MP}}_0(\pi_i)= c' > c_i$. 
+    For every $\delta > 0$, there exists $i \in \mathbb{N}$ such that $c - \delta < c_i < c$. Now, we consider the play $\pi_i = \pi_{1i}(l^{\alpha \cdot k_i}_{1i} \cdot \pi_{2i} \cdot l^{\beta \cdot k_i}_{2i} \cdot \pi_{3i})^{\omega}$ which is a witness for $ \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$ for the strategy $\sigma_0^i$ such that $\mathbf{ASV}^{\epsilon} (\sigma_0^i)(v) > c_i$. Let $\underline{\mathbf{MP}}_0(\pi_i)= c' > c_i$. 
 
-Without loss of generality, assume that $\underline{\mathbf{MP}}_0(\pi_i)$ increases proportionally with $i$ as $\alpha \cdot k_i$ and $\beta \cdot k_i$ increase. We can make this assumption because we disregard the cases where $\mathbf{ASV}^{\epsilon}(v)$ is achievable with some finite memory strategy of Player 0, i.e. we only consider the case where $\mathbf{ASV}^{\epsilon}(v)$ is not achievable by a finite memory strategy of Player 0.
+    Without loss of generality, assume that $\underline{\mathbf{MP}}_0(\pi_i)$ increases proportionally with $i$ as $\alpha \cdot k_i$ and $\beta \cdot k_i$ increase. We can make this assumption because we disregard the cases where $\mathbf{ASV}^{\epsilon}(v)$ is achievable with some finite memory strategy of Player 0, i.e. we only consider the case where $\mathbf{ASV}^{\epsilon}(v)$ is not achievable by a finite memory strategy of Player 0.
 
-Now we can construct a series of $(\pi_i)$ such that the  mean-payoff of Player 0 in $\pi_i$ increases with $i$, i.e., $\underline{\mathbf{MP}}_0(\pi_{1i}(l^{\alpha \cdot k_i}_{1i} \cdot \pi_{2i} \cdot l^{\beta \cdot k_i}_{2i} \cdot \pi_{3i})^{\omega}) = c' > c_i, \underline{\mathbf{MP}}_0(\pi_{1i}(l^{\alpha \cdot k_{i+1}}_{1i} \cdot \pi_{2i} \cdot l^{\beta \cdot k_{i+1}}_{2i} \cdot \pi_{3i})^{\omega}) = c'' > c', \underline{\mathbf{MP}}_0(\pi_{1i}(l^{\alpha \cdot k_{i+2}}_{1i} \cdot \pi_{2i} \cdot l^{\beta \cdot k_{i+2}}_{2i} \cdot \pi_{3i})^{\omega}) = c''' > c''$, and so on. Note that in the sequence of $(\pi_i)$, the finite plays $\pi_{1i}, \pi_{2i}, \pi_{3i}$ and the simple cycles $l_{1i}, l_{2i}$ remain constant.
+    Now we can construct a series of $(\pi_i)$ such that the  mean-payoff of Player 0 in $\pi_i$ increases with $i$, i.e., $\underline{\mathbf{MP}}_0(\pi_{1i}(l^{\alpha \cdot k_i}_{1i} \cdot \pi_{2i} \cdot l^{\beta \cdot k_i}_{2i} \cdot \pi_{3i})^{\omega}) = c' > c_i, \underline{\mathbf{MP}}_0(\pi_{1i}(l^{\alpha \cdot k_{i+1}}_{1i} \cdot \pi_{2i} \cdot l^{\beta \cdot k_{i+1}}_{2i} \cdot \pi_{3i})^{\omega}) = c'' > c', \underline{\mathbf{MP}}_0(\pi_{1i}(l^{\alpha \cdot k_{i+2}}_{1i} \cdot \pi_{2i} \cdot l^{\beta \cdot k_{i+2}}_{2i} \cdot \pi_{3i})^{\omega}) = c''' > c''$, and so on. Note that in the sequence of $(\pi_i)$, the finite plays $\pi_{1i}, \pi_{2i}, \pi_{3i}$ and the simple cycles $l_{1i}, l_{2i}$ remain constant.
 
-Thus, at the limit when $\delta \to 0$, there must exist a converging sequence of $(\pi_i)$  such that $\lim \limits_{i \to \infty} \underline{\mathbf{MP}}_0(\pi_{1i}(l^{\alpha \cdot i}_{1i} \cdot \pi_{2i} \cdot l^{\beta \cdot i}_{2i} \cdot \pi_{3i})^{\omega}) = c$. For every $i \in \mathbb{N}$, let $\underline{\mathbf{MP}}_0(\pi_i) > c_i$ for some $c_i$. We note here that, for every $i \in \mathbb{N}$, there exists a finite memory strategy $\sigma_0^i$ which has a witness $\pi_i$ for $ \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$. We also note that the sequence $(c_i)$ is strictly increasing with $\lim \limits_{i \to \infty} c_i = c$. Thus the only difference in the strategy $\sigma_0^i$ as $i$ changes are the values of $\alpha \cdot k_i$ and $\beta \cdot k_i$, i.e, we increase the value of $\alpha \cdot k_i$ and $\beta \cdot k_i$ proportionally such that the effects of $\pi_2$ and $\pi_3$ on the mean-payoffs are minimised. By construction, we get that $\forall i, j \in \mathbb{N}$, for the plays $\pi_i= \pi_{1i}(l^{\alpha_i \cdot k_i}_{1i} \cdot \pi_{2i} \cdot l^{\beta_i \cdot k_i}_{2i} \cdot \pi_{3i})^{\omega}$ and the play $\pi_j= \pi_{1j}(l^{\alpha_j \cdot k_j}_{1j} \cdot \pi_{2j} \cdot l^{\beta_j \cdot k_j}_{2j} \cdot \pi_{3j})^{\omega}$ which are witnesses for $ \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$ and $ \mathbf{ASV}^{\epsilon}(\sigma_0^j)(v) > c_j$, we have that:
-$\alpha_i = \alpha_j = \alpha, \beta_i = \beta_j = \beta, \pi_{1i} = \pi_{1j}, \pi_{2i} = \pi_{2j}, \pi_{3i} = \pi_{3j}, l_{1i} = l_{1j} = l_1$ and $l_{2i} = l_{2j}$.
+    Thus, at the limit when $\delta \to 0$, there must exist a converging sequence of $(\pi_i)$  such that $\lim \limits_{i \to \infty} \underline{\mathbf{MP}}_0(\pi_{1i}(l^{\alpha \cdot i}_{1i} \cdot \pi_{2i} \cdot l^{\beta \cdot i}_{2i} \cdot \pi_{3i})^{\omega}) = c$. For every $i \in \mathbb{N}$, let $\underline{\mathbf{MP}}_0(\pi_i) > c_i$ for some $c_i$. We note here that, for every $i \in \mathbb{N}$, there exists a finite memory strategy $\sigma_0^i$ which has a witness $\pi_i$ for $ \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$. We also note that the sequence $(c_i)$ is strictly increasing with $\lim \limits_{i \to \infty} c_i = c$. Thus the only difference in the strategy $\sigma_0^i$ as $i$ changes are the values of $\alpha \cdot k_i$ and $\beta \cdot k_i$, i.e, we increase the value of $\alpha \cdot k_i$ and $\beta \cdot k_i$ proportionally such that the effects of $\pi_2$ and $\pi_3$ on the mean-payoffs are minimised. By construction, we get that $\forall i, j \in \mathbb{N}$, for the plays $\pi_i= \pi_{1i}(l^{\alpha_i \cdot k_i}_{1i} \cdot \pi_{2i} \cdot l^{\beta_i \cdot k_i}_{2i} \cdot \pi_{3i})^{\omega}$ and the play $\pi_j= \pi_{1j}(l^{\alpha_j \cdot k_j}_{1j} \cdot \pi_{2j} \cdot l^{\beta_j \cdot k_j}_{2j} \cdot \pi_{3j})^{\omega}$ which are witnesses for $ \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$ and $ \mathbf{ASV}^{\epsilon}(\sigma_0^j)(v) > c_j$, we have that:
+    $\alpha_i = \alpha_j = \alpha, \beta_i = \beta_j = \beta, \pi_{1i} = \pi_{1j}, \pi_{2i} = \pi_{2j}, \pi_{3i} = \pi_{3j}, l_{1i} = l_{1j} = l_1$ and $l_{2i} = l_{2j}$.
 \end{proof}
 
 \begin{remark} 
-\label{RemarkStratEqual} 
-We note that for the sequence of strategies $(\sigma_0^i)_{i \in \mathbb{N}}$, the memoryless strategies which Player 0 uses when Player 1 deviates from $\pi_i$ are the same for all $i \in \mathbb{N}$.
+    \label{RemarkStratEqual} 
+    We note that for the sequence of strategies $(\sigma_0^i)_{i \in \mathbb{N}}$, the memoryless strategies which Player 0 uses when Player 1 deviates from $\pi_i$ are the same for all $i \in \mathbb{N}$.
 \end{remark}
 
 For the sequence of strategies $(\sigma_0^i)_{i \in \mathbb{N}}$, we note that the mean-payoff of Player 1 for the play $\pi_i$ changes monotonically with $i$. This is a result of proportional increase of $\alpha \cdot k_i$ and $\beta \cdot k_i$ with $i$. Formally, for the sequence of plays $(\pi_i)_{i \in \mathbb{N}}$ which are witnesses $(\mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i)_{i \in \mathbb{N}}$ by the strategies $(\sigma_0^i)_{i \in \mathbb{N}}$, we let $\underline{\mathbf{MP}}_1(\pi_i) = d_i$. Thus, we claim:
 
 \begin{proposition}
-\label{PropMonotonicDi}
-The sequence $(d_i)_{i \in \mathbb{N}}$ is monotonic. 
+    \label{PropMonotonicDi}
+    The sequence $(d_i)_{i \in \mathbb{N}}$ is monotonic. 
 \end{proposition}
 
 We have that $\lim \limits_{i \to \infty} \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) = c$. Let $\pi_{i \to \infty} = \pi_* = \pi_1 \rho_1 \rho_2 \rho_3 \dotsc$ where $\rho_i = (l^{\alpha}_{1})^i \cdot \pi_{2} \cdot (l^{\beta}_{2})^i \cdot \pi_{3}$. We have that $\underline{\mathbf{MP}}_0(\pi_*) = c$, and we let $\underline{\mathbf{MP}}_1(\pi_*) = d$. Note that in the limit, Player 0 uses an infinite memory strategy. Let $\sigma_0^*$ be this infinite memory strategy of Player 0.
@@ -65,22 +65,23 @@ We have that $\lim \limits_{i \to \infty} \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v)
 Now, we prove that any play that could be enforced by Player 1 in response to Player 0's strategy $\sigma_0^*$ could be enforced in response to any strategy $\sigma_0^i$ of Player 0, for all $i \in \mathbb{N}$. Formally, we state that:
 
 \begin{proposition}
-\label{PropContradictionPlayEnforcable}
-If Player 1 deviates from the play $\pi_*$ by playing strategy $\sigma_1'$ to get an outcome $\pi' = \mathbf{Out}(\sigma_0^*, \sigma_1')$, then Player 1 could have played the same strategy in response to $\sigma_0^i$ to get the same outcome $\pi'$, for all $i \in \mathbb{N}$. 
+    \label{PropContradictionPlayEnforcable}
+    If Player 1 deviates from the play $\pi_*$ by playing strategy $\sigma_1'$ to get an outcome $\pi' = \mathbf{Out}(\sigma_0^*, \sigma_1')$, then Player 1 could have played the same strategy in response to $\sigma_0^i$ to get the same outcome $\pi'$, for all $i \in \mathbb{N}$. 
 \end{proposition}
 \begin{proof}
-From \textbf{\cref{PropConvergenceStrategies}}, we know that the sequence of $(\pi_i)$s, for all $i \in \mathbb{N}$, differ only in the $\alpha \cdot k_i$ and $\beta \cdot k_i$ values.
-For every $i \in \mathbb{N}$, we describe the strategy $\sigma_0^i$ which ensures that $\mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$. Now, we recall that if Player 1 deviates from $\pi_i$, then for each vertex $v$ appearing in the path $\pi_i$, Player 0 employs a memoryless strategy that establishes $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c_i \land \underline{\mathbf{MP}}_0 > d_i - \epsilon$.
+    From \textbf{\cref{PropConvergenceStrategies}}, we know that the sequence of $(\pi_i)$s, for all $i \in \mathbb{N}$, differ only in the $\alpha \cdot k_i$ and $\beta \cdot k_i$ values.
+    For every $i \in \mathbb{N}$, we describe the strategy $\sigma_0^i$ which ensures that $\mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$. Now, we recall that if Player 1 deviates from $\pi_i$, then for each vertex $v$ appearing in the path $\pi_i$, Player 0 employs a memoryless strategy that establishes $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c_i \land \underline{\mathbf{MP}}_0 > d_i - \epsilon$.
 
-From \textbf{\cref{RemarkStratEqual}}, we know that the memoryless strategy employed by Player 0 is the same for all $\sigma_0^i$, for every $i \in \mathbb{N}$. Thus, at the limit $i \to \infty$, if Player 1 deviates from $\pi_*$, Player 0 employs the same memoryless strategy which it would have apped if Player 1 had deviated from any play $\pi_i$, for all $i \in \mathbb{N}$.
+    From \textbf{\cref{RemarkStratEqual}}, we know that the memoryless strategy employed by Player 0 is the same for all $\sigma_0^i$, for every $i \in \mathbb{N}$. Thus, at the limit $i \to \infty$, if Player 1 deviates from $\pi_*$, Player 0 employs the same memoryless strategy which it would have apped if Player 1 had deviated from any play $\pi_i$, for all $i \in \mathbb{N}$.
 \end{proof}
 
-Thus, from the above propositions, we now construct a sequence of increasing numbers $c_1 < c_2 < c_3 < \dotsc < c$ such that:
+Now, we have the tools to prove \textbf{\cref{ConjAchiev}}. \\
+\noindent \textbf{Proof of \cref{ConjAchiev}}: We start by constructing a sequence of increasing numbers $c_1 < c_2 < c_3 < \dotsc < c$ such that:
 \begin{itemize}
-    \item For every $i \in \mathbb{N}$, we construct a strategy $\sigma_0^i$ which ensures $\mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$.
-    \item The strategy $\sigma_0^i$ follows a path $\pi_i = \pi_{1}(l^{\alpha \cdot k_i}_{1} \cdot \pi_{2} \cdot l^{\beta \cdot k_i}_{2} \cdot \pi_{3})^{\omega}$ where $\pi_1, \pi_2$ and $\pi_3$ are some finite plays and $l_1, l_2$ are simple cycles in the game $\mathcal{G}$.
-    \item We let $\underline{\mathbf{MP}}_0(\pi_i) = d_i$. The sequence $(d_i)_{i\in \mathbb{N}}$ is monotonic.
-    \item The memoryless strategies of Player 0 in $\sigma_0^i$ which Player 0 employs when Player 1 deviates is the same from every vertex $v$ in $\pi_i$ across all $i \in \mathbb{N}$.
+    \item For every $i \in \mathbb{N}$, we construct a strategy $\sigma_0^i$ which ensures $\mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$.[Follows from \textbf{\cref{ThmNpForASV}}]
+    \item The strategy $\sigma_0^i$ follows a path $\pi_i = \pi_{1}(l^{\alpha \cdot k_i}_{1} \cdot \pi_{2} \cdot l^{\beta \cdot k_i}_{2} \cdot \pi_{3})^{\omega}$ where $\pi_1, \pi_2$ and $\pi_3$ are some finite plays and $l_1, l_2$ are simple cycles in the game $\mathcal{G}$. [Follows from \textbf{\cref{PropConvergenceStrategies}}]
+    \item We let $\underline{\mathbf{MP}}_0(\pi_i) = d_i$. The sequence $(d_i)_{i\in \mathbb{N}}$ is monotonic.[Follows from \textbf{\cref{PropMonotonicDi}}]
+    \item The memoryless strategies of Player 0 in $\sigma_0^i$ which Player 0 employs when Player 1 deviates is the same from every vertex $v$ in $\pi_i$ across all $i \in \mathbb{N}$.[Follows from \textbf{\cref{PropContradictionPlayEnforcable}}]
 \end{itemize}
 
 At the limit, we assume that Player 0 uses the strategy $\sigma_0^*$. If the $\mathbf{ASV}^{\epsilon}$ is not achievable, then there exists a strategy of Player 1 to enforce some play $\pi'$ such that $\underline{\mathbf{MP}}_0(\pi') = c' < c$ and $\underline{\mathbf{MP}}_1(\pi') = d' > d - \epsilon$. Now, we use the monotonicity of the sequence ($d_i$)$_{i \in \mathbb{N}}$ to show a contradiction. 
@@ -137,4 +138,3 @@ Thus for every vertex $v$ in $\pi_j$ in $\pi_*$, Player $1$ does not have a stra
 Recall that, by \cref{PropConvergenceStrategies}, the set of vertices appearing in $\pi_*$ is the same as the set of vertices appearing in $\pi_j$.
 Since $c' < c_j$ and $d' > d_j-\epsilon$, it also follows that $v \not \models \ll 1 \gg \underline{\mathbf{MP}}_0(\pi) \leqslant c' \land \underline{\mathbf{MP}}_1(\pi) > d'$.
 Now the contradiction follows exactly as above where the sequence ($d_i$)$_{i \in \mathbb{N}}$ is monotonically non-decreasing.
-\end{proof}
