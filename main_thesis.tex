@@ -21,6 +21,8 @@
 
 % For Thm, Lem, etc Statements
 \usepackage{amsthm}
+\usepackage{cleveref}% http://ctan.org/pkg/cleveref
+\usepackage{lipsum}% http://ctan.org/pkg/lipsum
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -31,7 +33,6 @@
 \newtheorem{example}[theorem]{Example}
 
 % For referencing within project
-\usepackage{cleveref}% http://ctan.org/pkg/cleveref
 \crefname{lemma}{Lemma}{Lemmas}
 \crefname{remark}{Remark}{Remarks}
 \crefname{theorem}{Theorem}{Theorems}
@@ -40,6 +41,14 @@
 \crefname{proposition}{Proposition}{Propositions}
 \crefname{figure}{Figure}{Figures}
 \crefname{example}{Example}{Examples}
+\Crefname{lemma}{Lemma}{Lemmas}
+\Crefname{remark}{Remark}{Remarks}
+\Crefname{theorem}{Theorem}{Theorems}
+\Crefname{conjecture}{Conjecture}{Conjectures}
+\Crefname{corollary}{Corollary}{Corollaries}
+\Crefname{proposition}{Proposition}{Propositions}
+\Crefname{figure}{Figure}{Figures}
+\Crefname{example}{Example}{Examples}
 
 % For keeping track of changes
 \newcommand{\sgcomment}[1]{{\color{purple}[#1 - \textbf{Shibashis}]}}
