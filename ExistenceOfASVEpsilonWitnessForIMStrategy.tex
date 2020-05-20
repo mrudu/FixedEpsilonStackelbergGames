@@ -1,0 +1,77 @@
+\begin{theorem}
+\label{ThmWitnessASVInfMem}
+For a given mean-payoff game $\mathcal{G}$ with a set $V$ of vertices, and for a vertex $v \in V$, we have that $\mathbf{ASV}^{\epsilon}(v) > c$ if and only if there exists a 
+$(c',d)^{\epsilon}$-witness of $\mathbf{ASV}^{\epsilon}(v) > c$.
+\end{theorem}
+\begin{proof}
+First we prove the right to left direction, i.e., we are given a play $\pi$ in $\mathcal{G}$ that starts from $v$   and the path $\pi$ is such that $(\underline{\mathbf{MP}}_0(\pi), \underline{\mathbf{MP}}_1(\pi)) = (c', d)$ for $c' > c$ and does not cross a $(c,d)^{\epsilon}$-bad vertex. We need to prove that $\mathbf{ASV}^{\epsilon}(v) > c$.
+\\
+\\
+We do this by defining a strategy $\sigma_0$ for Player 0, such that $\mathbf{ASV}^{\epsilon}(\sigma_0)(v) > c$:
+\begin{enumerate}
+    \item $\forall h \leqslant \pi$, and $last(h)$ is a Player 0 vertex, the strategy $\sigma_0$ is such that $\sigma_0(h)$ follows $\pi$.
+    \item $\forall h \nleqslant \pi$, where there has been a deviation from $\pi$ by Player 1, we assume Player 0 switches to a strategy that we call \textit{punishing}. This strategy is defined as follows: In the subgame after history $h'$ where ${\sf last}(h')$ is the first vertex from which Player 1 deviate from $\pi$, we know that Player 0 has a strategy to enforce the objective: $\underline{\mathbf{MP}}_0(\pi) > c$ $\lor$ $ \underline{\mathbf{MP}}_1(\pi) \leqslant d-\epsilon$. This is true because $\pi$ does not cross any $(c,d)^{\epsilon}$-bad vertex and since $n$-dimensional mean-payoff games are determined.
+\end{enumerate}
+
+Let us now establish that the strategy $\sigma_0$ satisfies $\mathbf{ASV}^{\epsilon}(\sigma_0)(v) > c$. 
+First note that, since $\underline{\mathbf{MP}}_1(\pi) = d$, we have that $\sup\limits_{\sigma_1 \in \mathbf{BR}_1^{\epsilon}(\sigma_0)} \underline{\mathbf{MP}}_1(\mathbf{Out}(\sigma_0, \sigma_1)) \geqslant d$. Now consider some strategy $\sigma_1' \in \mathbf{BR}_1^{\epsilon}(\sigma_0)$ and let $\pi' = \mathbf{Out}(\sigma_0, \sigma_1')$. Clearly, $\pi'$ is such that $\underline{\mathbf{MP}}_1(\pi') > \sup\limits_{\sigma_1 \in \mathbf{BR}_1^{\epsilon}(\sigma_0)} \underline{\mathbf{MP}}_1(\mathbf{Out}(\sigma_0, \sigma_1)) -\epsilon \geqslant d-\epsilon$. If $\pi' = \pi$, we know that $\underline{\mathbf{MP}}_0(\pi') > c$. If $\pi' \neq \pi$, then when $\pi'$ deviates from $\pi$ we know that Player 0 employs a punishing strategy, thus making sure that $\underline{\mathbf{MP}}_0(\pi') > c$ $\lor$ $ \underline{\mathbf{MP}}_1(\pi') \leqslant d-\epsilon$. Since $\sigma_1' \in \mathbf{BR}_1^{\epsilon}(\sigma_0)$, it must be true that $\underline{\mathbf{MP}}_0(\pi') > c$. Thus, $\forall \sigma_1' \in \mathbf{BR}_1^{\epsilon}(\sigma_0)$, we have $\underline{\mathbf{MP}}_0(\mathbf{Out}(\sigma_0, \sigma_1')) > c$. Therefore, $\mathbf{ASV}^{\epsilon}(\sigma_0)(v) > c$, which implies $\mathbf{ASV}^{\epsilon}(v) > c$.
+
+Now we consider the left to right direction of the proof, i.e., we are given that $\mathbf{ASV}^{\epsilon}(v) > c$. 
+Hence by \textbf{\cref{lem:witness_strategy}}, there exists a strategy $\sigma_0$ for Player $0$ such that $\mathbf{ASV}^{\epsilon}(\sigma_0)(v) > c$. Thus, for some $\delta > 0$, we have:
+\begin{equation*}
+    \inf\limits_{\sigma_1 \in \mathbf{BR}_1^{\epsilon}(\sigma_0)} \underline{\mathbf{MP}}_0(\mathbf{Out}(\sigma_0, \sigma_1)) = c' = c + \delta
+\end{equation*}
+Let $d = \sup\limits_{\sigma_1 \in \mathbf{BR}_1^{\epsilon}(\sigma_0)} \underline{\mathbf{MP}}_1(\mathbf{Out}(\sigma_0, \sigma_1))$. We first prove that for all $\sigma_1 \in \mathbf{BR}_1^{\epsilon}(\sigma_0)$, we have that $\mathbf{Out}_v(\sigma_0, \sigma_1)$ does not cross a $(c,d)^{\epsilon}$-bad vertex. For every $\sigma_1 \in \mathbf{BR}_1^{\epsilon}(\sigma_0)$, we let $\pi_{\sigma_1} = \mathbf{Out}_v(\sigma_0, \sigma_1)$. We note that $\underline{\mathbf{MP}}_1(\pi_{\sigma_1}) > d -\epsilon$ and $\underline{\mathbf{MP}}_0(\pi_{\sigma_1}) > c$. For every $\pi' \in \mathbf{Out}_v(\sigma_0)$, we know that if $\underline{\mathbf{MP}}_1(\pi') > d - \epsilon$, then there exists a strategy $\sigma_1' \in \mathbf{BR}_1^{\epsilon}(\sigma_0)$ such that $\pi' = \mathbf{Out}_v(\sigma_0, \sigma_1')$. This means that $\underline{\mathbf{MP}}_0(\pi') > c$. Thus we can see that every deviation from $\pi_{\sigma_1}$ either gives Player 1 a mean-payoff less than $d - \epsilon$ or Player 0 a mean-payoff greater than $c$. Therefore, we conclude that $\pi_{\sigma_1}$ does not cross any $(c,d)^{\epsilon}$-bad vertex. 
+
+Now consider a sequence ($\sigma_i$)$_{i \in \mathbb{N}}$ of Player $1$ strategies such that $\sigma_i \in \mathbf{BR}_1^{\epsilon}(\sigma_0)$ for all $i \in \mathbb{N}$, and $\lim \limits_{i \to \infty} \underline{\mathbf{MP}}_1(\mathbf{Out}(\sigma_0, \sigma_i))=d$. Let $\pi_i = \mathbf{Out}(\sigma_0, \sigma_i)$.
+Let $\inf(\pi_i)$ be the set of vertices that occur infinitely often in $\pi_i$, and let $V_{\pi_i}$ be the set of vertices appearing along the path $\pi_i$.
+W.l.o.g., since there are finitely many SCCs, we can assume that for all $i, j \in \mathbb{N}$, we have that $\inf(\pi_i) = \inf(\pi_j)$, that is, all the paths end up in the same SCC, say $S$, and also $V_{\pi_i} = V_{\pi_j}=V_{\pi}$ (say). 
+Note that $S \subseteq V_{\pi}$.
+For all vertices $v$ in the SCC $S$, we know that $v$ is not $(c'',d)^{\epsilon}$-bad for $c'\geqslant c''> c$.
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \tkzDefPoint(0,0){O}
+        \tkzDefPoint(8,0){P}
+        \tkzDefPoint(8,5){Q}
+        \tkzDefPoint(0,5){R}
+        \tkzDefPoint(2.5,0){X}
+        \tkzDefPoint(1.25,0){X'}
+        \tkzDefPoint(8,3){Y}
+        \tkzDefPoint(2.5,5){Z}
+        \tkzDefPoint(0,3){W}
+        \tkzDrawSegments(O,P P,Q Q,R R,O X,Z Y,W)
+        \tkzDefPoint(5.5,0){A}
+        \tkzDefPoint(2.5,3){B}
+        \tkzDefPoint(1.25,3){B'}
+        \tkzCalcLength(X,A)\tkzGetLength{radius}
+        \tkzDrawArc[R with nodes, color=blue](X,\radius pt)(A,B)
+        \tkzDrawArc[R with nodes, color=red](X',\radius pt)(A,B)
+        \tkzDrawArc[R with nodes, color=red, style=dashed](X',\radius pt)(A,B')
+        \tkzDrawPoints(B, B')
+        \tkzLabelPoint[above](B'){$(< c', d)$}
+        \tkzLabelPoint[above](B){$(c', d)$}
+        \tkzLabelPoint[above](Z){$x = c'$}
+        \tkzLabelPoint[right](Y){$y = d$}
+    \end{tikzpicture}
+    \caption{Plot of mean-payoffs when approaching the limit}
+    \label{fig:plot_mp_limit}
+\end{figure}
+
+*****************************
+
+Since $F_{\mathsf{min}}(\mathbb{CH}(\mathbf{C}(S)))$ is a closed set, we have that $(c^*, d) \in \mathbf{CH(\mathbb{C}(\emph{S}))}$ for some $c^* \in \mathbb{Q}$. We now show that $c^* \geqslant c' = c+\delta$ and at the limit when $i\to \infty$, we have that mean-payoff of Player 1 in $\pi_i$ approaches $d$ and mean-payoff of Player 0 in $\pi_i$ is greater than or equal to $c'$. We prove this by contradiction. Consider the plots in Figure \ref{fig:plot_mp_limit}. The $x$-coordinates represent Player 0's mean-payoff, the $y$-coordinates represent Player 1's mean-payoff. The blue line depicts the set of $\pi_i$ such that when mean-payoff of Player 1 approaches $d$, mean-payoff of Player 0 approaches $c^* = c'$. Assume for contradiction that $c^* < c'$, i.e., we consider a set of outcomes $\pi_i$, where $\pi_i=\mathbf{Out}(\sigma_0, \sigma_i)$ and $\sigma_i \in \mathbf{BR}_1^{\epsilon}(\sigma_0)$, such that when mean-payoff of Player 1 approaches $d$, mean-payoff of Player 0 approaches $c^* < c'$. The red line on the graph plots such a set of $\pi_i$s. We note that, in the second case, that there exists outcomes ,$\pi_i$, as represented on graph by the red dashes, where $\underline{\mathbf{MP}}_0(\pi_i) < c'$ and $\underline{\mathbf{MP}}_1(\pi_i) < d$. This is a contradiction as the $\inf\limits_{\sigma_1 \in \mathbf{BR}_1^{\epsilon}(\sigma_0)} \underline{\mathbf{MP}}_0(\mathbf{Out}(\sigma_0, \sigma_1)) = c' = c + \delta$. Thus, we conclude $c^* \geqslant c'$. 
+
+*****************************
+
+\sgcomment{How about the following argument?}
+Note that for every $\epsilon \ge \delta > 0$, there is a strategy $\sigma_1^\delta \in \mathbf{BR}_1^{\epsilon}(\sigma_0)$ of Player $1$, and a corresponding path $\pi' = \mathbf{Out}_v(\sigma_0, \sigma_1^\delta)$ such that $\underline{\mathbf{MP}}_1(\pi') > d-\delta$, and $\underline{\mathbf{MP}}_0(\pi') \geqslant c''$.
+Also the set $V_{\pi'}$ of vertices appearing in $\pi'$ be such that $V_{\pi'} \subseteq V_\pi$, and $\inf(\pi') \subseteq S$.
+
+Now since $F_{\mathsf{min}}(\mathbb{CH}(\mathbf{C}(S)))$\sgcomment{Check the font here, does not look consistent.} is a closed set, we have that $(c'',d) \in F_{\mathsf{min}}(\mathbb{CH}(\mathbf{C}(S)))$.
+By \textbf{\cref{lemCHToPlay}}, there exists a play $\pi^*$ such that $(\underline{\mathbf{MP}}_0(\pi^*), \underline{\mathbf{MP}}_1(\pi^*)) = (c'',d)$.
+Also $\inf(\pi^*) \subseteq S$, and $V_{\pi^*} \subseteq V_{\pi}$.
+The proof follows since for all vertices $v \in V_\pi$, we have that $v$ is not $(c'',d)^{\epsilon}$-bad for $c'' > c$.
+% $\inf(\pi^*) \subseteq S$, and $V_{\pi^*} \subseteq V_{\pi}$, and $(\underline{\mathbf{MP}}_0(\pi^*), \underline{\mathbf{MP}}_1(\pi^*)) = (c^*,d)$. We observe that $\pi^*$ does not cross a $(c,d)^{\epsilon}$-bad vertex since $V_{\pi^*} \subseteq V_{\pi}$, and thus is an $\epsilon$-witness to $\mathbf{ASV}^{\epsilon}(v) > c$.
+\end{proof}

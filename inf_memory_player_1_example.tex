@@ -1,0 +1,33 @@
+\begin{theorem}
+\label{ThmP1NeedInfMem}
+It is not true that for all mean-payoff games $\mathcal{G}$, for all Player $0$ strategies $\sigma_0$, and for all $\epsilon > 0$, there exists a finite memory strategy $\sigma_1$ of Player $1$ such that $\sigma_1 \in \mathbf{BR}_1^{\epsilon}(\sigma_0)$.
+\end{theorem}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.8cm,
+                        semithick, squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=15mm}]
+      \tikzstyle{every state}=[fill=white,draw=black,text=black,minimum size=2cm]
+    
+      \node[state]   (A)                    {$v_0$};
+      \node[squarednode]         (B) [left of=A] {$v_1$};
+      \node[state]         (C) [right of=A] {$v_2$};
+      \node[draw=none, fill=none, minimum size=0cm, node distance = 2cm]         (D) [below of=A] {$start$};
+      \path (A) edge [bend left, below] node {(0,0)} (B)
+                edge              node {(0,0)} (C)
+                edge [loop above] node {(0,3)} (A)
+            (B) edge [loop above] node {(3,0)} (B)
+                edge [bend left, above] node {(0,0)} (A)
+            (C) edge [loop above] node {(1,0)} (C)
+            (D) edge [left] node {} (A);
+    \end{tikzpicture}
+    \caption{No $\epsilon$-optimal finite memory response of Player $1$ to a strategy $\sigma_0$ of Player $0$}
+    \label{fig:no_optimal_response}
+\end{figure}
+\begin{proof}
+Consider the example in Figure \ref{fig:no_optimal_response}.
+Consider the following strategy $\sigma_0$ of Player $0$.
+Player $0$ loops over $v_0$ $i$ times, and then sends the token to $v_1$.
+Player $1$ loops over $v_1$ $k$ times, and then sends the token to $v_0$.
+If $k \geqslant i$, then Player $0$ increases $i$ by $1$, and repeats the above, otherwise sends the token to $v_2$.
+Clearly for all $\epsilon \leqslant 1.5$, no finite memory strategy only is an $\epsilon$ best response to $\sigma_0$.
+\end{proof}

@@ -1,0 +1,71 @@
+\begin{conjecture}
+For all mean-payoff games $\mathcal{G}$, for all vertices $v$ in $\mathcal{G}$ and for all $\epsilon > 0$ we have that $\mathbf{ASV}^{\epsilon}(v)$ is achievable.
+\end{conjecture}
+\begin{proof}
+Let $\mathbf{ASV}^{\epsilon}(v) = c$.
+Recall that $\mathbf{ASV}^{\epsilon}(\sigma_0)(v) = \sup\limits_{\mathbf{BR}^{\epsilon}_1(\sigma_0) \neq \varnothing}  \inf \limits_{\sigma_1 \in \mathbf{BR}^{\epsilon}_1(\sigma_0)} \underline{\mathbf{MP}}_0(\mathbf{Out}_v(\sigma_0,\sigma_1))$.
+Then there exists a sequence of strategies $\sigma^0_0, \sigma^1_0, \dots$ such that $\lim \limits_{i \rightarrow \infty} \inf \limits_{\sigma_1 \in BR^{\epsilon}_1(\sigma^i_0)} \underline{\mathbf{MP}}_0(\mathbf{Out}_v(\sigma_0,\sigma_1))=c$, and for all $i, j$ such that $j > i$, we have $\mathbf{ASV}^{\epsilon}(\sigma_j)(v) \ge \mathbf{ASV}^{\epsilon}(\sigma_i)(v)$.
+W.l.o.g., we can assume that the memory used in strategy $\sigma_j$ is greater than the memory used in strategy $\sigma_i$ for $j > i$.
+We use $\sigma_\infty$ to denote an infinite memory strategy of Player $0$.
+If there exists an index $i \in \nat$ such that $\mathbf{ASV}^{\epsilon}(\sigma_j)(v) = \mathbf{ASV}^{\epsilon}(\sigma_i)(v)$ for all $j \ge i$ and for $j=\infty$, then $\sigma_i$ achieves $\mathbf{ASV}^{\epsilon}(v)$.
+Thus we consider the case where such an $i$ does not exist.
+
+For every strategy $\sigma^i_0$ for $i \in \nat$, we have a sequence of paths $\pi^i_1, \pi^i_2, \dots$ such that $\lim \limits_{j \rightarrow \infty}\underline{\mathbf{MP}}_1(\pi^i_j) = \sup \limits_{\sigma_1 \in \mathbf{BR}^{\epsilon}_1(\sigma^i_0)} \underline{\mathbf{MP}}_1(\sigma^i_0,\sigma_1)$.
+W.l.o.g., assume that for every strategy $\sigma^i_0$, the paths $\pi^i_j$ for $j \in \nat$ end up in the same SCC $\mathbb{C}^i$, and for all $i,k \in \nat$, we have $\mathbb{C}^i=\mathbb{C}^j=\mathbb{C}$.
+
+Let $d_i = \sup \limits_{\sigma_1 \in \mathbf{BR}^{\epsilon}_1(\sigma^i_0)} \underline{\mathbf{MP}}_1(\sigma^i_0,\sigma_1)$ for $i \in \nat \cup \{\infty\}$.
+We have the following claim.
+\begin{lemma}[conjecture] \label{lem:monotone}
+The sequence ($d_i$)$_{i \in \nat \cup \{\infty\}}$ is monotonic.
+\end{lemma}
+\begin{proof}
+Recall that the strategies $\sigma^1_0, \sigma^2_0, \dots$ use increasing amount of memory, that is, the memory needed by $\sigma^j_0$ is more than the memory used by $\sigma^i_0$ for $j > i$.
+The values $d_0, d_1, \dots$ correspond to values that are obtained as a result of changing frequencies of the occurrences of the simple cycles in $\mathbb{C}$ in their corresponding paths.
+Again, we can assume w.l.o.g. that these frequencies of the simple cycles in the SCC $\mathbb{C}$ change monotonically for $\sigma^0_0, \sigma^1_0, \dots$ for the paths that correspond to these values $d_0, d_1, \dots$, and hence the sequence ($d_i$)$_{i \in \nat \cup \{\infty\}}$ is monotonic.
+\end{proof}
+
+Now since the sequence ($d_i$) is monotonic, there can be two cases.
+\begin{enumerate}
+    \item The sequence ($d_i$)$_{i \in \nat}$ is monotonically non-decreasing
+    \item The sequence ($d_i$)$_{i \in \nat}$ is monotonically decreasing
+\end{enumerate}
+We start with the first case; there can be two sub-cases.
+\begin{enumerate}
+\item[i] There exists an $i \in \nat$ such that for all $j \geqslant i$, and for $j=\infty$, we have that $d_j=d_i$.
+Thus the sequence gets a ceiling.
+Hence Player $1$ chooses the $\epsilon$-best response that reduces the cost of Player $0$ the most, and thus $\mathbf{ASV}^{\epsilon}(v)$ is achievable by Player $0$ as $\lim \limits{i \rightarrow \infty}$.
+\item[ii] The sequence ($d_i$)$_{i \in \nat}$ is increasing.
+Let $d = \lim \limits_{i \rightarrow \infty} d_i$, and $\pi$ be the corresponding path such that $\underline{\mathbf{MP}}_1(\pi) = d$, and let $\pi_i$ be the path such that $\underline{\mathbf{MP}}_1(\pi_i)=d_i$ for all $i \in \nat$.
+
+Assume for contradiction that $\mathbf{ASV}^{\epsilon}(v)$ is not achievable.
+Then there exists $k \in \nat$ such that $\lim \limits_{i \rightarrow \infty} \mathbf{ASV}^{\epsilon}(\sigma_i)(v) < \mathbf{ASV}^{\epsilon}(\sigma_k)(v)$.
+This implies that there exists a Player $1$ strategy $\sigma_\infty^1 \in \mathbf{BR}_1^{\epsilon}(\sigma_\infty)$ such that $\underline{\mathbf{MP}}_0(\mathbf{Out}_v(\sigma_\infty,\sigma_\infty^1)) = c' < c$.
+Let $\pi'= \mathbf{Out}_v(\sigma_\infty,\sigma_\infty^1)$.
+Consider the case $\inf(\pi') \subseteq S$.
+Note that $\underline{\mathbf{MP}}_1(\pi') = d'\ge d - \epsilon$, and let $\underline{\mathbf{MP}}_0(\pi')=c'$.
+
+If $d' < d$, then there exists an index $k$ such that $d_k > d'$, and by definition of $\sup$, we have that $\mathbf{ASV}^{\epsilon}(\sigma_k)(v)=c''$ such that $c'< c'' \le c$.
+Note that for all $v \in S$, we also have that $v$ is not $(c'', d_k)^\epsilon$-bad.
+Now note that $d_k > d' > d_k -\epsilon$.
+Hence, for every play $\pi'$ such that $\underline{\mathbf{MP}}_1(\pi')=d'$, Player $1$ cannot ensure $\underline{\mathbf{MP}}_0(\pi')=c' < c''$, and hence a contradiction.
+
+Now consider the case where $d' = d$.
+Recall that the corresponding path is $\pi$.
+% Now we observe the relation between $\mathbf{ASV}^{\epsilon}(\pi_k)$ and $\underline{\mathbf{MP}}_0(\pi_k)$ to argue that $\mathbf{ASV}^{\epsilon}(v)$ is achievable.
+Note that for all $k \in \nat$, we have that $\underline{\mathbf{MP}}_0(\pi_k) \ge \mathbf{ASV}^{\epsilon}(\pi_k)$.
+Since from Lemma \ref{lem:monotone}, we have that the sequence $(d_k)_{k \in \nat \cup {\infty}}$ is a monotone, we also have that the sequence $(\underline{\mathbf{MP}}_0(\pi_k))_{k \in \nat \cup {\infty}}$ is a monotone.
+Since $(\underline{\mathbf{MP}}_0(\pi_k))_{k \in \nat \cup {\infty}}$ is a monotone, and $\underline{\mathbf{MP}}_0(\pi_k) \ge \mathbf{ASV}^{\epsilon}(v)$ for all $k \in \nat$, we have that $\mathbf{ASV}^{\epsilon}(v)=\underline{\mathbf{MP}}_0(\pi) \ge \mathbf{ASV}^{\epsilon}(\sigma_k)(v)$ for all $k \in \nat$, and hence $\mathbf{ASV}^{\epsilon}(v)$ is achievable.
+Note that if there exists a $k \in \nat$ such that $\mathbf{ASV}^{\epsilon}(v) < \mathbf{ASV}^{\epsilon}(\sigma_k)(v)$, then there exists a $j > k$ such that $\mathbf{ASV}^{\epsilon}(\sigma_j)(v) < \mathbf{ASV}^{\epsilon}(\sigma_k)(v)$, a contradiction.
+
+For $\inf(\pi') \not \subseteq S$, we have that Player $1$ could also deviate for every finite $k \in \nat$, and hence $\mathbf{ASV}^{\epsilon}(v)$ is achievable.
+
+% Now the $\mathbf{ASV}^{\epsilon}(v)$ is not achievable by Player $0$ if there exists a $k \in \nat$ such that $\underline{\mathbf{MP}}_0(\pi_k) > \underline{\mathbf{MP}}_0(\pi)$, and for all $i, j \in \nat$, we have that $d_j > d_i$ if $j > i$.
+% However, this is not possible since changing frequency of the simple cycles should change the values monotonically across both the dimensions.
+\end{enumerate}
+Now we consider the case where the sequence ($d_i$)$_{i \in \nat}$ is monotonically decreasing.
+Again, in such a case, we only need to consider the case when $\lim \limits_{i \rightarrow \infty}$ since for $i \in \nat$, we have that $\mathbf{ASV}^{\epsilon}(v)$ is achievable from the definition.
+Let $d = \lim \limits_{i \rightarrow \infty} d_i$.
+If $\mathbf{ASV}^{\epsilon}(v)$ is not achievable, in such a case, we have that Player $1$ has a strategy $\sigma_1'$ such that $\underline{\mathbf{MP}}_1(\lim \limits_{i \rightarrow \infty} \sigma_0^i, \sigma_1') > d-\epsilon$.
+Let $\underline{\mathbf{MP}}_1(\lim \limits_{i \rightarrow \infty} \sigma_0^i, \sigma_1') = d' =  d-\epsilon+\delta$, and $\underline{\mathbf{MP}}_0(\lim \limits_{i \rightarrow \infty} \sigma_0^i, \sigma_1') = c'$.
+In such a case, there exists a $k \in \nat$ such that $\underline{\mathbf{MP}}_0(\pi_k)=c'$, and hence if $c'=\mathbf{ASV}^{\epsilon}(v)$, it is achievable.
+\end{proof}

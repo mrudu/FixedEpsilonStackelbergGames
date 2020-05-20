@@ -1,0 +1,213 @@
+Given a two-dimensional mean-payoff game $\mathcal{G}$, a vertex $v$ in $\mathcal{G}$, we now show how to compute $\mathbf{ASV}^{\epsilon}(v)$.
+In the previous section, we establish the existence of a notion of witness for the Adversarial Stackelberg value in non-zero sum two-player mean-payoff games. This notion of witness can be used to decide the threshold problem in $\mathbf{NP}$ time. We now show how to use this notion to effectively compute the $\mathbf{ASV}^{\epsilon}(v)$. To do this, we refer to the following lemma which has been established in \cite{FGR20}. 
+In \cite{FGR20}, the set $\Lambda(v)$ has been defined as $\Lambda(v) = \{(c,d) \in \mathbb{R}^2 \mid v \models \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c \land \underline{\mathbf{MP}}_1 \geqslant d \}$.
+
+\begin{lemma}
+\label{LemPsiToThrOfReal}
+ \emph{[\textbf{Lemma 9} in \cite{FGR20}]}
+ Given a mean-payoff game $\mathcal{G}$ and a vertex $v$ in $\mathcal{G}$, we can effectively construct a formula $\Psi_v(x, y)$ of $\langle \mathbb{R}, +, < \rangle$ with two free variables such that $(c,d) \in \Lambda(v)$ if and only if the formula $\Psi_v(x, y)[x/c, y/d]$ is true.
+\end{lemma}
+
+From the above lemma we can now compute an effective representation of the infinite set of pairs $\Lambda^{\epsilon}(v)$ for each vertex $v$ of the mean-payoff game in the following lemma:
+
+\begin{lemma}
+\label{LemPsiEpsToThrOfReal}
+ Given a mean-payoff game $\mathcal{G}$ and a vertex $v$ in $\mathcal{G}$, we can effectively  construct a formula $\Psi_v^{\epsilon}(x, y)$ of $\langle \mathbb{R}, +, < \rangle$ with two free variables such that $(c,d) \in \Lambda^{\epsilon}(v)$ if and only if the formula $\Psi_v^{\epsilon}(x, y)[x/c, y/d]$ is true.
+\end{lemma}
+\begin{proof}
+From the definition of $\Lambda(v)$ from \cite{FGR20}, we know that a pair of real values $(c,d) \in \Lambda(v)$ if $v \models \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c \land \underline{\mathbf{MP}}_1 \geqslant d$.
+We now recall from the definition of $\Lambda^{\epsilon}(v)$ that $(c,d) \in \Lambda^{\epsilon}(v)$ if $v \models \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c \land \underline{\mathbf{MP}}_1 > d-\epsilon$.
+From this, we can see that:
+\begin{equation*}
+    \Psi_v^{\epsilon}(x, y) \equiv \exists e > 0 \cdot \Psi_v(x, y - \epsilon + e)
+\end{equation*}
+\end{proof}
+
+\textbf{Extended mean-payoff game} Similar to the approach of \cite{FGR20}, from the mean-payoff game $\mathcal{G} = (V, E, w_0, w_1)$,  we construct an extended mean-payoff game $\mathcal{G}^{\mathsf{ext}} = (V^{\mathsf{ext}}, E^{\mathsf{ext}}, w_0^{\mathsf{ext}}, w_1^{\mathsf{ext}})$, whose vertices and edges are defined as follows. The set of vertices is $V^{\mathsf{ext}} = V \times 2^V$. With a history $h$ in $\mathcal{G}$, we associate a vertex in $\mathcal{G}^{\mathsf{ext}}$ which is a pair $(v, P)$, where $v = last(h)$ and $P$ is the set of the vertices traversed along $h$. Accordingly the set of edges and the weight functions are defined as $E^{\mathsf{ext}} = \{((v,P),(v', P')) \mid (v,v') \in E \land P' = P \cup \{v'\}\}$ and $w_i^{\mathsf{ext}}((v,P),(v', P')) = w_i(v, v')$, for $i \in \{0,1\}$ Clearly, there exists a bijection between the plays $\pi$ in $\mathcal{G}$ and the plays $\pi^{\mathsf{ext}}$ in $\mathcal{G}^{\mathsf{ext}}$ which start in vertices of the form $(v, \{v\})$, i.e. $\pi^{\mathsf{ext}}$ is mapped to the play $\pi$ in $\mathcal{G}$ that is obtained by erasing the second dimension of its vertices.
+
+We recall the following from \cite{FGR20}.
+\begin{proposition}
+\label{PropExtGamePlayConverges}
+For all mean-payoff games $\mathcal{G}$, the following holds:
+
+\begin{itemize}
+    \item Let $\pi^{\mathsf{ext}}$ be an infinite play in the extended mean-payoff game and $\pi$ be its projection on the original mean-payoff game $\mathcal{G}$ (over the first component of each vertex), the following properties hold: \begin{itemize}
+        \item For all $i < j$, if $\pi^{\mathsf{ext}}(i) = (v_i, P_i)$ and $\pi^{\mathsf{ext}}(j) = (v_j, P_j)$, then $P_i \subseteq P_j$
+        \item $\underline{\mathbf{MP}}_i(\pi^{\mathsf{ext}}) = \underline{\mathbf{MP}}_i(\pi)$, for $i \in \{0,1\}$.
+    \end{itemize}
+    \item The unfolding of $\mathcal{G}$ from $v$ and the unfolding of $\mathcal{G}^{\mathsf{ext}}$ from $(v, \{v\})$ are isomorphic and so $\mathbf{ASV}^{\epsilon}(v) = \mathbf{ASV}^{\epsilon}(v, \{v\})$
+\end{itemize}
+\end{proposition}
+
+By the first point of the above proposition and since the set of vertices of the mean-payoff game is finite, the second component of any play $\pi^{\mathsf{ext}}$ stabilises into a set of vertices of $\mathcal{G}$ which we denote by $V^{*}(\pi^{\mathsf{ext}})$. We now show how to characterize $\mathbf{ASV}^{\epsilon}(v)$ with the notion of witness introduced above and the decomposition of $\mathcal{G}^{\mathsf{ext}}$ into SCC. This is formalized in the following lemma:
+
+\begin{lemma}
+\label{LemASVMaxSCCExtGamePlay}
+ For all mean-payoff games $\mathcal{G}$, for all vertices $v$ in $\mathcal{G}$, let $\mathsf{SCC}^{\mathsf{ext}}(v)$ be the set of strongly-connected components in $\mathcal{G}^{\mathsf{ext}}$ which are reachable from $(v, \{v\})$. Then we have
+ \begin{equation*}
+     \mathbf{ASV}^{\epsilon}(v) = \max \limits_{S \in \mathsf{SCC}^{\mathsf{ext}}(v)} \sup \{c \in \mathbb{R} \mid \exists \pi^{\mathsf{ext}}: \pi^{\mathsf{ext}} \textit{ is a witness for } \mathbf{ASV}^{\epsilon}(v, \{v\}) > c \textit{ and } V^{*}(\pi^{\mathsf{ext}}) = S \}
+ \end{equation*}
+\end{lemma}
+
+\begin{proof}
+First, we note the following sequence of inequalities:
+\begin{equation*}
+    \begin{split}
+        \mathbf{ASV}^{\epsilon}(v) &= \sup \{ c \in \mathbb{R} \mid \mathbf{ASV}^{\epsilon}(v) \geqslant c \} \\
+        &= \sup \{ c \in \mathbb{R} \mid \mathbf{ASV}^{\epsilon}(v) > c \} \\
+        &= \sup \{ c \in \mathbb{R} \mid \exists \pi: \pi \textit{ is a witness for } \mathbf{ASV}^{\epsilon}(v) > c \} \\
+        &= \sup \{ c \in \mathbb{R} \mid \exists \pi^{\mathsf{ext}}: \pi^{\mathsf{ext}} \textit{ is a witness for } \mathbf{ASV}^{\epsilon}(v, \{v\}) > c \} \\
+        &= \max \limits_{S \in \mathsf{SCC}^{\mathsf{ext}}(v)} \sup \{ c \in \mathbb{R} \mid \exists \pi^{\mathsf{ext}}: \pi^{\mathsf{ext}} \textit{ is a witness for } \mathbf{ASV}^{\epsilon}(v, \{v\}) > c \textit{ and } V^{*}(\pi^{\mathsf{ext}}) = S \}
+    \end{split}
+\end{equation*}
+
+The first two equalities are direct consequences of the definition of the supremum and that $\mathbf{ASV}^{\epsilon} \in \mathbb{R}$. The third is a consequence of \textbf{\cref{ThmWitnessASVInfMem}} that guarantees the existence of witnesses for strict inequalities. The fourth equality is a consequence of the second point in \textbf{\cref{PropExtGamePlayConverges}}. The last equality is the consequence of first point in \textbf{\cref{PropExtGamePlayConverges}}.
+\end{proof}
+
+By definition of $\mathcal{G}^{\mathsf{ext}}$, for every $\mathsf{SCC}$ $S$ of $\mathcal{G}^{\mathsf{ext}}$, there exists a set of vertices of $\mathcal{G}$ which we denote by $V^{*}(S)$ such that for every vertex of $S$ is of the form $(v, V^*(S))$. The set of bad thresholds for $S$ is then defined as $\Lambda^{\mathsf{ext}} = \bigcup_{v \in V^{*}(S)} \Lambda^{\epsilon}(v)$. Applying \textbf{\cref{LemPsiEpsToThrOfReal}}, we can now construct a formula $\Psi^{\epsilon}_{S}(x,y)$ which symbolically encodes the set $\Lambda^{\mathsf{ext}}$.
+
+Now, we are equipped to prove that $\mathbf{ASV}^{\epsilon}(v)$ is effectively computable.
+% This is expressed in the following theorem and established in its proof:
+
+\begin{theorem}
+\label{ThmComputeASV}
+For all mean-payoff games $\mathcal{G}$, for all vertices $v$ in $\mathcal{G}$, the value $\mathbf{ASV}^{\epsilon}(v)$ can be effectively expressed by a formula $\rho_v$ in $\langle \mathbb{R}, +, < \rangle$ and computed from this formula.
+\end{theorem}
+\begin{proof}
+\noindent To establish this theorem, we show how to build the formula $\rho_v(z)$ that is true iff $\mathbf{ASV}^{\epsilon}(v) = z$. We use \textbf{\cref{LemASVMaxSCCExtGamePlay}} to reduce this to the construction of a formula that expresses the existence of witness for $\mathbf{ASV}^{\epsilon}(v)$ from $(v, \{v\})$:
+ \begin{equation*}
+     \mathbf{ASV}^{\epsilon}(v) = \max \limits_{S \in \mathsf{SCC}^{\mathsf{ext}}(v)} \sup \{c \in \mathbb{R} \mid \exists \pi^{\mathsf{ext}}: \pi^{\mathsf{ext}} \textit{ is a witness for } \mathbf{ASV}^{\epsilon}(v, \{v\}) > c \textit{ and } V^{*}(\pi^{\mathsf{ext}}) = S \}
+ \end{equation*}
+ 
+\noindent As $\max \limits_{S \in \mathsf{SCC}^{\mathsf{ext}}(v)}$ is easily expressed in $\langle \mathbb{R}, +, < \rangle$, we concentrate on one $\mathsf{SCC}$ $S$ reachable from $(v, \{v\})$ and we show how to express
+ \begin{equation*}
+     \sup \{ c \in \mathbb{R} \mid \exists \pi^{\mathsf{ext}}: \pi^{\mathsf{ext}} \textit{ is a witness for } \mathbf{ASV}^{\epsilon}(v, \{v\}) > c \textit{ and } V^{*}(\pi^{\mathsf{ext}}) = S \}
+ \end{equation*}
+
+\noindent Such a value of $c$ can be encoded by the following formula:
+% This is done by the following formula:
+\begin{equation*}
+    % \rho^S_{v_0}(z) \equiv \forall e > 0 \cdot \exists x,y \cdot x > z - e \land \Phi_S(x,y) \land \neg \Psi_S^{\epsilon}(z-e, y)
+    \rho^S_{v_0}(c) \equiv \exists x,y \cdot x > c \land \Phi_S(x,y) \land \neg \Psi_S^{\epsilon}(c, y)
+\end{equation*}
+
+\noindent where $\Phi_S(x,y)$ is the symbolic encoding of $F_{\min}(\mathsf{CH}(\mathbb{C}(S)))$ as defined in \textbf{\cref{lemCHToPlay}}. This ensures that the values $(x,y)$ are the mean-payoff values realisable by some path in $S$. By \textbf{\cref{LemPsiEpsToThrOfReal}}, $\neg \Psi_S^{\epsilon}(c, y)$ expresses that the path does not cross a $(c, y)^{\epsilon}$-bad vertex. So the conjunction $\exists x,y \cdot x > c \land \Phi_S(x,y) \land \neg \Psi_S^{\epsilon}(c, y)$ establishes the existence of a witness with mean-payoff values $(x,y)$ for the threshold $c$, and hence satisfying this formula implies that $\mathbf{ASV}^{\epsilon}(v) > c$.
+% The quantification over $e > 0$ expresses that $z$ is the sup over all the thresholds $z-e$ that have a witness.
+Now we consider the formula
+\begin{equation*}
+    % \rho^S_{\max,v_0}(z) \equiv \forall x \cdot \rho^S_{v_0}(z) \land \rho^S_{v_0}(x) \implies z \geqslant x
+    \rho^S_{\max,v_0}(z) \equiv \forall e \cdot \rho^S_{v_0}(z-e) \land \forall x \cdot \rho^S_{v_0}(x) \implies x < z
+\end{equation*}
+From this formula, we can compute the $\mathbf{ASV}^{\epsilon}$ by quantifier elimination in:
+\begin{equation*}
+    \max \limits_{S \in \mathsf{SCC}^{\mathsf{ext}}(v)} \exists z \cdot \rho^S_{\max,v_0}(z)
+\end{equation*}
+\noindent and obtain the unique value of $z$ that makes this formula true, and equals $\mathbf{ASV}^{\epsilon}(v)$.
+\end{proof}
+
+\begin{example}
+\label{Ex:CompASVTOR}
+\emph{Let us illustrate the computation of $\mathbf{ASV}^{\epsilon}$ with an example. Consider the mean-payoff game $\mathcal{G}$ depicted in \cref{fig:ach_example}.}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.8cm, semithick]
+      \tikzstyle{every state}=[fill=white,draw=black,text=black,minimum size=2cm]
+    
+      \node[state]         (A)             {$v_0$};
+      \node[state]         (B) [left of=A] {$v_1$};
+      \node[draw=none, fill=none, minimum size=0cm, node distance = 2cm]  (D) [above of=A] {$start$};
+      \path (A) edge [right, above] node {(1,1)} (B)
+            (B) edge [loop above] node {(3,5)} (B)
+            (D) edge [left] node {} (A);
+    \end{tikzpicture}
+    \caption{Example to calculate $\mathbf{ASV}^{\epsilon}(v_0)$}
+    \label{fig:ach_example}
+\end{figure}
+\emph{We note that in the mean-payoff game there exists exactly one $\mathsf{SCC}$ which is $S = \{v_1\}$ and it contains exactly one cycle $v_1 \to v_1$. Thus, $F_{\min}(\mathsf{CH}(\mathbb{C}(S))) = \{(3,5)\}$. 
+% Note that if the $\mathsf{SCC}$ $S$ contained multiple cycles, the set $F_{\min}(\mathsf{CH}(\mathbb{C}(S)))$ can be expressed by a set of inequations. 
+Thus, we get that $\Phi_S(x,y) \equiv x = 3 \land y = 5 $. 
+Now $ \Lambda^{\epsilon}(v) = \{(c,d) \mid c \geqslant 3 \land d < 5 + \epsilon \}$,
+and hence $\Psi_S^{\epsilon}(x, y) \equiv x \geqslant 3 \land y < 5 + \epsilon$.
+% We note that the formula $\rho^S_{v_0}(z)$ holds for $z=3$, and by assigning $3$ to $x$, and $5$ to $y$.
+We note that the formula $\rho^S_{v_0}(c)$ holds for values of $c$ less than $3$, and by assigning $3$ to $x$, and $5$ to $y$, and thus $\rho^S_{\max,v_0}(z)$ holds true for $z=3$.
+% Since there is only path in the MDP, we have that $\rho^S_{\max,v_0}(z)$ also holds true for $z=3$.
+It follows that $\mathbf{ASV}^{\epsilon}(v_0) = 3$ since we have a single SCC in the example.
+% From \textbf{\cref{ThmComputeASV}}, we know that the formula to compute $\mathbf{ASV}^{\epsilon}$ is $\max \limits_{S \in \mathsf{SCC}^{\mathsf{ext}}(v)} \exists z \cdot \rho^S_{\max,v_0}(z)$. Since there is just one $\mathsf{SCC}$, the formula can be reduced to $\exists z \cdot \rho^S_{\max,v_0}(z)$, where $\rho^S_{\max,v_0}(z) \equiv \forall x \cdot \rho^S_{v_0}(z) \land \rho^S_{v_0}(x) \implies z \geqslant x$. Now, we know that $\rho^S_{v_0}(z) \equiv \forall e > 0 \cdot \exists x,y \cdot x > z - e \land \Phi_S(x,y) \land \neg \Psi_S^{\epsilon}(z-e, y)$. Substituting for $\Phi_S$ and $\Psi_S$, we get $\rho^S_{v_0}(z) \equiv \forall e > 0 \cdot \exists x,y \cdot x > (z - e) \land x = 3 \land y = 5 \land (z - e) \geqslant 3 \lor y \leqslant (5 + \epsilon)$. 
+% Thus, the $\mathbf{ASV}^{\epsilon}(v_0) = 3$ which is unique value of $z$ that satisfies $\rho^S_{\max,v_0}(z)$.
+}
+\end{example}
+
+\subsection{Computing $\mathbf{ASV}^{\epsilon}(v)$ by solving LP}
+% \sgcomment{We are still working on this part.}
+% We now develop an exponential time algorithm to compute $\mathbf{ASV}^{\epsilon}(v)$.
+In this section, we provide another approach for computing $\mathbf{ASV}^{\epsilon}(v)$.
+We use LP to solve the problem and obtain an $\mathsf{ExpTime}$ upper bound for the computation of $\mathbf{ASV}^{\epsilon}(v)$.
+We do this by expressing the formula $\rho^S_{\max,v_0}$, for each $\mathsf{SCC}$ $S$, as a set of linear programs such that the maximum value over the set of solutions over all {\sf SCC}s corresponds to $\mathbf{ASV}^{\epsilon}$ value. 
+We first illustrate our approach with the help of the following example.
+% We now demonstrate the algorithm with an example:
+\begin{example}
+\label{Ex:CompASVLP}
+\emph{Consider again
+% Let us illustrate the polyhedron algorithm on 
+the mean-payoff game $\mathcal{G}$ in \textbf{\cref{Ex:CompASVTOR}}.}
+% depicted in \cref{fig:ach_example}.} 
+\emph{We previously showed that the $\mathbf{ASV}^{\epsilon}(v_0)$ can be computed by quantifier elimination of a formula in the theory of reals with addition. Now, we compute $\mathbf{ASV}^{\epsilon}(v_0)$ by solving a set of linear programs for every $\mathsf{SCC}$ in $\mathcal{G}$.}
+\emph{In this example, since there exists only one $\mathsf{SCC}$ $S = \{v_1\}$ in $\mathcal{G}$, we will have to solve only one linear program. 
+% We start by expressing the set $F_{\min}(\mathsf{CH}(\mathbb{C}(S)))$ as a polyhedron, i.e.
+In \cite{CDEHR10}, it has been shown that $F_{\min}(\mathsf{CH}(\mathbb{C}(S)))$ can be defined using a set of linear inequations.
+Now recall from \cref{Ex:CompASVTOR} that $F_{\min}(\mathsf{CH}(\mathbb{C}(S))=\{(3,5)\}$.
+% \equiv \{x = 3, y = 5\}$. 
+Note that $\Lambda^{\epsilon} = \{(x,y) \:|\: x \geqslant 3 \land y < 5 + \epsilon \}$.
+One crucial part to our approach is to compute $\Lambda^{'\epsilon}$ from $\Lambda^{\epsilon}$ by replacing the non-strict inequality in the first dimension with a strict inequality.
+% Next, we compute the set of linear inequations which represents
+Thus we obtain $\Lambda'^{\epsilon} = \{(x,y) \:|\: x > 3 \land y < 5 + \epsilon \}$, and hence the system of inequations which represents $F_{\min}(\mathsf{CH}(\mathbb{C}(S))) \backslash \Lambda'^{\epsilon}(v)$ is given by $\{ x = 3 \land y = 5 \land (x \leqslant 3 \lor y \geqslant (5 + \epsilon)) \}$. 
+This is equivalent to having two linear programs: \textit{maximise $x$ in $\exists y \models (x = 3 \land y = 5 \land x \leqslant 3)$} and \textit{maximise x in $\exists y \models (x = 3 \land y = 5 \land y \geqslant (5 + \epsilon))$} which yields the set of solutions: $\{3\}$. Thus, we conclude that $\mathbf{ASV}^{\epsilon}(v_0) = 3$.}
+\end{example}
+
+% Let us consider the mean-payoff game depicted in the example \cref{Ex:CompASVLP}. 
+Note that when the mean-payoff $\mathcal{G}$ comprises of a single $\mathsf{SCC}$ $S$ which contains a single cycle and hence the set $F_{\min}(\mathsf{CH}(\mathbb{C}(S)))$ contains a single point $\{(x, y)\}$ where $x$ and $y$ represent the mean-payoff values of Player 0 and Player 1 respectively. 
+Since Player 0 and Player 1 have a single strategy, the mean-payoff values $(x,y)$  are \textit{enforceable} by Player 1 and hence belong to $\Lambda^{\epsilon}(v)$. Thus, when we compute the set $F_{\min}(\mathsf{CH}(\mathbb{C}(S))) \backslash \Lambda^{\epsilon}(v)$, we get an empty set and therefore, the linear program yields no solution. We fix this problem, we convert the non-strict inequations in $\Lambda^{\epsilon}(v)$ to strict inequations, namely, $\Lambda'^{\epsilon}(v)$ and compute $F_{\min}(\mathsf{CH}(\mathbb{C}(S))) \backslash \Lambda'^{\epsilon}(v)$. 
+
+Let us now consider the case when the mean-payoff game $\mathcal{G}$ comprises of a single $\mathsf{SCC}$ $S$ which contains two cycles with mean-payoff values $(x_1, y_1)$ and $(x_2, y_2)$ respectively. Note that the set $\mathsf{CH}(\mathbb{C}(S))$ comprises of points which lie on the line between $(x_1, y_1)$ and $(x_2, y_2)$ and therefore 
+% the set $F_{\min}(\mathsf{CH}(\mathbb{C}(S)))$ represents a bounded area in the graph $\mathbb{R}^{2}$.
+these points are also included in the set $F_{\min}(\mathsf{CH}(\mathbb{C}(S)))$.
+On the other hand, note that all the mean-payoff values corresponding to these points may be enforceable by Player $1$, depending on who owns the vertices in $S$.
+Assuming the slope of this line to be $m$, and its $y$-intercept to be $c$, for $\Lambda^{\epsilon}(v)$, the corresponding inequation is of the form $y \leqslant mx+c$, while in $\Lambda'^{\epsilon}(v)$, we use the strict inequation $y < mx+c$ instead.
+Thus, when we compare the areas in the graph $\mathbb{R} \times \mathbb{R}$ generated by the sets $F_{\min}(\mathsf{CH}(\mathbb{C}(S))) \backslash \Lambda^{\epsilon}(v)$ and $F_{\min}(\mathsf{CH}(\mathbb{C}(S))) \backslash \Lambda'^{\epsilon}(v)$, we see that the only difference between the two sets lie in the boundary points, that is, the points in the line segment are excluded from the first set, while it is not the case for the second set.
+% Since $\mathbf{ASV}^{\epsilon}(v)$ is computed as the $\sup$ of the set $\{ F_{\min}(\mathsf{CH}(\mathbb{C}(S))) \backslash \Lambda^{\epsilon}(v) \}$, replacing $\Lambda^{\epsilon}(v)$ with $\Lambda'^{\epsilon}(v)$ will still yield the same result. 
+We can further extend this idea to all mean-payoff games which contain multiple $\mathsf{SCC}$s with each $\mathsf{SCC}$ containing multiple cycles.
+
+Now we state the main result of this section.
+% This expressed in the following theorem.
+\begin{theorem}
+    For every mean-payoff game $\mathcal{G}$, for every vertex $v$ in $\mathcal{G}$, the value $\mathbf{ASV}^{\epsilon}(v)$ can be computed in $\mathsf{ExpTime}$.
+\end{theorem}
+\begin{proof}
+The algorithm to compute $\mathbf{ASV}^{\epsilon}(v)$ is defined as follows:
+\begin{enumerate}
+    \item First we note that using 
+    % \textbf{\cref{lemCHToPlay}} that we have that, 
+    results from \cite{CDEHR10},
+    for each $\mathsf{SCC}$ $S$ in the mean-payoff game $\mathcal{G}$, the set $F_{\min}(\mathsf{CH}(\mathbb{C}(S)))$ can be expressed as a set of exponentially many inequations.
+    % \item From \textbf{\cref{LemPsiEpsToThrOfReal}}, we can compute a representation of $\Lambda^{\epsilon}(v)$ as a finite union of system of strict and non-strict inequations. Thus, we can represent the complement $(\mathbb{R}^2 - \Lambda^{\epsilon}(v))$ as a finite union of system of strict and non-strict inequations.
+    % \sgcomment{I think we should define $\Lambda'^{\epsilon}(v)=\{(x,y) \:|\: x > c \land y < d+\epsilon\}$. Here $c$ and $d$ are as in the definition of $\Lambda^{\epsilon}(v)$.}
+    % \mbcomment{What are the values $c$ and $d$ in this context?}
+    \item From \textbf{Lemma 4} in \cite{BR15}, we can construct the representation of $\Lambda^{\epsilon}(v)$ as a finite union of a system of strict and non-strict inequations. To compute the set $\Lambda'^{\epsilon}(v)$, we convert the non-strict inequations corresponding to the first dimension in $\Lambda^{\epsilon}(v)$ to strict inequations as explained above.
+    \item For each $\mathsf{SCC}$ $S$ in the mean-payoff game $\mathcal{G}$, we see that the set of values satisfying the formula $\rho^S_{\max,v_0}$ can be expressed as a set of linear programs in the following manner: 
+    \begin{itemize}
+      \item For each linear program, we have two variables $x$ and $y$ which represent the mean-payoff values of Player 0 and Player 1 respectively.
+      \item The set of linear inequations which represents $F_{\min}(\mathsf{CH}(\mathbb{C}(S))) \backslash \Lambda'^{\epsilon}(v)$ can be expressed by a disjunction of set of non-strict linear inequations, i.e., $\bigvee_i \mathsf{Cst}_i$ where each $\mathsf{Cst}_i$ is a conjunction of non-strict linear inequations.
+    %   \item The system of constraints will be the set of linear inequations which represents $F_{\min}(\mathsf{CH}(\mathbb{C}(S))) \land (\mathbb{R}^2 - \Lambda^{\epsilon}(v))$ which can be expressed by a disjunction of sets of strict and non-strict linear inequations, i.e., $\bigvee_i \mathsf{Cst}_i$ where each $\mathsf{Cst}_i$ is a conjunction of strict and non-strict linear inequations. Since the linear program does not handle strict linear inequations, we relax the strict linear inequations to non-strict linear inequations. This is correct because we are trying to find a value $(x, y)$ in the convex hull, and therefore they are bounded. Let the set of relaxed inequations be $\bigvee_i \mathsf{Cst}^{rel}_i$.
+      \item The set of linear programs we solve is \textit{maximise $x$ under the linear constraints $\exists y \cdot (x,y) \models \mathsf{Cst}_i$} for each $\mathsf{Cst}_i \in \bigvee_i \mathsf{Cst}_i$. Note that, following the proof of \textbf{Lemma 4} in \cite{BR15}, there are exponentially many such $\mathsf{Cst}_i$ clauses. The value satisfying the formula $\rho^S_{\max,v_0}$ is the maximum over the set of solutions of the linear programs obtained.
+\end{itemize}
+\end{enumerate}
+
+Thus, we solve the above sets of linear programs for all the $\mathsf{SCC}$s present in the mean-payoff game $\mathcal{G}$ to get a set of values satisfying the formula $\rho^S_{\max,v_0}$ for each $S$ in the $\mathsf{SCC}$s of $\mathcal{G}$. We now choose the maximum of this set
+% $\rho^S_{\max,v_0}$s 
+which is the $\mathbf{ASV}^{\epsilon}(v)$ value. Note that 
+% the number of $\mathsf{SCC}$s are exponential. 
+there can be exponentially many $\mathsf{SCC}$s.
+% Finally, we conclude that the 
+Thus our algorithm runs in $\mathsf{ExpTime}$.
+\end{proof}
+% $\Lambda^{\epsilon}(v) = \bigcap\limits_{\sigma_1 \in \mathbb{M}} \bigcup\limits_{S \in \mathsf{SCC}(s, \sigma_1)} \downarrow \textit{conv} \{\frac{1}{|c|} \cdot w(c) \mid c \in \mathbb{C}(S) \}$.

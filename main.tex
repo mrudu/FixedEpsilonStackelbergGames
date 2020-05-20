@@ -1,0 +1,109 @@
+\documentclass{article}
+\usepackage[a4paper, total={6.5in, 10in}]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{verbatim}
+\usepackage{paralist}
+\usepackage{xcolor}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usepackage{changepage}
+\usepackage{setspace}
+\usetikzlibrary{arrows,automata,positioning}
+% \title{\textbf{Fixed Epsilon Problems}}
+\title{\textbf{Stackelberg Mean-payoff Games with Non-optimal Adversarial Follower}}
+\author{}
+\date{February 2020}
+\usepackage{amsthm}
+\onehalfspace
+\usepackage{cleveref}% http://ctan.org/pkg/cleveref
+\usepackage{lipsum}% http://ctan.org/pkg/lipsum
+\usepackage[mathlines]{lineno}
+\setlength\linenumbersep{0.5cm}
+\renewcommand\thelinenumber{\color{red!80!black}\arabic{linenumber}~}
+\let\oldqed\qed
+\renewcommand\qed{\mbox{}\hfill$\oldqed$}
+\newcommand*\patchAmsMathEnvironmentForLineno[1]{%
+  \expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
+  \expandafter\let\csname oldend#1\expandafter\endcsname\csname end#1\endcsname
+  \renewenvironment{#1}%
+  {\linenomath\csname old#1\endcsname}%
+  {\csname oldend#1\endcsname\endlinenomath}}% 
+\newcommand*\patchBothAmsMathEnvironmentsForLineno[1]{%
+  \patchAmsMathEnvironmentForLineno{#1}%
+  \patchAmsMathEnvironmentForLineno{#1*}}%
+\AtBeginDocument{%
+  \patchBothAmsMathEnvironmentsForLineno{equation}%
+  \patchBothAmsMathEnvironmentsForLineno{align}%
+  \patchBothAmsMathEnvironmentsForLineno{flalign}%
+  \patchBothAmsMathEnvironmentsForLineno{alignat}%
+  \patchBothAmsMathEnvironmentsForLineno{gather}%
+  \patchBothAmsMathEnvironmentsForLineno{multline}%
+}
+\linenumbers
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\crefname{lemma}{Lemma}{Lemmas}
+\crefname{remark}{Remark}{Remarks}
+\crefname{theorem}{Theorem}{Theorems}
+\crefname{conjecture}{Conjecture}{Conjectures}
+\crefname{corollary}{Corollary}{Corollaries}
+\crefname{proposition}{Proposition}{Propositions}
+\crefname{figure}{Figure}{Figures}
+\crefname{example}{Example}{Examples}
+
+\newcounter{casenum}
+\newenvironment{caseof}{\setcounter{casenum}{1}}{\vskip.5\baselineskip}
+\newcommand{\case}[2]{\vskip.5\baselineskip\par\noindent {\bfseries Case \arabic{casenum}:} #1\\#2\addtocounter{casenum}{1}}
+\newcommand{\track}[1]{{\textcolor{red}{#1}}}
+\newcommand{\nat}{{\mathbb{N}}}
+\newcommand{\sgcomment}[1]{{\footnotesize \color{purple}[#1 - \textbf{Shibashis}]}}
+\newcommand{\mbcomment}[1]{{\footnotesize \color{blue}[#1 - \textbf{Mrudula}]}}
+
+\begin{document}
+\maketitle
+
+\section{Introduction} 
+  \label{sec:intro}
+  \input{Introduction}
+
+\section{Preliminaries}
+  \label{sec:prelim}
+  \input{Preliminaries}
+
+\section{$\mathbf{ASV}^{\epsilon}_{\mathsf{FM}}$ for a fixed $\epsilon$}
+  \label{sec:FMStrategy}
+  \input{ExistenceOfASVEpsilonWitnessForFMStrategy}
+
+\section{$\mathbf{ASV}^{\epsilon}$ for a fixed $\epsilon$}
+  \input{ASVEpsilonExamples}
+
+\section{Decision Problems for $\mathbf{ASV}^{\epsilon}$}
+  \input{DecisionAlgorithmsASV}
+
+\section{Computing the $\mathbf{ASV}^{\epsilon}$ value}
+  \input{ComputeASV}
+
+\section{Existence of Finite Memory Strategies for ASV}
+  \label{sec:FMASV}
+  \input{FiniteMemForASV}
+  \input{FiniteMemForEpsASV}
+
+\section{Achievability of $\mathbf{ASV^{\epsilon}}$}
+  \input{Achievability_v2}
+
+\bibliographystyle{plain}
+\bibliography{refs}
+\appendix
+\pagebreak
+\section{Missing details in proofs of Section \ref{sec:FMASV}}
+\input{ExtensionOfProof-ExpressionsForTau}
+\end{document}.

@@ -1,0 +1,107 @@
+\documentclass{report}
+\usepackage{suthesis-2e}
+
+% For list like - (i), (ii) etc
+\usepackage{paralist}
+
+% For Math Symbols
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% For Graphs and Automatas
+\usepackage{xcolor}
+\usepackage{tkz-euclide}
+\usetikzlibrary{arrows,automata,positioning}
+\usetkzobj{all}
+
+% For cases syntax
+\newcounter{casenum}
+\newenvironment{caseof}{\setcounter{casenum}{1}}{\vskip.5\baselineskip}
+\newcommand{\case}[2]{\vskip.5\baselineskip\par\noindent {\bfseries Case \arabic{casenum}:} #1\\#2\addtocounter{casenum}{1}}
+
+% For Thm, Lem, etc Statements
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+% For referencing within project
+\usepackage{cleveref}% http://ctan.org/pkg/cleveref
+\crefname{lemma}{Lemma}{Lemmas}
+\crefname{remark}{Remark}{Remarks}
+\crefname{theorem}{Theorem}{Theorems}
+\crefname{conjecture}{Conjecture}{Conjectures}
+\crefname{corollary}{Corollary}{Corollaries}
+\crefname{proposition}{Proposition}{Propositions}
+\crefname{figure}{Figure}{Figures}
+\crefname{example}{Example}{Examples}
+
+% For keeping track of changes
+\newcommand{\sgcomment}[1]{{\color{purple}[#1 - \textbf{Shibashis}]}}
+\newcommand{\mbcomment}[1]{{\color{blue}[#1 - \textbf{Mrudula}]}}
+\newcommand{\track}[1]{{\color{red}[#1]}}
+
+% Modifying use of subsections
+\renewcommand{\subsection}[1]{{\section*{#1}}}
+
+\begin{document}
+
+\dept{Computer Science}
+\title{Stackelberg Mean-payoff Games with Non-Optimal Adversarial Follower}
+\author{Mrudula Balachander}
+% \principaladviser{Shibashis Guha}
+% \firstreader{Jean-Francois Raskin}
+% \secondreader{B Srivatsan}
+\thirdreader{Severus Snape} %if needed
+ 
+\beforepreface
+\prefacesection{Abstract}
+This thesis tells you all you need to know about...
+\prefacesection{Acknowledgments}
+I would like to thank...
+\afterpreface
+
+\chapter{Introduction}
+	\label{sec:intro}
+	\input{Introduction}
+
+\chapter{Preliminaries}
+  	\label{sec:prelim}
+  	\input{Preliminaries}
+
+\chapter{$\mathbf{ASV}^{\epsilon}_{\mathsf{FM}}$ for a fixed $\epsilon$}
+	\label{sec:FMStrategy}
+	\input{ExistenceOfASVEpsilonWitnessForFMStrategy}
+
+\chapter{$\mathbf{ASV}^{\epsilon}$ for a fixed $\epsilon$}
+	\input{ASVEpsilonExamples}
+
+\chapter{Decision Problems for $\mathbf{ASV}^{\epsilon}$}
+	\input{DecisionAlgorithmsASV}
+
+\chapter{Computing the $\mathbf{ASV}^{\epsilon}$ value}
+	\input{ComputeASV}
+
+\chapter{Existence of Finite Memory Strategies for ASV}
+	\label{sec:FMASV}
+	\input{FiniteMemForASV}
+	\input{FiniteMemForEpsASV}
+
+\chapter{Achievability of $\mathbf{ASV^{\epsilon}}$}
+	\input{Achievability_v2}
+
+\chapter{Conclusions}
+
+\appendix
+	\chapter{A Long Proof}
+		\input{ExtensionOfProof-ExpressionsForTau}
+
+\bibliographystyle{plain}
+	\bibliography{refs}
+
+\end{document}

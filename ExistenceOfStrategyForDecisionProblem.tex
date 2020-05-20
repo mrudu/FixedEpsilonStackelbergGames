@@ -1,0 +1,29 @@
+\begin{lemma}
+\label{lem:witness_strategy}
+For all mean-payoff games $\mathcal{G}$, for all vertices $v \in V$, for a fixed $\epsilon > 0$, we have that $\mathsf{ASV}^{\epsilon}(v) > c$ iff there exists a strategy $\sigma_0 \in \Sigma_0$ such that $\mathsf{ASV}^{\epsilon}(\sigma_0)(v) > c$.
+\end{lemma}
+\begin{proof}
+% By definition of $\mathsf{ASV}^{\epsilon}(\sigma_0)(v) > c$, we have to show that:
+% \begin{equation*}
+%     \mathsf{ASV}^{\epsilon}(v) > c \iff \exists \sigma_0: \mathbf{BR}^{\epsilon}_1(\sigma_0) \neq \varnothing \land \forall \sigma_1 \in \mathbf{BR}^{\epsilon}_1(\sigma_0): \underline{\mathbf{MP}}_0(\mathbf{Out}_v(\sigma_0,\sigma_1)) > c
+% \end{equation*}
+
+\noindent The right to left direction of the proof is trivial as $\sigma_0$ can play the role of witness for $\mathsf{ASV}^{\epsilon}(v) > c$, i.e., if there exists a strategy $\sigma_0$ of Player $0$ such that $\mathsf{ASV}^{\epsilon}(\sigma_0)(v) > c$, then $\mathsf{ASV}^{\epsilon}(v) > c$.
+% \\
+% \noindent 
+
+For the left to right direction of the proof, let $\mathsf{ASV}^{\epsilon}(v) = c'$. By definition of $\mathsf{ASV}^{\epsilon}( v)$, we have:
+\begin{equation*}
+    c' = \sup\limits_{\sigma_0 \in \Sigma_0}\mathsf{ASV}^{\epsilon}(\sigma_0)(v) 
+\end{equation*}
+
+\noindent By definition of $\sup$, for all $\delta > 0$, we have that:
+\begin{equation*}
+    \exists \sigma_0^{\delta}: \mathsf{ASV}^{\epsilon}(\sigma_0^{\delta})(v) \geqslant c' - \delta
+\end{equation*}
+
+\noindent Let us consider a $\delta > 0$ such that $c' - \delta > c$. Such a $\delta$ exists as $c' > c$. Then we obtain:
+\begin{equation*}
+    \exists \sigma_0: \mathsf{ASV}^{\epsilon}(\sigma_0)(v) \geqslant c' - \delta > c
+\end{equation*}
+\end{proof}

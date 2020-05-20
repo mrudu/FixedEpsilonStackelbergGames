@@ -1,0 +1,27 @@
+\begin{theorem}
+\label{ThmExNeedFinMem}
+There exists a mean-payoff game $\mathcal{G}$ with vertex $v$ such that Player $0$ needs finite memory to achieve the value $\mathbf{ASV}^{\epsilon}(v)$.
+\end{theorem}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.8cm,
+                        semithick, squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=15mm}]
+      \tikzstyle{every state}=[fill=white,draw=black,text=black,minimum size=2cm]
+    
+      \node[squarednode]   (A)                    {$v_0$};
+      \node[state]         (B) [left of=A] {$v_1$};
+      \node[state]         (C) [right of=A] {$v_2$};
+      \node[draw=none, fill=none, minimum size=0cm, node distance = 2cm]         (D) [above of=A] {$start$};
+      \path (A) edge [bend left, below] node {(1,1)} (B)
+                edge              node {(0,1)} (C)
+            (B) edge [loop above] node {(0,2)} (B)
+                edge [bend left, above] node {(1,1)} (A)
+            (C) edge [loop above] node {(0,1)} (C)
+            (D) edge [left] node {} (A);
+    \end{tikzpicture}
+    \caption{Player $0$ needs finite memory strategy to achieve her $\mathbf{ASV}^{\epsilon}(v_0)$}
+    \label{fig:finite_strategy_response}
+\end{figure}
+\begin{proof}
+Consider the example in Figure \ref{fig:finite_strategy_response}. We show that $\mathbf{ASV}^{\epsilon}(v_0) = 1 - \epsilon$. Assume a strategy $\sigma_0^{k}$ for Player 0 defined as: repeat forever, from $v_1$ play one time $v_1 \to v_1$ and then repeat playing $v_1 \to v_0$ for $k$ times, with $k$ chosen such that mean-payoff for Player 0 is equal to $1 - \epsilon$. Such a $k$ always exists. The $\epsilon$-best response of Player 1 to $\sigma_0^{k}$ is to always play $v_0 \to v_1$, as by playing this edge forever, Player 1 gets a mean-payoff equal to $1+\epsilon$, where as if Player 1 plays $v_0 \to v_2$, then Player 1 is receives a payoff of $1$. Since $1 \ngtr (1 + \epsilon) - \epsilon$, the strategy $v_0 \to v_2$ does not fall under the $\epsilon$-best-response for Player 1, thus forcing Player 1 to play $v_0 \to v_1$. Thus $\mathbf{ASV}^{\epsilon}(v_0)$ is achieved with a finite memory of size $k$ for Player 0. Note that this size $k$ is a function of $\epsilon$.
+\end{proof}

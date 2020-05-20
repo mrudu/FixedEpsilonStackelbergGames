@@ -1,0 +1,22 @@
+\begin{lemma}
+\label{LemPlaysAsWitnessForASV}
+Given a mean-payoff game $\mathcal{G}$, a vertex $v$, an $\epsilon > 0$ and $c \in \mathbb{Q}$, we have that  $\mathbf{ASV}^{\epsilon}(v) > c$ if and only if there exist three acyclic plays $\pi_1, \pi_2, \pi_3$, and two simple cycles $l_1 , l_2$ such that:
+\begin{enumerate}
+    \item \textit{first}($\pi_1$) $ = v$, \textit{first}($\pi_2$) = \textit{last}($\pi_1$), \textit{first}($\pi_3$) = \textit{last}($\pi_2$), \textit{first}($\pi_2$) = \textit{last}($\pi_3$), and \textit{first}($\pi_2$) = \textit{first}($l_1$), and \textit{first}($\pi_3$) = \textit{first}($l_2$).
+    \item there exists $\alpha, \beta \in \mathbb{Q}^{+}$, where $\alpha + \beta = 1$, such that:
+    \begin{enumerate}
+        \item $\alpha \cdot w_0(l_1) + \beta \cdot w_0(l_2) = c' > c$
+        \item $\alpha \cdot w_1(l_1) + \beta \cdot w_1(l_2) = d$
+    \end{enumerate}
+    \item there is no $(c,d)^{\epsilon}$-bad vertex $v'$ along $\pi_1, \pi_2, \pi_3, l_1$ and $l_2$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+This proof is similar to the proof of \textbf{Lemma 10} in \cite{FGR20}. 
+For the right to left direction of the proof, where we are given finite acyclic plays $\pi_1, \pi_2, \pi_3$, simple cycles $l_1$ and $l_2$ and constants $\alpha, \beta$, we consider the witness $\pi = \pi_1\rho_1\rho_2\rho_3\dots$ where, for all $i \in \mathbb{N}$, we let $\rho_i = l_1^{[\alpha i]}.\pi_2.l_2^{[\beta i]}.\pi_3$. 
+We know that $\underline{\mathbf{MP}}_1(\pi) = \alpha \cdot w_1(l_1) + \beta \cdot w_1(l_2) = d$ and $\underline{\mathbf{MP}}_0(\pi) = \alpha \cdot w_0(l_1) + \beta \cdot w_0(l_2) > c$. For all vertices $v$ in $\pi_1, \pi_2, \pi_3, l_1$ and $l_2$, it is given that $v$ is not $(c,d)^\epsilon$-bad. 
+Therefore, $\pi$ is a suitable $\epsilon$-witness thus proving from \textbf{\cref{ThmWitnessASVInfMem}} that $\mathbf{ASV}^{\epsilon}(v) > c$.
+
+For the left to right direction of the proof, we are given $\mathbf{ASV}^{\epsilon}(v) > c$. We can construct a path $\pi$ from \textbf{\cref{ThmWitnessASVInfMem}} such that $\underline{\mathbf{MP}}_0(\pi) > c$ and $\underline{\mathbf{MP}}_1(\pi) = d$ and $\pi$ does not cross a $(c,d)^{\epsilon}$-bad vertex, i.e., for all vertices $v'$ appearing in $\pi$, we have that $v' \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0(\pi) \leqslant c \land \underline{\mathbf{MP}}_1(\pi) > d-\epsilon$. Let $\inf(\pi) = S$ be the set of vertices appearing infinitely often in $\pi$. Note that $S$ forms an SCC. 
+Following the proof in \textbf{Lemma 10} in \cite{FGR20} and applying the Carathéodory baricenter theorem, we can find two simple cycles $l_1, l_2$ in $S$ and acyclic finite plays $\pi_1, \pi_2 $ and $\pi_3$ from $\pi$ and two positive rational constants $\alpha, \beta \in \mathbb{Q^+}$, such that, \textit{first}($\pi_1$) $ = v$, \textit{first}($\pi_2$) = \textit{last}($\pi_1$), \textit{first}($\pi_3$) = \textit{last}($\pi_2$), \textit{first}($\pi_2$) = \textit{last}($\pi_3$), and \textit{first}($\pi_2$) = \textit{first}($l_1$), and \textit{first}($\pi_3$) = \textit{first}($l_2$), and $\alpha + \beta = 1$, $\alpha \cdot w_0(l_1) + \beta \cdot w_0(l_2) > c$ and $\alpha \cdot w_1(l_1) + \beta \cdot w_1(l_2) = d' \geqslant d$. We note that for all vertices $v$ in $\pi_1, \pi_2, \pi_3, l_1$ and $l_2$, we have that $v$ is not $(c,d)^{\epsilon}$-bad and thus will not be $(c,d')^{\epsilon}$-bad.
+\end{proof}
