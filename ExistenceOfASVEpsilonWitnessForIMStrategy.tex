@@ -25,7 +25,7 @@ Let $d = \sup\limits_{\sigma_1 \in \mathbf{BR}_1^{\epsilon}(\sigma_0)} \underlin
 
 Now consider a sequence ($\sigma_i$)$_{i \in \mathbb{N}}$ of Player $1$ strategies such that $\sigma_i \in \mathbf{BR}_1^{\epsilon}(\sigma_0)$ for all $i \in \mathbb{N}$, and $\lim \limits_{i \to \infty} \underline{\mathbf{MP}}_1(\mathbf{Out}(\sigma_0, \sigma_i))=d$. Let $\pi_i = \mathbf{Out}(\sigma_0, \sigma_i)$.
 Let $\inf(\pi_i)$ be the set of vertices that occur infinitely often in $\pi_i$, and let $V_{\pi_i}$ be the set of vertices appearing along the path $\pi_i$.
-W.l.o.g., since there are finitely many SCCs, we can assume that for all $i, j \in \mathbb{N}$, we have that $\inf(\pi_i) = \inf(\pi_j)$, that is, all the paths end up in the same SCC, say $S$, and also $V_{\pi_i} = V_{\pi_j}=V_{\pi}$ (say). 
+W.l.o.g., since there are finitely many SCCs, we can assume that let for all $i, j \in \mathbb{N}$, we have that $\inf(\pi_i) = \inf(\pi_j)$, that is, all the paths end up in the same SCC, say $S$, and also $V_{\pi_i} = V_{\pi_j}=V_{\pi}$ (say). 
 Note that $S \subseteq V_{\pi}$.
 For all vertices $v$ in the SCC $S$, we know that $v$ is not $(c'',d)^{\epsilon}$-bad for $c'\geqslant c''> c$.
 
@@ -69,7 +69,7 @@ Since $F_{\mathsf{min}}(\mathbb{CH}(\mathbf{C}(S)))$ is a closed set, we have th
 Note that for every $\epsilon \ge \delta > 0$, there is a strategy $\sigma_1^\delta \in \mathbf{BR}_1^{\epsilon}(\sigma_0)$ of Player $1$, and a corresponding path $\pi' = \mathbf{Out}_v(\sigma_0, \sigma_1^\delta)$ such that $\underline{\mathbf{MP}}_1(\pi') > d-\delta$, and $\underline{\mathbf{MP}}_0(\pi') \geqslant c''$.
 Also the set $V_{\pi'}$ of vertices appearing in $\pi'$ be such that $V_{\pi'} \subseteq V_\pi$, and $\inf(\pi') \subseteq S$.
 
-Now since $F_{\mathsf{min}}(\mathbb{CH}(\mathbf{C}(S)))$\sgcomment{Check the font here, does not look consistent.} is a closed set, we have that $(c'',d) \in F_{\mathsf{min}}(\mathbb{CH}(\mathbf{C}(S)))$.
+Now since $F_{\mathsf{min}}(\mathbb{CH}(\mathbf{C}(S)))$ is a closed set, we have that $(c'',d) \in F_{\mathsf{min}}(\mathbb{CH}(\mathbf{C}(S)))$.
 By \textbf{\cref{lemCHToPlay}}, there exists a play $\pi^*$ such that $(\underline{\mathbf{MP}}_0(\pi^*), \underline{\mathbf{MP}}_1(\pi^*)) = (c'',d)$.
 Also $\inf(\pi^*) \subseteq S$, and $V_{\pi^*} \subseteq V_{\pi}$.
 The proof follows since for all vertices $v \in V_\pi$, we have that $v$ is not $(c'',d)^{\epsilon}$-bad for $c'' > c$.

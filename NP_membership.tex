@@ -1,6 +1,6 @@
 \begin{theorem}
-\label{ThmNpForASV}
-Given a mean-payoff game $\mathcal{G}$, a vertex $v \in V$, a rational value $c \in \mathbb{Q}$ and $\epsilon > 0$, it can be decided in non-deterministic polynomial time if $\mathbf{ASV}^{\epsilon}(v) > c$.
+    \label{ThmNpForASV}
+    Given a mean-payoff game $\mathcal{G}$, a vertex $v \in V$, a rational value $c \in \mathbb{Q}$ and $\epsilon > 0$, it can be decided in non-deterministic polynomial time if $\mathbf{ASV}^{\epsilon}(v) > c$.
 \end{theorem}
 
 \noindent The rest of this section is devoted towards proving \textbf{\cref{ThmNpForASV}}. We start by stating a property of multi-dimensional mean-payoff games proved in \cite{VCDHRR15} that we rephrase here for a 2-dimensional game:
@@ -80,7 +80,15 @@ We modify the game $\mathcal{G'}$ further by adding $c$ to the first dimension a
     \end{enumerate}
 \end{theorem}
 
-\textbf{Proof of \Cref{ThmNpForASV}:} According to the \textbf{\cref{LemPlaysAsWitnessForASV}}, we consider a non-deterministic Turing machine that establishes the membership to $\mathbf{NP}$ by guessing a reachable SCC $S$, a finite play $\pi_1$ to reach $S$ from $v$, two simple cycles $l_1, l_2$, along with two finite plays $\pi_2$ and $\pi_3$ that connects the two simple cycles, and parameters $\alpha, \beta \in \mathbb{Q}^{+}$. Note that the parameters $\alpha , \beta$ can be obtained by solving a linear program. Since linear programs are solvable in polynomial time, the values $\alpha$ and $\beta$ have polynomial size representation. Additionally, for each vertex $v'$ that appear along the plays $\pi_1, \pi_2$ and $\pi_3$, and on the simple cycles $l_1$ and $l_2$, the turing machine guesses a memoryless strategy $\sigma_0^{v'}$ for Player 0 that establishes $v' \nvDash \ll 1 \gg \underline{\textbf{MP}}_0 \leqslant c \land \underline{\textbf{MP}}_1 > d - \epsilon$ which means by determinacy of multi-dimensional mean-payoff games, that $v' \models \ll 0 \gg \underline{\textbf{MP}}_0 > c \lor \underline{\textbf{MP}}_1 \leqslant d - \epsilon$. We shall now establish the existence of these memoryless strategies. 
+\textbf{Proof of \Cref{ThmNpForASV}:} According to the \textbf{\cref{LemPlaysAsWitnessForASV}}, we consider a non-deterministic Turing machine that establishes the membership to $\mathbf{NP}$ by guessing a reachable SCC $S$, a finite play $\pi_1$ to reach $S$ from $v$, two simple cycles $l_1, l_2$, along with two finite plays $\pi_2$ and $\pi_3$ that connects the two simple cycles, and parameters $\alpha, \beta \in \mathbb{Q}^{+}$. Note that the parameters $\alpha , \beta$ can be obtained by solving a linear program. Since linear programs are solvable in polynomial time, the values $\alpha$ and $\beta$ have polynomial size representation. Additionally, for each vertex $v'$ that appear along the plays $\pi_1, \pi_2$ and $\pi_3$, and on the simple cycles $l_1$ and $l_2$, the turing machine guesses a memoryless strategy $\sigma_0^{v'}$ for Player 0 that establishes $v' \nvDash \ll 1 \gg \underline{\textbf{MP}}_0 \leqslant c \land \underline{\textbf{MP}}_1 > d - \epsilon$ which means by determinacy of multi-dimensional mean-payoff games, that $v' \models \ll 0 \gg \underline{\textbf{MP}}_0 > c \lor \underline{\textbf{MP}}_1 \leqslant d - \epsilon$. 
+
+Addtionally, note that from \textbf{\cref{LemPlaysAsWitnessForASV}}, we can obtain a $\epsilon$-regular-witness $\pi'$. Using $\pi'$, we build a finite memory strategy $\sigma_0^v$ for Player 0 as stated below:
+\begin{enumerate}
+    \item Player 0 follows $\pi'$ if Player 1 does not deviate from $\pi'$. The finite memory strategy stems from the finite $k$ as required in the four cases mentioned above.
+    \item \label{strategy_memoryless} For each vertex $v \in \pi'$, Player 0 employs a memoryless strategy that establishes $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c \land \underline{\mathbf{MP}}_1 > d-\epsilon$.
+\end{enumerate}
+
+We shall now establish the existence of these memoryless strategies. 
 We start by construction of a modified mean-payoff game $\mathcal{G'}$ from the given game $\mathcal{G}$. Now, we get a modified objective for Player 0 in $\mathcal{G'}$, i.e., to get a memoryless strategy for Player 0 for all vertices $v \in \pi_1, \pi_2, \pi_3, l_1, l_2$ such that $v \nvDash \ll 1 \gg \overline{\mathbf{MP}}_0 \geqslant 0 \land \underline{\mathbf{MP}}_1 \geqslant 0$. The existence of a memoryless strategy for Player 0 which ensures her objective follows from \textbf{\Cref{ThmMemlessStrForP2}}
 
 \noindent We formulate $\mathcal{G'}$ as a multi-weighted two-player game structure specified in \textbf{\cref{ThmMemlessStrForP2}} with $I = \{1\}$ and $J = \{0\}$. 
