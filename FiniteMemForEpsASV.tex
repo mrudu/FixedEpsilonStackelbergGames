@@ -1,51 +1,51 @@
 \begin{lemma}
 \label{LemFinMemWitnessASV}
-Given a mean-payoff game $\mathcal{G}$, a vertex $v \in \mathcal{G}$, an $\epsilon > 0$, and a rational constant $c \in \mathbb{Q}$, if $\mathbf{ASV}^{\epsilon}(v) > c$, then there exists a finite memory strategy $\sigma_0^v$ for Player 0 such that $\mathbf{ASV}^{\epsilon}(\sigma_0^v)(v) > c$.
+Given a mean-payoff game $\mathcal{G}$, a vertex $v \in \mathcal{G}$, an $\epsilon > 0$, and a rational constant $c \in \mathbb{Q}$, if $\mathbf{ASV}^{\epsilon}(v) > c$, then there exists a finite memory strategy $\sigma_0^v$ for Player~0 such that $\mathbf{ASV}^{\epsilon}(\sigma_0^v)(v) > c$.
 \end{lemma}
 
 \begin{proof}
 Given that $\mathbf{ASV}^{\epsilon}(v) > c$, from \textbf{\cref{LemPlaysAsWitnessForASV}}, we know that there exists three acyclic finite paths $\pi_1, \pi_2, \pi_3$, and two simple cycles $l_1, l_2$ such that a play $\pi = \pi_1\rho_1\rho_2\rho_3\dots$ , where $\rho_i = l_1^{[\alpha i]}.\pi_2.l_2^{[\beta i]}.\pi_3$ for some $\alpha, \beta \in \mathbb{Q}^{+}$ and $\alpha + \beta = 1$. 
 We call this path $\pi$ an  $\epsilon$-witness for $\mathbf{ASV}^{\epsilon}(v) > c$.
 
-Note that with $\pi$ we can construct an infinite memory strategy for Player 0 so as to minimise the effect of $\pi_2$ and $\pi_3$ on the mean-payoff measure, as specified in \textbf{\cref{LemPlaysAsWitnessForASV}}.
+Note that with $\pi$ we can construct an infinite memory strategy for Player~0 so as to minimise the effect of $\pi_2$ and $\pi_3$ on the mean-payoff measure, as specified in \textbf{\cref{LemPlaysAsWitnessForASV}}.
 Let $\underline{\mathbf{MP}}_0(\pi) = c'' > c$ and $\underline{\mathbf{MP}}_1(\pi) = d$.
 
 \noindent The mean-payoffs of the play $\pi$ are: $\underline{\mathbf{MP}}_0(\pi) = \alpha \cdot w_0(l_1) + \beta \cdot w_0(l_2)$ and $\underline{\mathbf{MP}}_1(\pi) = \alpha \cdot w_1(l_1) + \beta \cdot w_1(l_2)$. To obtain a finite memory strategy, we can modify the play $\pi$ as described below:
 \begin{caseof}
     \case{$w_0(l_1) > w_0(l_2)$ and $w_1(l_1) < w_1(l_2)$}
-    Here, one simple cycle, $l_1$, increases Player 0's mean-payoff while the other simple cycle, $l_2$, increases Player 1's mean-payoff. We can build a witness $\pi' = \pi_1.(l_1^{[\alpha]k}.\pi_2.l_2^{[\beta+\tau]k}.\pi_3)^{\omega}$ for some very large $k \in \mathbb{N}$ and for some very small $\tau > 0$ such that $\underline{\mathbf{MP}}_0(\pi') > c$ and $\underline{\mathbf{MP}}_1(\pi') = d$.\footnote{For more details, we refer the reader to the Appendix.}
+    Here, one simple cycle, $l_1$, increases Player~0's mean-payoff while the other simple cycle, $l_2$, increases Player~1's mean-payoff. We can build a witness $\pi' = \pi_1.(l_1^{[\alpha]k}.\pi_2.l_2^{[\beta+\tau]k}.\pi_3)^{\omega}$ for some very large $k \in \mathbb{N}$ and for some very small $\tau > 0$ such that $\underline{\mathbf{MP}}_0(\pi') > c$ and $\underline{\mathbf{MP}}_1(\pi') = d$.\footnote{For more details, we refer the reader to the Appendix.}
     \case{$w_0(l_1) < w_0(l_2)$ and $w_1(l_1) > w_1(l_2)$}
     This is analogous to \textbf{case 1}, and proceeds as mentioned above.
     \case{$w_0(l_1) < w_0(l_2)$ and $w_1(l_1) < w_1(l_2)$}
-    One cycle, $l_2$, increases both Player 0 and Player 1's mean-payoffs, while the other, $l_1$, decreases it. In this case, we can just omit one of the cycles - whichever cycle gives a larger mean-payoff, to get a finite memory strategy. Thus, $\pi' = \pi_1.l_2^{\omega}$ and we get $\underline{\mathbf{MP}}_0(\pi') > c$ , $\underline{\mathbf{MP}}_1(\pi') \geqslant d$.
+    One cycle, $l_2$, increases both Player~0 and Player~1's mean-payoffs, while the other, $l_1$, decreases it. In this case, we can just omit one of the cycles - whichever cycle gives a larger mean-payoff, to get a finite memory strategy. Thus, $\pi' = \pi_1.l_2^{\omega}$ and we get $\underline{\mathbf{MP}}_0(\pi') > c$ , $\underline{\mathbf{MP}}_1(\pi') \geqslant d$.
     \case{$w_0(l_1) > w_0(l_2)$ and $w_1(l_1) > w_1(l_2)$}
     This is analogous to \textbf{case 3} and proceeds as mentioned above.
 \end{caseof}
 In each of these cases, we can show that $\pi'$ is a witness for $\mathbf{ASV}^{\epsilon}(v) > c$: $\underline{\mathbf{MP}}_0(\pi') > c$ and $\underline{\mathbf{MP}}_1(\pi') \geqslant d$.
 Since we know from \textbf{\cref{LemPlaysAsWitnessForASV}} that $\pi$ does not cross a $(c,d)^{\epsilon}$-bad vertex, the modified play $\pi'$ does not either, as the vertices of the play $\pi'$ are a subset of the vertices of the play $\pi$. 
 
-Using $\pi'$, we build a finite memory strategy $\sigma_0^v$ for Player 0 as stated below:
+Using $\pi'$, we build a finite memory strategy $\sigma_0^v$ for Player~0 as stated below:
 \begin{enumerate}
-    \item Player 0 follows $\pi'$ if Player 1 does not deviate from $\pi'$. The finite memory strategy stems from the finite $k$ as required in the four cases mentioned above.
-    \item \label{strategy_memoryless} For each vertex $v \in \pi'$, Player 0 employs a memoryless strategy that establishes $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c \land \underline{\mathbf{MP}}_1 > d-\epsilon$.
+    \item Player~0 follows $\pi'$ if Player~1 does not deviate from $\pi'$. The finite memory strategy stems from the finite $k$ as required in the four cases mentioned above.
+    \item \label{strategy_memoryless} For each vertex $v \in \pi'$, Player~0 employs a memoryless strategy that establishes $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c \land \underline{\mathbf{MP}}_1 > d-\epsilon$.
 \end{enumerate}
 Thus, we see that $\mathbf{ASV}^{\epsilon}(\sigma_0)(v) > c$.
 The existence of the memoryless strategies mentioned in Point \ref{strategy_memoryless} above is established below. \\ \\ \noindent
-The goal here is to obtain a memoryless strategy for Player 0 to achieve her objective, i.e., for all vertices $v \in \pi'$, ensure that $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c \land \underline{\mathbf{MP}}_1 > d-\epsilon$. \\ \noindent
+The goal here is to obtain a memoryless strategy for Player~0 to achieve her objective, i.e., for all vertices $v \in \pi'$, ensure that $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c \land \underline{\mathbf{MP}}_1 > d-\epsilon$. \\ \noindent
 We begin by constructing a game $\mathcal{G'}$ from the given game $\mathcal{G}$ by multiplying the first dimension on each edge of the game by $-1$. It is easy to see that, for all vertices $v \in \mathcal{G}$, we have that $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c \land \underline{\mathbf{MP}}_1 > d-\epsilon$ if and only if for the corresponding vertex in the game $\mathcal{G'}$, we have $v \nvDash \ll 1 \gg \overline{\mathbf{MP}}_0 \geqslant -c \land \underline{\mathbf{MP}}_1 > d-\epsilon$.
 From \textbf{\cref{ConjGrtIsGrtEq}}, we have $v \nvDash \ll 1 \gg \overline{\mathbf{MP}}_0 \geqslant -c \land \underline{\mathbf{MP}}_1 \geqslant d'$, where $d' > d$.
 
-We modify the game $\mathcal{G'}$ further by adding $c$ to the first dimension, and subtracting $d'$ from the second dimension for all the edges in the game. Note that the edges and vertices of both games $\mathcal{G}$ and $\mathcal{G'}$ are the same, the only difference between the two games being their edge weights. Thus, we get a modified objective for Player 0 in $\mathcal{G'}$, i.e., Player 0 wins if for all vertices $v \in \pi'$, we have that $v \nvDash \ll 1 \gg \overline{\mathbf{MP}}_0 \geqslant 0 \land \underline{\mathbf{MP}}_1 \geqslant 0$.
+We modify the game $\mathcal{G'}$ further by adding $c$ to the first dimension, and subtracting $d'$ from the second dimension for all the edges in the game. Note that the edges and vertices of both games $\mathcal{G}$ and $\mathcal{G'}$ are the same, the only difference between the two games being their edge weights. Thus, we get a modified objective for Player~0 in $\mathcal{G'}$, i.e., Player~0 wins if for all vertices $v \in \pi'$, we have that $v \nvDash \ll 1 \gg \overline{\mathbf{MP}}_0 \geqslant 0 \land \underline{\mathbf{MP}}_1 \geqslant 0$.
 
-Now the existence of a memoryless winning strategy for Player 0 follows from the result for Multi-weighted two-player games with $\mathbf{MeanPayoffInfSup}$ objective \cite{VCDHRR15} mentioned in \textbf{\cref{ThmMemlessStrForP2}}.
+Now the existence of a memoryless winning strategy for Player~0 follows from the result for Multi-weighted two-player games with $\mathbf{MeanPayoffInfSup}$ objective \cite{VCDHRR15} mentioned in \textbf{\cref{ThmMemlessStrForP2}}.
 
-We formulate $\mathcal{G'}$ as a multi-weighted two-player game structure specified in \textbf{\cref{ThmMemlessStrForP2}} with $I = \{1\}$ and $J = \{0\}$. By \textbf{\cref{ThmMemlessStrForP2}}, we know that Player 0 has a memoryless winning strategy for all vertices $v \in \pi'$ in the game $\mathcal{G'}$ (since she wins for the same vertices in the game $\mathcal{G}$).
-Thus, by \textbf{\cref{PropGamStrEqNewGamStr}}, for all vertices $v \in \pi'$, the finite memory strategy $\sigma_0^v$ is also winning for Player 0 in $\mathcal{G}$, that is, $\mathbf{ASV}^{\epsilon}(\sigma_0)(v) > c$.
+We formulate $\mathcal{G'}$ as a multi-weighted two-player game structure specified in \textbf{\cref{ThmMemlessStrForP2}} with $I = \{1\}$ and $J = \{0\}$. By \textbf{\cref{ThmMemlessStrForP2}}, we know that Player~0 has a memoryless winning strategy for all vertices $v \in \pi'$ in the game $\mathcal{G'}$ (since she wins for the same vertices in the game $\mathcal{G}$).
+Thus, by \textbf{\cref{PropGamStrEqNewGamStr}}, for all vertices $v \in \pi'$, the finite memory strategy $\sigma_0^v$ is also winning for Player~0 in $\mathcal{G}$, that is, $\mathbf{ASV}^{\epsilon}(\sigma_0)(v) > c$.
 \end{proof}
 
-Now, we establish that, in a mean-payoff game $\mathcal{G}$, the $\mathbf{ASV}^{\epsilon}$ value of a vertex $v$ in the game $\mathcal{G}$ does not change even if Player 0 is restricted to using only finite memory strategies. Formally, we state that:
+Now, we establish that, in a mean-payoff game $\mathcal{G}$, the $\mathbf{ASV}^{\epsilon}$ value of a vertex $v$ in the game $\mathcal{G}$ does not change even if Player~0 is restricted to using only finite memory strategies. Formally, we state that:
 
 \begin{corollary}
 \label{CorASVEqASVFin}
-In a mean-payoff game $\mathcal{G}$, if $\mathbf{ASV^{\epsilon}}(v) = c$, then for every $c' < c$, there exists a finite memory strategy $\sigma_0^{FM}$ for Player 0 which achieves $\mathbf{ASV^{\epsilon}}(\sigma_0^{FM})(v) > c'$. This implies that $\sup\limits_{\sigma_0 \in \Sigma_0^{\mathsf{FM}}} \mathbf{ASV^{\epsilon}}(\sigma_0)(v) = \mathbf{ASV^{\epsilon}}(v) = c$.
+In a mean-payoff game $\mathcal{G}$, if $\mathbf{ASV^{\epsilon}}(v) = c$, then for every $c' < c$, there exists a finite memory strategy $\sigma_0^{FM}$ for Player~0 which achieves $\mathbf{ASV^{\epsilon}}(\sigma_0^{FM})(v) > c'$. This implies that $\sup\limits_{\sigma_0 \in \Sigma_0^{\mathsf{FM}}} \mathbf{ASV^{\epsilon}}(\sigma_0)(v) = \mathbf{ASV^{\epsilon}}(v) = c$.
 \end{corollary}

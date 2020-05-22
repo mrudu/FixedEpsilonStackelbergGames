@@ -20,11 +20,11 @@ Therefore, $\pi$ is a suitable $\epsilon$-witness thus proving from \textbf{\cre
 We can optimize the $\epsilon$-witness $\pi$ by constructing an $\epsilon$-regular-witness for $\mathbf{ASV}^{\epsilon}(v) > c$ by modifying $\pi$ as follows:
 \begin{caseof}
     \case{$w_0(l_1) > w_0(l_2)$ and $w_1(l_1) < w_1(l_2)$}
-    Here, one simple cycle, $l_1$, increases Player 0's mean-payoff while the other simple cycle, $l_2$, increases Player 1's mean-payoff. We can build a witness $\pi' = \pi_1.(l_1^{[\alpha]k}.\pi_2.l_2^{[\beta+\tau]k}.\pi_3)^{\omega}$ for some very large $k \in \mathbb{N}$ and for some very small $\tau > 0$ such that $\underline{\mathbf{MP}}_0(\pi') > c$ and $\underline{\mathbf{MP}}_1(\pi') = d$.\footnote{For more details, we refer the reader to the Appendix.}
+    Here, one simple cycle, $l_1$, increases Player~0's mean-payoff while the other simple cycle, $l_2$, increases Player~1's mean-payoff. We can build a witness $\pi' = \pi_1.(l_1^{[\alpha]k}.\pi_2.l_2^{[\beta+\tau]k}.\pi_3)^{\omega}$ for some very large $k \in \mathbb{N}$ and for some very small $\tau > 0$ such that $\underline{\mathbf{MP}}_0(\pi') > c$ and $\underline{\mathbf{MP}}_1(\pi') = d$.\footnote{For more details, we refer the reader to the Appendix.}
     \case{$w_0(l_1) < w_0(l_2)$ and $w_1(l_1) > w_1(l_2)$}
     This is analogous to \textbf{case 1}, and proceeds as mentioned above.
     \case{$w_0(l_1) < w_0(l_2)$ and $w_1(l_1) < w_1(l_2)$}
-    One cycle, $l_2$, increases both Player 0 and Player 1's mean-payoffs, while the other, $l_1$, decreases it. In this case, we can just omit one of the cycles - whichever cycle gives a larger mean-payoff, to get a finite memory strategy. Thus, $\pi' = \pi_1.l_2^{\omega}$ and we get $\underline{\mathbf{MP}}_0(\pi') > c$ , $\underline{\mathbf{MP}}_1(\pi') \geqslant d$.
+    One cycle, $l_2$, increases both Player~0 and Player~1's mean-payoffs, while the other, $l_1$, decreases it. In this case, we can just omit one of the cycles - whichever cycle gives a larger mean-payoff, to get a finite memory strategy. Thus, $\pi' = \pi_1.l_2^{\omega}$ and we get $\underline{\mathbf{MP}}_0(\pi') > c$ , $\underline{\mathbf{MP}}_1(\pi') \geqslant d$.
     \case{$w_0(l_1) > w_0(l_2)$ and $w_1(l_1) > w_1(l_2)$}
     This is analogous to \textbf{case 3} and proceeds as mentioned above.
 \end{caseof}

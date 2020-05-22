@@ -1,10 +1,10 @@
-\textbf{Arenas} An (bi-weighted) arena $\mathcal{A}=(V, E, \langle V_0, V_1 \rangle, w_0, w_1)$ consists of a finite set $V$ of vertices, a set $E \subseteq V \times V$ of edges such that for all $v \in V$ there exists $v' \in V$ such that $(v, v') \in E$, a partition $\langle V_0, V_1 \rangle$ of $V$ , where $V_0$ (resp. $V_1$) is the set of vertices for Player 0 (resp. Player 1), and two edge weight functions $w_0 : E \rightarrow Z$, $w_1 : E \rightarrow Z$. In the sequel, we denote the maximum absolute value of a weight in $\mathcal{A}$ by $W$ .
+\textbf{Arenas} An (bi-weighted) arena $\mathcal{A}=(V, E, \langle V_0, V_1 \rangle, w_0, w_1)$ consists of a finite set $V$ of vertices, a set $E \subseteq V \times V$ of edges such that for all $v \in V$ there exists $v' \in V$ such that $(v, v') \in E$, a partition $\langle V_0, V_1 \rangle$ of $V$ , where $V_0$ (resp. $V_1$) is the set of vertices for Player~0 (resp. Player~1), and two edge weight functions $w_0 : E \rightarrow Z$, $w_1 : E \rightarrow Z$. In the sequel, we denote the maximum absolute value of a weight in $\mathcal{A}$ by $W$ .
 \\
 \\
 \noindent\textbf{Plays and histories} A play in $\mathcal{A}$ is an infinite sequence of vertices $ \pi = \pi_0\pi_1 \dots \in V^{\omega}$ such that for all $k \in \mathbb{N}$, $(\pi_k, \pi_{k+1}) \in E$. We denote by $\mathbf{Plays}_{\mathcal{A}}$ the set of plays in $\mathcal{A}$, omitting the subscript $\mathcal{A}$ when the underlying arena is clear from the context. Given $ \pi = \pi_0\pi_1\dots \in \mathbf{Plays}_{\mathcal{A}}$ and $k \in \mathbb{N}$, the prefix $\pi_0\pi_1\dots\pi_k$ of $\pi$ (resp. suffix $\pi_k\pi_{k+1}\dots$ of $\pi$) is denoted by $\pi_{\leqslant k}$ (resp. $\pi_{\geq k}$). An \textit{history} in $\mathcal{A}$ is a (non-empty) prefix of a play in $\mathcal{A}$. The length $|h|$ of an history $h=\pi_{\leqslant k}$ is the number $|h|=k$ of its edges. We denote by $\mathbf{Hist}_{\mathcal{A}}$ the set of histories in $\mathcal{A}$, $\mathcal{A}$ is omitted when clear from the context. Given $i \in \{0,1\}$ the set $\mathbf{Hist}^i_{\mathcal{A}}$ denotes the set of histories such that their last vertex belongs to $V_i$. We denote the last vertex of a history $h$ by $\mathbf{last}(h)$. We write $h\leqslant\pi$ whenever $h$ is a prefix of $\pi$. A play $\pi$ is called a lasso if it is obtained as the concatenation a history $h$ concatenated with the infinite repetition of another history $l$, i.e. $\pi = h.l^{\omega}$ with $h, l \in \mathbf{Hist}_{\mathcal{A}}$ (notice that $l$ is not necessary a simple cycle). The \textit{size} of a lasso $h.l^{\omega}$ is equal to $|h.l|$. Given the vertex $v \in V$ in the arena $\mathcal{A}$, we denote by $\textit{Succ}(v) = \{v' | (v,v') \in E \}$ the set of successors of $v$ and by $\textit{Succ}^*$ the transitive closure of $\textit{Succ}$.
 \\
 \\
-\noindent\textbf{Games} A \textit{game} $\mathcal{G} = (\mathcal{A},\langle \mathbf{Th}_0, \mathbf{Th}_1\rangle)$ consists of a bi-weighted arena $\mathcal{A}$, a value function $Th_0 : \mathbf{Plays}_{\mathcal{A}} \mapsto \mathbb{R}$ for Player 0 and a value function $Th_1 : \mathbf{Plays}_{\mathcal{A}} \mapsto \mathbb{R}$ for Player 1. In this paper, we consider the classical \textit{mean-payoff} and \textit{discounted-sum} value functions. Both are played in bi-weighted arenas.
+\noindent\textbf{Games} A \textit{game} $\mathcal{G} = (\mathcal{A},\langle \mathbf{Th}_0, \mathbf{Th}_1\rangle)$ consists of a bi-weighted arena $\mathcal{A}$, a value function $Th_0 : \mathbf{Plays}_{\mathcal{A}} \mapsto \mathbb{R}$ for Player~0 and a value function $Th_1 : \mathbf{Plays}_{\mathcal{A}} \mapsto \mathbb{R}$ for Player~1. In this paper, we consider the classical \textit{mean-payoff} and \textit{discounted-sum} value functions. Both are played in bi-weighted arenas.
 
 In a \textit{mean-payoff} game $\mathcal{G} = (\mathcal{A},\langle \mathbf{Th}_0, \mathbf{Th}_1\rangle)$ the payoff functions $\mathbf{MP}_0, \mathbf{MP}_1$ are defined as follows. Given a play $\pi \in \mathbf{Plays}_{\mathcal{A}}$ and $i \in \{0,1\}$, the payoff $\underline{\mathbf{MP}}_i(\pi)$ is given by $\underline{\mathbf{MP}}_i(\pi) = \liminf\limits_{k \to \infty} \frac{1}{k}w_i(\pi_{\leqslant k}) $, where the weight $w_i(h)$ of an history $h \in \mathbf{Hist}$ is the sum of the weights assigned by $w_i$ to its edges. In our definition of the mean-payoff, we have used $\liminf$, we will also need the $\limsup$ case for technical reasons. Here is the formal definition together with its notation: $\overline{\mathbf{MP}}_i(\pi) = \limsup\limits_{k \to \infty} \frac{1}{k}w_i(\pi_{\leqslant k}) $.
 
@@ -15,12 +15,12 @@ For a given discount factor $0 < \lambda < 1$, a \textit{discounted sum} game is
 
 A strategy has memory $\mathsf{M}$ if it can be realized as the output of a finite state machine with $\mathsf{M}$ states. A memoryless (or positional) strategy is a strategy with memory 1, that is, a function that only depends on the last element of the given partial play. We note $\Sigma^{\mathsf{ML}}_i$ the set of memoryless strategies of Player i, and $\Sigma^{\mathsf{FM}}_i$ his set of finite memory strategies. A \textit{profile} is a pair of strategies $\overline{\sigma} = (\sigma_o, \sigma_1)$, where $\sigma_0 \in \Sigma_0(\mathcal{G})$ and $\sigma_1 \in \Sigma_1(\mathcal{G})$. As we consider games with perfect information and deterministic transitions, any profile $\overline{\sigma}$ yields, from any history $h$, a unique play or \textit{outcome}, denoted $\mathbf{Out}_h(\mathcal{G}, \overline{\sigma})$. Formally, $\mathbf{Out}_h(\mathcal{G}, \overline{\sigma})$ is the play $\pi$ such that $\pi_{\leqslant|h|-1} = h$ and $\forall k \geqslant |h|-1$ it holds that $\pi_{k+1}=\sigma_i(\pi_{\leqslant k})$ if $\pi_k \in V_i$. The set of outcomes (resp. histories) compatible with a strategy $\sigma \in \Sigma_{i\in\{0,1\}}(\mathcal{G})$ after a history $h$ is $\mathbf{Out}_h(\mathcal{G}, \sigma) = \{ \pi | \exists \sigma'\in \Sigma_{1-i}(\mathcal{G}) $ such that $\pi = \mathbf{Out}_h(\mathcal{G}, (\sigma,\sigma'))\}$ (resp. $\mathbf{Hist}_h(\sigma) = \{h' \in \mathbf{Hist}(\mathcal{G}) | \pi \in \mathbf{Out}_h(\mathcal{G}, \sigma), n \in \mathbb{N}:h'= \pi_{\leqslant n}\}$.
 
-Each outcome $\pi \in \mathcal{G} = (\mathcal{A},\langle \mathbf{Th}_0, \mathbf{Th}_1\rangle)$ yields a payoff $\mathbf{Th}(\pi)=(\mathbf{Th}_0(\pi),\mathbf{Th}_1(\pi))$, where $\mathbf{Th}_0(\pi)$ is the payoff for Player 0 and $\mathbf{Th}_1(\pi)$ is the payoff for Player 1. We denote with $\mathbf{Th}(h, \sigma) = \mathbf{Th}(\mathbf{Out}_h(\mathcal{G}, \overline{\sigma}))$ the payoff of a profile of strategies $\overline{\sigma}$ after a history $h$.
+Each outcome $\pi \in \mathcal{G} = (\mathcal{A},\langle \mathbf{Th}_0, \mathbf{Th}_1\rangle)$ yields a payoff $\mathbf{Th}(\pi)=(\mathbf{Th}_0(\pi),\mathbf{Th}_1(\pi))$, where $\mathbf{Th}_0(\pi)$ is the payoff for Player~0 and $\mathbf{Th}_1(\pi)$ is the payoff for Player~1. We denote with $\mathbf{Th}(h, \sigma) = \mathbf{Th}(\mathbf{Out}_h(\mathcal{G}, \overline{\sigma}))$ the payoff of a profile of strategies $\overline{\sigma}$ after a history $h$.
 
 Usually, we consider games instances such that players start to play at a fixed vertex $v_0$. Thus, we call an initialized game a pair $(\mathcal{G}, v_0)$, where $\mathcal{G}$ is a game and $v_0 \in V$ is the initial vertex. When the initial vertex $v_0$ is clear from context, we speak directly of $\mathcal{G}$, $\mathbf{Out}(\mathcal{G}, \overline{\sigma})$, $\mathbf{Out}(\mathcal{G},\sigma)$, $\mathbf{Th}(\overline{\sigma})$ instead of $\mathcal{G}_{v_0}$, $\mathbf{Out}_{v_0}(\mathcal{G}, \overline{\sigma})$, $\mathbf{Out}_{v_0}(\mathcal{G},\sigma)$, $\mathbf{Th}_{v_0}(\overline{\sigma})$. We sometimes simplify further the notation omitting also $\mathcal{G}$ when the latter is clear from the context.
 \\
 \\
-\noindent\textbf{Best responses and adversarial value} Let $\mathcal{G} = (\mathcal{A},\langle \mathbf{Th}_0, \mathbf{Th}_1\rangle)$ be a $(\mathbf{Th}_0, \mathbf{Th}_1)$-game on the bi-weighted arena $\mathcal{A}$. Given a strategy $\sigma_0$ for Player 0, we define two sets of strategies for Player 1:
+\noindent\textbf{Best responses and adversarial value} Let $\mathcal{G} = (\mathcal{A},\langle \mathbf{Th}_0, \mathbf{Th}_1\rangle)$ be a $(\mathbf{Th}_0, \mathbf{Th}_1)$-game on the bi-weighted arena $\mathcal{A}$. Given a strategy $\sigma_0$ for Player~0, we define two sets of strategies for Player~1:
 \\
 
 \begin{enumerate}
@@ -38,7 +38,7 @@ his $\epsilon$-best responses to to $\sigma_0$, for $\epsilon > 0$, noted $\math
 \end{enumerate}
 Note that for the $\epsilon$ best response when $\epsilon > 0$, we use $>$ instead of $\geqslant$.
 
-We define the adversarial value that Player 0, respectively Player 1 can enforce in the game $\mathcal{G}$ from vertex $v$ as:
+We define the adversarial value that Player~0, respectively Player~1 can enforce in the game $\mathcal{G}$ from vertex $v$ as:
 \begin{equation*}
     \mathbf{WCV}_0(v) = \sup\limits_{\sigma_0 \in \Sigma_0} \inf\limits_{\sigma_1 \in \Sigma_1} \mathbf{Th}_1(\mathbf{Out}_v(\sigma_0,\sigma_1)) = \inf\limits_{\sigma_1 \in \Sigma_1} \sup\limits_{\sigma_0 \in \Sigma_0} \mathbf{Th}_1(\mathbf{Out}_v(\sigma_0,\sigma_1))
 \end{equation*}
@@ -78,16 +78,16 @@ Given a finite set of dimension $d$, rational vectors $X \subset \mathbb{Q}^d$, 
 \end{enumerate}
 \end{lemma}
 
-% \noindent\textbf{Cooperative Stackelberg Value and Adversarial Stackelberg Value for MP} As the set of best-responses in mean-payoff games can be empty, we use the notion of $\epsilon$-best responses for the definitions of CSV and ASV, which are guaranteed to always exist. Note that it makes sense to assume that Player 0 chooses $\epsilon$ in the case of CSV and Player 1 chooses $\epsilon$ in the case of ASV:
+% \noindent\textbf{Cooperative Stackelberg Value and Adversarial Stackelberg Value for MP} As the set of best-responses in mean-payoff games can be empty, we use the notion of $\epsilon$-best responses for the definitions of CSV and ASV, which are guaranteed to always exist. Note that it makes sense to assume that Player~0 chooses $\epsilon$ in the case of CSV and Player~1 chooses $\epsilon$ in the case of ASV:
 
-\noindent\textbf{Adversarial Stackelberg Value for MP} As the set of best-responses in mean-payoff games can be empty, we use the notion of $\epsilon$-best responses for the definition of $\mathbf{ASV}$ which are guaranteed to always exist. Note that it makes sense to assume that Player 1 chooses $\epsilon$ here:
+\noindent\textbf{Adversarial Stackelberg Value for MP} As the set of best-responses in mean-payoff games can be empty, we use the notion of $\epsilon$-best responses for the definition of $\mathbf{ASV}$ which are guaranteed to always exist. Note that it makes sense to assume that Player~1 chooses $\epsilon$ here:
 \\
 % \textbf{Cooperative Stackelberg Value (CSV)}: 
 % \begin{equation*}
 %     \mathbf{CSV}(v) = \sup\limits_{\sigma_0 \in \Sigma_0, \epsilon \geqslant 0| \mathbf{BR}^{\epsilon}_1(\sigma_0) \neq \varnothing}  \sup\limits_{\sigma_1 \in \mathbf{BR}^{\epsilon}_1(\sigma_0)} \underline{\mathbf{MP}}_0(\mathbf{Out}_v(\sigma_0,\sigma_1))
 % \end{equation*}
 
-% We also associate a (cooperative) value to a strategy $\sigma_0 \in \Sigma_0$ of Player 0: 
+% We also associate a (cooperative) value to a strategy $\sigma_0 \in \Sigma_0$ of Player~0: 
 % \begin{equation*}
 %     \mathbf{CSV}(\sigma_0)(v) = \sup\limits_{\epsilon \geqslant 0 \mid \mathbf{BR}^{\epsilon}_1(\sigma_0) \neq \varnothing}  \sup\limits_{\sigma_1 \in \mathbf{BR}^{\epsilon}_1(\sigma_0)} \underline{\mathbf{MP}}_0(\mathbf{Out}_v(\sigma_0,\sigma_1))
 % \end{equation*}
@@ -97,9 +97,9 @@ Given a finite set of dimension $d$, rational vectors $X \subset \mathbb{Q}^d$, 
 %     \mathbf{CSV}(v) = \sup\limits_{\sigma_0 \in \Sigma_0} \mathbf{CSV}(\sigma_0)(v)
 % \end{equation*}
 
-% We also associate a (cooperative) value to an epsilon $\epsilon > 0$ of Player 0. 
+% We also associate a (cooperative) value to an epsilon $\epsilon > 0$ of Player~0. 
 
-% (Note that here Player 1 chooses this $\epsilon$ value): 
+% (Note that here Player~1 chooses this $\epsilon$ value): 
 % \begin{equation*}
 %     \mathbf{CSV}^{\epsilon}(v) = \sup\limits_{\sigma_0 \in \Sigma_0}  \sup\limits_{\sigma_1 \in \mathbf{BR}^{\epsilon}_1(\sigma_0)} \underline{\mathbf{MP}}_0(\mathbf{Out}_v(\sigma_0,\sigma_1))
 % \end{equation*}
@@ -114,7 +114,7 @@ Given a finite set of dimension $d$, rational vectors $X \subset \mathbb{Q}^d$, 
     \mathbf{ASV}(v) = \sup\limits_{\sigma_0 \in \Sigma_0, \epsilon \geqslant 0| \mathbf{BR}^{\epsilon}_1(\sigma_0) \neq \varnothing}  \inf \limits_{\sigma_1 \in \mathbf{BR}^{\epsilon}_1(\sigma_0)} \underline{\mathbf{MP}}_0(\mathbf{Out}_v(\sigma_0,\sigma_1))
 \end{equation*}
 
-We also associate a (adversarial) value to a strategy $\sigma_0 \in \Sigma_0$ of Player 0: 
+We also associate a (adversarial) value to a strategy $\sigma_0 \in \Sigma_0$ of Player~0: 
 \begin{equation*}
     \mathbf{ASV}(\sigma_0)(v) = \sup\limits_{\epsilon \geqslant 0| \mathbf{BR}^{\epsilon}_1(\sigma_0) \neq \varnothing}  \inf \limits_{\sigma_1 \in \mathbf{BR}^{\epsilon}_1(\sigma_0)} \underline{\mathbf{MP}}_0(\mathbf{Out}_v(\sigma_0,\sigma_1))
 \end{equation*}
@@ -124,7 +124,7 @@ Clearly, we have that:
     \mathbf{ASV}(v) = \sup\limits_{\sigma_0 \in \Sigma_0} \mathbf{ASV}(\sigma_0)(v)
 \end{equation*}
 
-Given an $\epsilon$, we define an adversarial value for Player 0 as:
+Given an $\epsilon$, we define an adversarial value for Player~0 as:
 \begin{equation*}
     \mathbf{ASV}^{\epsilon}(v) = \sup\limits_{\sigma_0 \in \Sigma_0}  \inf \limits_{\sigma_1 \in \mathbf{BR}^{\epsilon}_1(\sigma_0)} \underline{\mathbf{MP}}_0(\mathbf{Out}_v(\sigma_0,\sigma_1))
 \end{equation*}
@@ -135,16 +135,16 @@ Clearly, we have that:
 \end{equation*}
 \\
 
-We also define a version of adverserial value, where strategies of Player 0 are restricted to finite memory:
+We also define a version of adverserial value, where strategies of Player~0 are restricted to finite memory:
 \mbcomment{Change FIN to FM}
 \begin{equation*}
 \mathbf{ASV}^{\epsilon}_\mathsf{FM}(v) = \sup\limits_{\sigma_0 \in \Sigma_0^{\mathbf{FM}}} \inf\limits_{\sigma_1 \in \mathbf{BR}^{\epsilon}_1(\sigma_0)} \underline{\mathbf{MP}}_0(\sigma_0, \sigma_1)
 \end{equation*}
 
-where $\Sigma_0^{\mathbf{FM}}$ refers to the set of all finite memory strategies of Player 0.
+where $\Sigma_0^{\mathbf{FM}}$ refers to the set of all finite memory strategies of Player~0.
 \\
 \\
-\noindent\textbf{Achievability of $\mathbf{ASV}$} We say that $\mathbf{ASV}(v) = c$ is achievable in a mean-payoff game $\mathcal{G}$ from a vertex $v$, if there exists a strategy $\sigma_0$ for Player 0 and $\epsilon > 0$ such that
+\noindent\textbf{Achievability of $\mathbf{ASV}$} We say that $\mathbf{ASV}(v) = c$ is achievable in a mean-payoff game $\mathcal{G}$ from a vertex $v$, if there exists a strategy $\sigma_0$ for Player~0 and $\epsilon > 0$ such that
 \begin{equation*}
 	\forall \sigma_1 \in \mathbf{BR}^{\epsilon}_{1}(\sigma_0) : \underline{\mathbf{MP}}_0(\sigma_0, \sigma_1) \geqslant c
 \end{equation*}
