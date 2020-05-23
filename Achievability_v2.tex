@@ -75,8 +75,10 @@ Now, we prove that any play that could be enforced by Player 1 in response to Pl
     From \textbf{\cref{RemarkStratEqual}}, we know that the memoryless strategy employed by Player 0 is the same for all $\sigma_0^i$, for every $i \in \mathbb{N}$. Thus, at the limit $i \to \infty$, if Player 1 deviates from $\pi_*$, Player 0 employs the same memoryless strategy which it would have apped if Player 1 had deviated from any play $\pi_i$, for all $i \in \mathbb{N}$.
 \end{proof}
 
-Now, we have the tools to prove \textbf{\cref{ConjAchiev}}. \\
-\noindent \textbf{Proof of \cref{ConjAchiev}}: We start by constructing a sequence of increasing numbers $c_1 < c_2 < c_3 < \dotsc < c$ such that:
+Now, we have the tools to prove \textbf{\cref{ConjAchiev}}.
+% \noindent \textbf{Proof of \cref{ConjAchiev}}: 
+\begin{proof}[Proof of \textbf{\cref{ConjAchiev}}]
+We start by constructing a sequence of increasing numbers $c_1 < c_2 < c_3 < \dotsc < c$ such that:
 \begin{itemize}
     \item For every $i \in \mathbb{N}$, we construct a strategy $\sigma_0^i$ which ensures $\mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$.[Follows from \textbf{\cref{ThmNpForASV}}]
     \item The strategy $\sigma_0^i$ follows a path $\pi_i = \pi_{1}(l^{\alpha \cdot k_i}_{1} \cdot \pi_{2} \cdot l^{\beta \cdot k_i}_{2} \cdot \pi_{3})^{\omega}$ where $\pi_1, \pi_2$ and $\pi_3$ are some finite plays and $l_1, l_2$ are simple cycles in the game $\mathcal{G}$. [Follows from \textbf{\cref{PropConvergenceStrategies}}]
@@ -138,3 +140,4 @@ Thus for every vertex $v$ in $\pi_j$ in $\pi_*$, Player $1$ does not have a stra
 Recall that, by \cref{PropConvergenceStrategies}, the set of vertices appearing in $\pi_*$ is the same as the set of vertices appearing in $\pi_j$.
 Since $c' < c_j$ and $d' > d_j-\epsilon$, it also follows that $v \not \models \ll 1 \gg \underline{\mathbf{MP}}_0(\pi) \leqslant c' \land \underline{\mathbf{MP}}_1(\pi) > d'$.
 Now the contradiction follows exactly as above where the sequence ($d_i$)$_{i \in \mathbb{N}}$ is monotonically non-decreasing.
+\end{proof}
