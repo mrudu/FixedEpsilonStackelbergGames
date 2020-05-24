@@ -4,11 +4,14 @@ We start by showing that if $\mathbf{ASV}^{\epsilon}(v) > c$, then there exists 
 
 \input{ExistenceOfStrategyForDecisionProblem}
 
-\noindent\textbf{Witnesses for $\mathbf{ASV}^{\epsilon}_{\mathsf{FM}}$} Given a mean-payoff game $\mathcal{G}$ and an $\epsilon > 0$, we associate with each vertex $v$ in $\mathcal{G}$, the following set of pairs of real numbers:
+\noindent\textbf{Witnesses for $\mathbf{ASV}^{\epsilon}_{\mathsf{FM}}$} For a mean-payoff game $\mathcal{G}$ and an $\epsilon > 0$, we associate with each vertex $v$ in $\mathcal{G}$, the following set of pairs of real numbers:
 \begin{equation*}
 \Lambda^{\epsilon}(v) = \{(c,d) \in \mathbb{R}^2 \mid v \models \ll 1 \gg \underline{\mathbf{MP}}_0(\pi) \leqslant c \land \underline{\mathbf{MP}}_1(\pi) > d-\epsilon \}
 \end{equation*}
-We say that a vertex $v$ is $(c,d)^{\epsilon}$-bad if $(c,d) \in \Lambda^{\epsilon}(v)$. Let $c' \in \mathbb{R}$. A play $\pi$ in G is called a $(c',d)^{\epsilon}$-witness of $\mathbf{ASV}^{\epsilon}(v) > c$ if it starts from $v$, and $(\underline{\mathbf{MP}}_0(\pi), \underline{\mathbf{MP}}_1(\pi)) = (c', d)$ where $c' > c$, and $\pi$ does not contain any $(c,d)^{\epsilon}$-bad vertex. A play $\pi$ is called an $\epsilon$-witness of $\mathbf{ASV}^{\epsilon}(v) > c$ if it is a $(c',d)^{\epsilon}$-witness of $\mathbf{ASV}^{\epsilon}(v) > c$ for some $c',d$. The following theorem justifies the name witness.
+We say that a vertex $v$ is $(c,d)^{\epsilon}$-bad if $(c,d) \in \Lambda^{\epsilon}(v)$. Let $c' \in \mathbb{R}$. A play $\pi$ in G is called a $(c',d)^{\epsilon}$-witness of $\mathbf{ASV}^{\epsilon}(v) > c$ if it starts from $v$, and $(\underline{\mathbf{MP}}_0(\pi), \underline{\mathbf{MP}}_1(\pi)) = (c', d)$ where $c' > c$, and $\pi$ does not contain any $(c,d)^{\epsilon}$-bad vertex. A play $\pi$ is called an $\epsilon$-witness of $\mathbf{ASV}^{\epsilon}(v) > c$ if it is a $(c',d)^{\epsilon}$-witness of $\mathbf{ASV}^{\epsilon}(v) > c$ for some $c',d$. 
+The following theorem justifies the name witness.
+
+\sgcomment{We should state the difficulty in our case compared to \cite{FGR20}.}
 
 \input{ExistenceOfASVEpsilonWitnessForIMStrategy}
 

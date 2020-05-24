@@ -1,6 +1,8 @@
 \begin{theorem}
 \label{ThmExNeedInfMem}
-There exists a mean-payoff game $\mathcal{G}$ with vertex $v$ such that Player $0$ needs an infinite memory strategy to achieve the value $\mathbf{ASV}^{\epsilon}(v)$.
+There exists a mean-payoff game $\mathcal{G}$ with vertex $v$ such that Player $0$ needs an infinite memory strategy to achieve
+% the value
+$\mathbf{ASV}^{\epsilon}(v)$.
 \end{theorem}
 \begin{figure}
     \centering
@@ -20,14 +22,26 @@ There exists a mean-payoff game $\mathcal{G}$ with vertex $v$ such that Player $
             (C) edge [loop above] node {(0,1)} (C)
             (D) edge [left] node {} (A);
     \end{tikzpicture}
-    \caption{No finite memory strategy $\sigma_0$ of Player $0$ to achieve $\mathbf{ASV}^{\epsilon}(v_0)$}
+    \caption{Finite memory strategy of Player~$0$ may not achieve $\mathbf{ASV}^{\epsilon}(v_0)$}
     \label{fig:no_finite_strategy}
 \end{figure}
 \begin{proof}
-Consider the example in Figure \ref{fig:no_finite_strategy}. We show that $\mathbf{ASV}^{\epsilon}(v_0) = 1$ and that this $\mathbf{ASV}^{\epsilon}$ can only be achieved using an infinite memory strategy. Assume a strategy $\sigma_0$ for Player~0 defined as: starting with $k=1$, repeat forever, if Player~1 plays $v_0 \to v_0$ repeatedly at least $k$ times before playing $v_0 \to v_1$, then from $v_1$, play $v_1 \to v_1$ repeatedly $k$ times and then play $v_1 \to v_0$ and increment $k$ by 1, i.e., $k=k+1$; else, if Player~1 plays $v_0 \to v_0$ less than $k$ times before playing $v_0 \to v_1$, then from $v_1$ , play $v_1 \to v_0$.
+Consider the example in Figure \ref{fig:no_finite_strategy}. We show that in this example $\mathbf{ASV}^{\epsilon}(v_0) = 1$, and that this $\mathbf{ASV}^{\epsilon}$ can only be achieved using an infinite memory strategy. Assume a strategy $\sigma_0$ for Player~0
+such that the game is played in rounds.
+In round $k$
+% defined as: starting with $k=1$, repeat forever, 
+\begin{itemize}[-]
+    \item if Player~1 plays $v_0 \to v_0$ repeatedly at least $k$ times before playing $v_0 \to v_1$, then from $v_1$, play $v_1 \to v_1$ repeatedly $k$ times and then play $v_1 \to v_0$ and 
+    % increment $k$ by 1, i.e., $k=k+1$; 
+    move to round $k+1$;
+    \item else, if Player~1 plays $v_0 \to v_0$ less than $k$ times before playing $v_0 \to v_1$, then from $v_1$ , play $v_1 \to v_0$.
+\end{itemize}
 
-The best response for Player~1 to strategy $\sigma_0$ would be to choose $k$ sequentially as $k = 1, 2, 3, \dotsc$, to get a play $\pi = ((v_0)^i(v_1)^i)_{i \in \mathbb{N}}$. We know that $\underline{\mathbf{MP}}_1(\pi) = 1+\epsilon$ and $\underline{\mathbf{MP}}_0(\pi) = 1$. Player~1 can sacrifice an amount that is less than $\epsilon$ to minimize mean-payoff of Player~0, and thus he would not like to play $v_0 \to v_2$. In particular, the strategy $\sigma_1$ of Player~1, which is defined as playing $v_0 \to v_2$, yields a mean-payoff of 1 for Player~1 and hence we conclude that $\sigma_1 \notin \mathbf{BR}_1^{\epsilon}(\sigma_0)$. Player~1 cannot play any other strategy without increasing the mean-payoff of Player~0 and/or decreasing his own payoff. Note that, it can be easily seen that Player~1 does not have a finite memory best-response strategy. Thus, the $\mathbf{ASV}^{\epsilon}(\sigma_0)(v_0) = 1$.
-
+The best response for Player~1 to strategy $\sigma_0$ would be to choose $k$ sequentially as $k = 1, 2, 3, \dotsc$, to get a play $\pi = ((v_0)^i(v_1)^i)_{i \in \mathbb{N}}$. We know that $\underline{\mathbf{MP}}_1(\pi) = 1+\epsilon$ and $\underline{\mathbf{MP}}_0(\pi) = 1$. Player~1 can sacrifice an amount that is less than $\epsilon$ to minimize mean-payoff of Player~0, and thus he would not like to play $v_0 \to v_2$. In particular, a strategy $\sigma_1$ of Player~1 that prescribes playing the edge $v_0 \to v_2$ some time 
+% which is defined as playing $v_0 \to v_2$,
+yields a mean-payoff of 1 for Player~1 and hence we conclude that $\sigma_1 \notin \mathbf{BR}_1^{\epsilon}(\sigma_0)$. Player~1 cannot play any other strategy without increasing the mean-payoff of Player~0 and/or decreasing his own payoff.
+% Note that, it can be easily seen 
+We can see that Player~1 does not have a finite memory best-response strategy. Thus, the $\mathbf{ASV}^{\epsilon}(\sigma_0)(v_0) = 1$.
 
 \mbcomment{We need to be more abstract about explaining the finite memory strategy}
 We claim that $\mathbf{ASV}^{\epsilon}(\sigma_0)(v_0) = \mathbf{ASV}^{\epsilon}(v_0)$. For every strategy $\sigma_1$ of Player~1 such that $\sigma_1 \in \mathbf{BR}_1^{\epsilon}(\sigma_0)$, we note that the higher the payoff Player~1 has, the lower is the payoff for Player~0. For every other strategy, $\sigma_0'$, of Player~0, if best-response of Player~1 to $\sigma_0'$ gives a mean-payoff less than $1+\epsilon$, then Player~1 will switch to $v_2$, thus giving Player~0 a payoff of 0. If best-response of Player~1 to $\sigma_0'$ gives a mean-payoff greater than $1+\epsilon$, then Player~0 will have a lower $\mathbf{ASV}^{\epsilon}(\sigma_0')$. Towards achieving $\mathbf{ASV}^{\epsilon}$, we can define an ideal finite memory strategy $\sigma_0^{FM}$ of Player~0 which would be of the form: repeat forever, if Player~1 plays $v_0 \to v_0$ repeatedly at least $l$ times before playing $v_0 \to v_1$, then Player~0 plays $v_1 \to v_1$ repeatedly $k$ times before playing $v_1 \to v_0$, where $l, k$ are some constants in $\mathbb{N}$. The best response of Player~1 to this strategy would be to play: repeat forever, play $v_0 \to v_0$ exactly $l$ times before playing $v_0 \to v_1$. Note that the mean-payoff of the best response is $\frac{(2+2\epsilon)\cdot k}{k + l + 2}$ and it must be greater than $1 + \epsilon$ to ensure Player~1 does not switch to playing $v_0 \to v_2$. Thus we get that $k \geqslant l + 2$. Player~0 benefits the most if she chooses $k = l+2$. Thus, we get a slightly modified strategy $\sigma_0^{FM'}$ of Player~0: repeat forever, if Player~1 plays $v_0 \to v_0$ repeatedly at least $l$ times before playing $v_0 \to v_1$, then Player~0 plays $v_1 \to v_1$ repeatedly $l+2$ times before playing $v_1 \to v_0$, where $l$ is  some constant in $\mathbb{N}$. Player~1's best response here is to play: repeat forever, play $v_0 \to v_0$ exactly $l$ times before playing $v_0 \to v_1$. Note that every other $\epsilon$-best response of Player~1 increases the payoff of Player~0. Thus, we get $\mathbf{ASV}^{\epsilon}(\sigma_0^{FM'}) = \frac{l}{l+2}$. By increasing $l \to \infty$, we can get $\mathbf{ASV}^{\epsilon}(\sigma_0^{FM'})$ very close to 1, but reaching 1 without infinite memory would not be possible. Thus, we see that the $\mathbf{ASV}^{\epsilon}$ can be reached only via an infinite memory strategy.
