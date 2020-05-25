@@ -324,8 +324,8 @@ smaller print.
 \copyrighttrue \figurespagetrue \tablespagetrue
 \thesiscopyrighttrue
 
-\def\@standardsub{submitted to the department of \uppercase\expandafter{\@dept}\\
-                and the committee on graduate studies}
+\def\@standardsub{submitted to the\\ Department of \expandafter{\@dept}}
+                % and the committee on graduate studies}
 \def\@standardend{}
 
 \def\committeethesis{\let\@whichsub=\@committeesub}
@@ -354,7 +354,7 @@ smaller print.
 \def\@lawsub{SUBMITTED TO THE SCHOOL OF LAW\\
                 AND THE COMMITTEE ON GRADUATE STUDIES}
 
-\def\@humanitiessub{SUBMITTED TO THE DEPARTMENT OF \uppercase\expandafter{\@dept},\\
+\def\@humanitiessub{submitted to the department of \expandafter{\@dept},\\
                 THE GRADUATE PROGRAM IN HUMANITIES,\\
                 AND THE COMMITTEE ON GRADUATE STUDIES}
 \def\@humanitiesend{\\IN\\ \uppercase\expandafter{\@dept} AND HUMANITIES}
@@ -363,8 +363,8 @@ smaller print.
 \def\@specialend{\\IN\\ \uppercase\expandafter{\@dept}}
 
 
-\def\@dualsub{SUBMITTED TO THE DEPARTMENT OF \uppercase\expandafter{\@dept}\\
-AND THE COMMITTEE ON GRADUATE STUDIES}
+\def\@dualsub{submitted to the department of \expandafter{\@dept}}
+% AND THE COMMITTEE ON GRADUATE STUDIES}
 \def\@dualend{\\IN\\ \uppercase\expandafter{\@languagemajor}}
 
 
@@ -387,11 +387,11 @@ AND THE COMMITTEE ON GRADUATE STUDIES}
 %                in partial fulfillment of the requirements\\
 %                for the degree of\\
 %                Master of Science \uppercase\expandafter{\@whichend}
-                A DISSERTATION\\
-                \uppercase\expandafter{\@whichsub}\\
-                OF CHENNAI MATHEMATICAL INSTITUTE\\
-                IN PARTIAL FULFILLMENT OF THE REQUIREMENTS\\
-                FOR THE DEGREE OF\\
+                A dissertation
+                \expandafter{\@whichsub}
+                of Chennai Mathematical Institute\\
+                in partial fulfilment of the requirements
+                for the degree of\\
                 MASTER OF SCIENCE \uppercase\expandafter{\@whichend}
         \end{center}
         \vfill
@@ -440,11 +440,13 @@ of Master of Science.
 \end{flushright}}
 
 \def\signaturepage{%
-        \signature{(\@principaladviser)\quad Principal \advis@r}
+        % \signature{(\@principaladviser)\quad Principal \advis@r}
+        \signature{\@principaladviser \quad (Thesis Advisor)}
         \vfill
 % if second principal advisor
         \if*\@coprincipaladviser \else
-        \signature{(\@coprincipaladviser)\quad Principal \advis@r}
+        % \signature{(\@coprincipaladviser)\quad Principal \advis@r}
+        \signature{\@coprincipaladviser\quad (Examiner)}
         \vfill\fi
         \if*\@firstreader \else 
         \signature{(\@firstreader)}
@@ -461,11 +463,11 @@ of Master of Science.
         \signature{(\@fourthreader)}
         \vfill\fi
         \begin{flushright}
-        \begin{minipage}{5in}
-        Approved for the University Committee on Graduate Studies.\par
-        \vspace{.5in}
-%        \hbox to 4in{\hfil\shortstack{\vrule width 3in height 0.4pt}}
-        \end{minipage}
+%         \begin{minipage}{5in}
+%         Approved for the University Committee on Graduate Studies.\par
+%         \vspace{.5in}
+% %        \hbox to 4in{\hfil\shortstack{\vrule width 3in height 0.4pt}}
+%         \end{minipage}
         \end{flushright}}
 
 \def\beforepreface{
