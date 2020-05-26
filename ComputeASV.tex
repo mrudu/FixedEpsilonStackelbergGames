@@ -1,6 +1,6 @@
 Given a two-dimensional mean-payoff game $\mathcal{G}$, a vertex $v$ in $\mathcal{G}$, we now show how to compute $\mathbf{ASV}^{\epsilon}(v)$.
 \track{We first show a method to compute $\mathbf{ASV}^{\epsilon}(v)$ using the theory of reals with additions. This approach is very similar to the one followed in \cite{FGR20} with the difference that we use the formula $\Psi_v^{\epsilon}$ instead of $\Psi_v$ as has been described below.
-This approach also gives us the necessary intuition to compute $\mathbf{ASV}^{\epsilon}(v)$, using a second method, by solving a set of linear programs leading to establishing an {\sf EXPTime} algorithm.
+This approach also gives us the necessary intuition to compute $\mathbf{ASV}^{\epsilon}(v)$, using a second method, by solving a set of linear programs (LP) leading to establishing an {\sf EXPTime} algorithm.
 This second method is new to this work, and does not appear in \cite{FGR20}.
 Moreover, \cite{FGR20} does not provide any complexity for the computation of $\mathbf{ASV}$. 
 One can show that, with small modifications to our method involving solving linear programs, it is possible to compute $\mathbf{ASV}$ as well in {\sf EXPTime}.}
@@ -163,14 +163,19 @@ the mean-payoff game $\mathcal{G}$ in \textbf{\cref{Ex:CompASVTOR}}.}
 In \cite{CDEHR10}, it has been shown that $F_{\min}(\mathsf{CH}(\mathbb{C}(S)))$ can be defined using a set of linear inequations.
 Now recall from \cref{Ex:CompASVTOR} that $F_{\min}(\mathsf{CH}(\mathbb{C}(S))=\{(3,5)\}$.
 % \equiv \{x = 3, y = 5\}$. 
-Note that $\Lambda^{\epsilon} = \{(x,y) \:|\: x \geqslant 3 \land y < 5 + \epsilon \}$.
-One crucial part to our approach is to compute $\Lambda^{'\epsilon}$ from $\Lambda^{\epsilon}$ by replacing the non-strict inequality in the first dimension with a strict inequality.
+Note that $\Lambda^{\epsilon} = \{(c,y) \:|\: c \geqslant 3 \land y < 5 + \epsilon \}$.
+% One crucial part to our approach is to compute $\Lambda^{'\epsilon}$ from $\Lambda^{\epsilon}$ by replacing the non-strict inequality in the first dimension with a strict inequality.
 % Next, we compute the set of linear inequations which represents
-Thus we obtain $\Lambda'^{\epsilon} = \{(x,y) \:|\: x > 3 \land y < 5 + \epsilon \}$, and hence the system of inequations which represents $F_{\min}(\mathsf{CH}(\mathbb{C}(S))) \backslash \Lambda'^{\epsilon}(v)$ is given by $\{ x = 3 \land y = 5 \land (x \leqslant 3 \lor y \geqslant (5 + \epsilon)) \}$. 
-This is equivalent to having two linear programs: \textit{maximise $x$ in $\exists y \models (x = 3 \land y = 5 \land x \leqslant 3)$} and \textit{maximise x in $\exists y \models (x = 3 \land y = 5 \land y \geqslant (5 + \epsilon))$} which yields the set of solutions: $\{3\}$. Thus, we conclude that $\mathbf{ASV}^{\epsilon}(v_0) = 3$.}
+% Thus we obtain $\Lambda'^{\epsilon} = \{(x,y) \:|\: x > 3 \land y < 5 + \epsilon \}$, and hence the system of inequations which represents $F_{\min}(\mathsf{CH}(\mathbb{C}(S))) \backslash \Lambda'^{\epsilon}(v)$ is given by $\{ x = 3 \land y = 5 \land (x \leqslant 3 \lor y \geqslant (5 + \epsilon)) \}$. 
+% This is equivalent to having two linear programs: 
+Thus the complement of $\Lambda^{\epsilon}(v_0)$, that is, $\bar{\Lambda}^{\epsilon}(v_0) = \mathbb{R} \times \mathbb{R} - \Lambda^{\epsilon}(v_0) = \{(c,y) \:|\: c < 3 \lor y \geqslant 5 + \epsilon \}$.
+Now we emulate the formula $\rho_{v_0}^S(c)$ as $\exists x,y \models c<x \land x=3 \land y=5 \land (c \leqslant 3 \lor y \geqslant 5+\epsilon)$.
+We maximise the value of $c$, which gives us the following two linear programs: \textit{maximise $c$ in $\exists x, y \models (c < x \land x = 3 \land y = 5 \land c \leqslant 3)$} and \textit{maximise x in $\exists x, y \models (c < x \land x = 3 \land y = 5 \land y \geqslant (5 + \epsilon))$} which yields the set of solutions: $\{3\}$. Thus, we conclude that $\mathbf{ASV}^{\epsilon}(v_0) = 3$.
+Note that in an LP, the strict inequalities are replaced with non-strict inequalities.}
 \end{example}
 
 % Let us consider the mean-payoff game depicted in the example \cref{Ex:CompASVLP}. 
+\begin{comment}
 Note that when the mean-payoff $\mathcal{G}$ comprises of a single $\mathsf{SCC}$ $S$ which contains a single cycle and hence the set $F_{\min}(\mathsf{CH}(\mathbb{C}(S)))$ contains a single point $\{(x, y)\}$ where $x$ and $y$ represent the mean-payoff values of Player~0 and Player~1 respectively. 
 Since Player~0 and Player~1 have a single strategy, the mean-payoff values $(x,y)$  are \textit{enforceable} by Player~1 and hence belong to $\Lambda^{\epsilon}(v)$. Thus, when we compute the set $F_{\min}(\mathsf{CH}(\mathbb{C}(S))) \backslash \Lambda^{\epsilon}(v)$, we get an empty set and therefore, the linear program yields no solution. We fix this problem, we convert the non-strict inequations in $\Lambda^{\epsilon}(v)$ to strict inequations, namely, $\Lambda'^{\epsilon}(v)$ and compute $F_{\min}(\mathsf{CH}(\mathbb{C}(S))) \backslash \Lambda'^{\epsilon}(v)$. 
 
@@ -182,6 +187,7 @@ Assuming the slope of this line to be $m$, and its $y$-intercept to be $c$, for 
 Thus, when we compare the areas in the graph $\mathbb{R} \times \mathbb{R}$ generated by the sets $F_{\min}(\mathsf{CH}(\mathbb{C}(S))) \backslash \Lambda^{\epsilon}(v)$ and $F_{\min}(\mathsf{CH}(\mathbb{C}(S))) \backslash \Lambda'^{\epsilon}(v)$, we see that the only difference between the two sets lie in the boundary points, that is, the points in the line segment are excluded from the first set, while it is not the case for the second set.
 % Since $\mathbf{ASV}^{\epsilon}(v)$ is computed as the $\sup$ of the set $\{ F_{\min}(\mathsf{CH}(\mathbb{C}(S))) \backslash \Lambda^{\epsilon}(v) \}$, replacing $\Lambda^{\epsilon}(v)$ with $\Lambda'^{\epsilon}(v)$ will still yield the same result. 
 We can further extend this idea to all mean-payoff games which contain multiple $\mathsf{SCC}$s with each $\mathsf{SCC}$ containing multiple cycles.
+\end{comment}
 
 Now we state the main result of this section.
 % This expressed in the following theorem.
@@ -198,13 +204,18 @@ The algorithm to compute $\mathbf{ASV}^{\epsilon}(v)$ is defined as follows:
     % \item From \textbf{\cref{LemPsiEpsToThrOfReal}}, we can compute a representation of $\Lambda^{\epsilon}(v)$ as a finite union of system of strict and non-strict inequations. Thus, we can represent the complement $(\mathbb{R}^2 - \Lambda^{\epsilon}(v))$ as a finite union of system of strict and non-strict inequations.
     % \sgcomment{I think we should define $\Lambda'^{\epsilon}(v)=\{(x,y) \:|\: x > c \land y < d+\epsilon\}$. Here $c$ and $d$ are as in the definition of $\Lambda^{\epsilon}(v)$.}
     % \mbcomment{What are the values $c$ and $d$ in this context?}
-    \item From \textbf{Lemma 4} in \cite{BR15}, we can construct the representation of $\Lambda^{\epsilon}(v)$ as a finite union of a system of strict and non-strict inequations. To compute the set $\Lambda'^{\epsilon}(v)$, we convert the non-strict inequations corresponding to the first dimension in $\Lambda^{\epsilon}(v)$ to strict inequations as explained above.
+    \item From \textbf{Lemma 4} in \cite{BR15}, we can construct the representation of $\Lambda^{\epsilon}(v)$ as a finite union of a system of strict and non-strict inequations. 
+    % To compute the set $\Lambda'^{\epsilon}(v)$, we convert the non-strict inequations corresponding to the first dimension in $\Lambda^{\epsilon}(v)$ to strict inequations as explained above.
     \item For each $\mathsf{SCC}$ $S$ in the mean-payoff game $\mathcal{G}$, we see that the set of values satisfying the formula $\rho^S_{\max,v_0}$ can be expressed as a set of linear programs in the following manner: 
     \begin{itemize}
-      \item For each linear program, we have two variables $x$ and $y$ which represent the mean-payoff values of Player~0 and Player~1 respectively.
-      \item The set of linear inequations which represents $F_{\min}(\mathsf{CH}(\mathbb{C}(S))) \backslash \Lambda'^{\epsilon}(v)$ can be expressed by a disjunction of set of non-strict linear inequations, i.e., $\bigvee_i \mathsf{Cst}_i$ where each $\mathsf{Cst}_i$ is a conjunction of non-strict linear inequations.
+      \item For each linear program, we have two variables $x$ and $y$ which represent the mean-payoff values of Player~0 and Player~1 respectively, corresponding to paths in $F_{\min}(\mathsf{CH}(\mathbb{C}(S)))$.
+      \item The 
+    %   set of linear inequations which represents $F_{\min}(\mathsf{CH}(\mathbb{C}(S))) \backslash \Lambda'^{\epsilon}(v)$
+      formula $\rho^S_{v_0}(c)$ can be expressed by a disjunction of set of linear inequations, i.e., $\bigvee_i \mathsf{Cst}_i$ where each $\mathsf{Cst}_i$ is a conjunction of linear inequations.
+      Note that in the LP formulation, each strict inequation is replaced by a non-strict inequation.
+      
     %   \item The system of constraints will be the set of linear inequations which represents $F_{\min}(\mathsf{CH}(\mathbb{C}(S))) \land (\mathbb{R}^2 - \Lambda^{\epsilon}(v))$ which can be expressed by a disjunction of sets of strict and non-strict linear inequations, i.e., $\bigvee_i \mathsf{Cst}_i$ where each $\mathsf{Cst}_i$ is a conjunction of strict and non-strict linear inequations. Since the linear program does not handle strict linear inequations, we relax the strict linear inequations to non-strict linear inequations. This is correct because we are trying to find a value $(x, y)$ in the convex hull, and therefore they are bounded. Let the set of relaxed inequations be $\bigvee_i \mathsf{Cst}^{rel}_i$.
-      \item The set of linear programs we solve is \textit{maximise $x$ under the linear constraints $\exists y \cdot (x,y) \models \mathsf{Cst}_i$} for each $\mathsf{Cst}_i \in \bigvee_i \mathsf{Cst}_i$. Note that, following the proof of \textbf{Lemma 4} in \cite{BR15}, there are exponentially many such $\mathsf{Cst}_i$ clauses. The value satisfying the formula $\rho^S_{\max,v_0}$ is the maximum over the set of solutions of the linear programs obtained.
+      \item The set of linear programs we solve is \textit{maximise $c$ under the linear constraints $\exists x, y \cdot (c,x,y) \models \mathsf{Cst}_i$} for each $\mathsf{Cst}_i \in \bigvee_i \mathsf{Cst}_i$. Note that, following the proof of \textbf{Lemma 4} in \cite{BR15}, there are exponentially many such $\mathsf{Cst}_i$ clauses. The value satisfying the formula $\rho^S_{\max,v_0}$ is the maximum over the set of solutions of the linear programs obtained.
 \end{itemize}
 \end{enumerate}
 
