@@ -4,22 +4,24 @@ In this section, we consider finite memory strategies of Player~$0$ for both $\m
 \textbf{Modified Game:} We begin with the construction of a modified game $\mathcal{G'}$ from the given game $\mathcal{G}$ by multiplying the first dimension on each edge of the game by $-1$. It is easy to see that, for all vertices $v \in \mathcal{G}$, we have that $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c \land \underline{\mathbf{MP}}_1 \geqslant d$ if and only if for the corresponding vertex in the game $\mathcal{G'}$, we have $v \nvDash \ll 1 \gg \overline{\mathbf{MP}}_0 \geqslant -c \land \underline{\mathbf{MP}}_1 \geqslant d$.\\ 
 \noindent We modify the game $\mathcal{G'}$ further by adding $c$ to the first dimension and subtracting $d$ from the second dimension for all the edges in the game. Note that the edges and vertices of both games $\mathcal{G}$ and $\mathcal{G'}$ are the same, the only difference between the two games being their edge weights.
 
+We state the following proposition that relates the game $\mathcal{G}$ with the modified game $\mathcal{G'}$.
+
 \begin{proposition}
 \label{PropGameStrEqNewGameStrNonEps}
-For every vertex $v \in V$ in the game $\mathcal{G'}$, Player~0 (Player~1) can ensure that $v \nvDash \ll 1 \gg \overline{\mathbf{MP}}_0 \geqslant 0 \land \underline{\mathbf{MP}}_1 \geqslant 0$ ($v \models \ll 1 \gg \overline{\mathbf{MP}}_0 \geqslant 0 \land \underline{\mathbf{MP}}_1 \geqslant 0$) with a strategy $\sigma_0$ ($\sigma_1$) if and only if Player~0 (Player~1) can ensure that $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c \land \underline{\mathbf{MP}}_1 \geqslant d$ ($v \models \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c \land \underline{\mathbf{MP}}_1 \geqslant d$) with the same strategy $\sigma_0$ ($\sigma_1$) from vertex $v$ in the game $\mathcal{G}$.
+For every vertex $v \in V$ in the game $\mathcal{G'}$, Player~0 (Player~1) can ensure that $v \nvDash \ll 1 \gg \overline{\mathbf{MP}}_0 \geqslant 0 \land \underline{\mathbf{MP}}_1 \geqslant 0$ ($v \models \ll 1 \gg \overline{\mathbf{MP}}_0 \geqslant 0 \land \underline{\mathbf{MP}}_1 \geqslant 0$) with a strategy $\sigma_0$ ($\sigma_1$) if and only if from vertex $v$ in the game $\mathcal{G}$, Player~0 (Player~1) can ensure that $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c \land \underline{\mathbf{MP}}_1 \geqslant d$ ($v \models \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c \land \underline{\mathbf{MP}}_1 \geqslant d$) with the same strategy $\sigma_0$ ($\sigma_1$).
 \end{proposition}
 
-We then state the following result for Multi-dimensional two-player games with $\mathbf{MeanPayoffInfSup}$ objective \cite{VCDHRR15}.
+We recall the result from \cite{VCDHRR15} stated in \textbf{\cref{ThmMemlessStrForP2}} that establishes if Player~0 can achieve a $\mathbf{MeanPayoffInfSup}$ objective from a vertex $v$, then Player~0 has a memoryless strategy for doing so.
 
-\begin{theorem}
-\label{ThmMemlessStrForP2NonEps}
-\textbf{\emph{(Theorem 8 in \cite{VCDHRR15})}} For multi-dimensional two-player mean-payoff games with objective \\
-$\mathbf{MeanPayoffInfSup}(I,J) = \{\pi \in \mathbf{Plays}(\mathcal{G}) \mid \forall i \in I : \underline{\mathbf{MP}}(\pi)_i \geqslant 0 \text{ and } \forall j \in J : \overline{\mathbf{MP}}(\pi)_j \geqslant 0\}$ for Player~1, the following assertions hold:
-\begin{enumerate}
-    \item Winning strategies for Player~1 require infinite-memory in general, and memoryless winning strategies exist for Player~0. \footnote{Player~0 is called Player 2 in \cite{VCDHRR15}}
-    \item The problem of deciding whether a given vertex is winning for Player~1 is coNP-complete.
-\end{enumerate}
-\end{theorem}
+% \begin{theorem}
+% \label{ThmMemlessStrForP2NonEps}
+% \textbf{\emph{(Theorem 8 in \cite{VCDHRR15})}} For multi-dimensional two-player mean-payoff games with objective \\
+% $\mathbf{MeanPayoffInfSup}(I,J) = \{\pi \in \mathbf{Plays}(\mathcal{G}) \mid \forall i \in I : \underline{\mathbf{MP}}(\pi)_i \geqslant 0 \text{ and } \forall j \in J : \overline{\mathbf{MP}}(\pi)_j \geqslant 0\}$ for Player~1, the following assertions hold:
+% \begin{enumerate}
+%     \item Winning strategies for Player~1 require infinite-memory in general, and memoryless winning strategies exist for Player~0. \footnote{Player~0 is called Player 2 in \cite{VCDHRR15}}
+%     \item The problem of deciding whether a given vertex is winning for Player~1 is coNP-complete.
+% \end{enumerate}
+% \end{theorem}
 
 Now, we are ready to show the existence of finite memory strategy for $\mathbf{ASV}(v) > c$ with the following theorem.
 
@@ -31,7 +33,7 @@ Given a mean-payoff game $\mathcal{G}$, a vertex $v \in V$, a rational value $c 
 \begin{proof}
 Given that $\mathbf{ASV}(v) > c$, from \textbf{Lemma 10} in \cite{FGR20}, we know that there exists three non-cyclic finite paths $\pi_1, \pi_2, \pi_3$ and two simple cycles $l_1, l_2$, such that a play $\pi = \pi_1\rho_1\rho_2\rho_3\dots$ , where $\rho_i = l_1^{[\alpha i]}.\pi_2.l_2^{[\beta i]}.\pi_3$. We call this path $\pi$ a witness for $\mathbf{ASV}(v) > c$. Note that with $\pi$, we can construct an infinite memory strategy for Player~0 so as to minimize the effect of $\pi_2$ and $\pi_3$ on the mean-payoff measure. Let $\underline{\mathbf{MP}}_0(\pi) = c'' > c$ and $\underline{\mathbf{MP}}_1(\pi) = d$.
 
-\noindent The mean-payoffs of the play $\pi$ are: $\underline{\mathbf{MP}}_0(\pi) = \alpha \cdot w_0(l_1) + \cdot \beta w_0(l_2)$ and $\underline{\mathbf{MP}}_1(\pi) = \alpha \cdot w_1(l_1) + \beta \cdot w_1(l_2)$. To obtain a finite memory strategy, we can modify the play $\pi$ as described below:
+\noindent The mean-payoffs of the play $\pi$ are: $\underline{\mathbf{MP}}_0(\pi) = \alpha \cdot w_0(l_1) + \cdot \beta w_0(l_2)$ and $\underline{\mathbf{MP}}_1(\pi) = \alpha \cdot w_1(l_1) + \beta \cdot w_1(l_2)$. To obtain a finite memory strategy, we first optimize the $\epsilon$-witness $\pi$ by constructing an $\epsilon$-regular witness $\pi'$ of the form $\pi' = \pi_1.(l_1^{[\alpha']k}.\pi_2.l_2^{[\beta']k}.\pi_3)^{\omega}$ where $\alpha', \beta'$ are constants in $\mathbb{Q}$ and $k$ is some large constant in $\mathbb{N}$. We detail the construction of $\pi'$ below.
 \begin{caseof}
     \case{$w_0(l_1) > w_0(l_2)$ and $w_1(l_1) < w_1(l_2)$}
     Here, one simple cycle, $l_1$, increases Player~0's mean-payoff while the other simple cycle, $l_2$, increases Player~1's mean-payoff. We can build a witness $\pi' = \pi_1.(l_1^{[\alpha]k}.\pi_2.l_2^{[\beta+\tau]k}.\pi_3)^{\omega}$ for some very large $k \in \mathbb{N}$ and for some very small $\tau > 0$ such that $\underline{\mathbf{MP}}_0(\pi') > c$ and $\underline{\mathbf{MP}}_1(\pi') = d$. \footnote{For more details, we refer the reader to the Appendix.}

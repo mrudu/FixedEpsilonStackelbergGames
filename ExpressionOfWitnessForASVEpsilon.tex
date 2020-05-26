@@ -17,7 +17,7 @@ For the right to left direction of the proof, where we are given finite acyclic 
 We know that $\underline{\mathbf{MP}}_1(\pi) = \alpha \cdot w_1(l_1) + \beta \cdot w_1(l_2) = d$ and $\underline{\mathbf{MP}}_0(\pi) = \alpha \cdot w_0(l_1) + \beta \cdot w_0(l_2) > c$. For all vertices $v$ in $\pi_1, \pi_2, \pi_3, l_1$ and $l_2$, it is given that $v$ is not $(c,d)^\epsilon$-bad. 
 Therefore, $\pi$ is a suitable $\epsilon$-witness thus proving from \textbf{\cref{ThmWitnessASVInfMem}} that $\mathbf{ASV}^{\epsilon}(v) > c$.
 
-We can optimize the $\epsilon$-witness $\pi$ by constructing an $\epsilon$-regular-witness for $\mathbf{ASV}^{\epsilon}(v) > c$ by modifying $\pi$ as follows:
+We can optimize the $\epsilon$-witness $\pi$ by constructing an $\epsilon$-regular-witness $\pi'$ for $\mathbf{ASV}^{\epsilon}(v) > c$ where $\pi' = \pi_1.(l_1^{[\alpha']k}.\pi_2.l_2^{[\beta']k}.\pi_3)^{\omega}$ and $\alpha', \beta'$ are constants in $\mathbb{Q}$ and $k$ is some large constant in $\mathbb{N}$. We construct $\pi'$ by modifying $\pi$ as follows:
 \begin{caseof}
     \case{$w_0(l_1) > w_0(l_2)$ and $w_1(l_1) < w_1(l_2)$}
     Here, one simple cycle, $l_1$, increases Player~0's mean-payoff while the other simple cycle, $l_2$, increases Player~1's mean-payoff. We can build a witness $\pi' = \pi_1.(l_1^{[\alpha]k}.\pi_2.l_2^{[\beta+\tau]k}.\pi_3)^{\omega}$ for some very large $k \in \mathbb{N}$ and for some very small $\tau > 0$ such that $\underline{\mathbf{MP}}_0(\pi') > c$ and $\underline{\mathbf{MP}}_1(\pi') = d$.\footnote{For more details, we refer the reader to the Appendix.}
