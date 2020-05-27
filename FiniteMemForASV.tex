@@ -14,7 +14,7 @@ For every vertex $v \in V$ in the game $\mathcal{G'}$, Player~0 (Player~1) can e
 We recall the result from \cite{VCDHRR15} stated in \textbf{\cref{ThmMemlessStrForP2}} that establishes if Player~0 can achieve a $\mathbf{MeanPayoffInfSup}$ objective from a vertex $v$, then Player~0 has a memoryless strategy for doing so.
 
 % \begin{theorem}
-% \label{ThmMemlessStrForP2NonEps}
+% \label{ThmMemlessStrForP2}
 % \textbf{\emph{(Theorem 8 in \cite{VCDHRR15})}} For multi-dimensional two-player mean-payoff games with objective \\
 % $\mathbf{MeanPayoffInfSup}(I,J) = \{\pi \in \mathbf{Plays}(\mathcal{G}) \mid \forall i \in I : \underline{\mathbf{MP}}(\pi)_i \geqslant 0 \text{ and } \forall j \in J : \overline{\mathbf{MP}}(\pi)_j \geqslant 0\}$ for Player~1, the following assertions hold:
 % \begin{enumerate}
@@ -56,7 +56,7 @@ The existence of the memoryless strategies mentioned in Point \ref{strategy_memo
 \noindent The goal here is to obtain a memoryless strategy for Player~0 to achieve her objective, i.e., from all vertices $v \in \pi'$, to ensure that $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c \land \underline{\mathbf{MP}}_1 \geqslant d$. \\
 \noindent We begin by constructing a game $\mathcal{G'}$ from the given game $\mathcal{G}$ Thus, we get a modified objective for Player~0 in $\mathcal{G'}$, i.e., Player~0 wins if for all vertices $v \in \pi'$, we have that $v \nvDash \ll 1 \gg \overline{\mathbf{MP}}_0 \geqslant 0 \land \underline{\mathbf{MP}}_1 \geqslant 0$.
 
-Now the existence of a memoryless winning strategy for Player~0 follows from \textbf{\cref{ThmMemlessStrForP2NonEps}}. We formulate $\mathcal{G'}$ as a multi-weighted two-player game structure specified in \textbf{\cref{ThmMemlessStrForP2NonEps}} with $I = \{1\}$ and $J = \{0\}$. By \textbf{\cref{ThmMemlessStrForP2NonEps}}, we know that Player~0 has a memoryless winning strategy, $\sigma_0$,  for all vertices $v \in \pi'$ in the game $\mathcal{G'}$ (since she wins for the same vertices in the game $\mathcal{G}$). Thus, by \textbf{\cref{PropGameStrEqNewGameStrNonEps}}, the finite memory strategy $\sigma_0$ is also winning for Player~0 in $\mathcal{G}$ for all vertices $v \in \pi'$, that is, $\mathbf{ASV}(\sigma_0)(v) > c$.
+Now the existence of a memoryless winning strategy for Player~0 follows from \textbf{\cref{ThmMemlessStrForP2}}. We formulate $\mathcal{G'}$ as a multi-weighted two-player game structure specified in \textbf{\cref{ThmMemlessStrForP2}} with $I = \{1\}$ and $J = \{0\}$. By \textbf{\cref{ThmMemlessStrForP2}}, we know that Player~0 has a memoryless winning strategy, $\sigma_0$,  for all vertices $v \in \pi'$ in the game $\mathcal{G'}$ (since she wins for the same vertices in the game $\mathcal{G}$). Thus, by \textbf{\cref{PropGameStrEqNewGameStrNonEps}}, the finite memory strategy $\sigma_0$ is also winning for Player~0 in $\mathcal{G}$ for all vertices $v \in \pi'$, that is, $\mathbf{ASV}(\sigma_0)(v) > c$.
 \end{proof}
 
 Now, we establish that, in a mean-payoff game $\mathcal{G}$, the $\mathbf{ASV}$ of a vertex $v$ in the game $\mathcal{G}$ does not change even if Player~0 is restricted to using only finite memory strategies. Formally, we state that:
