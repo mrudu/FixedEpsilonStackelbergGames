@@ -35,13 +35,13 @@ We note from \textbf{\cref{LemPlaysAsWitnessForASV}} that there exists a witness
 % \end{itemize}
 
 \mbcomment{proper introduction needed.}
-Now, we construct a sequence of plays which serve as witnesses for the sequence of finite memory strategies as described above. This sequence of plays differ from each other only in the $k_i$ value. Formally, we state that.
+Now, we construct a sequence of plays which serve as witnesses for the sequence of finite memory strategies as described above. These plays in the sequence differ from each other only in the $k_i$ value. Formally, we state this in the following proposition.
 % \begin{proposition}
 %     \label{PropConvergenceStrategies}
 %     There exists a sequence of increasing real numbers, $c_1 < c_2 < c_3 < \dotsc < c$, and finite memory strategies $\sigma_0^1, \sigma_0^2, \sigma_0^3, \dotsc$ of Player~0 such that for each $c_i$, we have $\mathbf{ASV}^{\epsilon} (\sigma_0^i)(v) > c_i$, and  $\forall i, j \in \mathbb{N}$, for the plays $\pi_i= \pi_{1i}(l^{\alpha_i \cdot k_i}_{1i} \cdot \pi_{2i} \cdot l^{\beta_i \cdot k_i}_{2i} \cdot \pi_{3i})^{\omega}$ and the play $\pi_j= \pi_{1j}(l^{\alpha_j \cdot k_j}_{1j} \cdot \pi_{2j} \cdot l^{\beta_j \cdot k_j}_{2j} \cdot \pi_{3j})^{\omega}$ which are witnesses for $ \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$ and $ \mathbf{ASV}^{\epsilon}(\sigma_0^j)(v) > c_j$ respectively, we have that:
 %     $\alpha_i = \alpha_j = \alpha, \beta_i = \beta_j = \beta, \pi_{1i} = \pi_{1j} = \pi_1, \pi_{2i} = \pi_{2j} = \pi_2, \pi_{3i} = \pi_{3j} = \pi_3, l_{1i} = l_{1j} = l_1$ and $l_{2i} = l_{2j} = l_2$ where $\pi_1, \pi_2$ and $\pi_3$ are some finite plays and $l_1, l_2$ are simple cycles in the game $\mathcal{G}$.
 % \end{proposition}
-\sgcomment{Should we say that $k_i$ is a function of $i$? Also is it okay to have the same $k_i$ in both $\alpha \cdot k_i$ and $\beta \cdot k_i$?}
+% \sgcomment{Should we say that $k_i$ is a function of $i$? Also is it okay to have the same $k_i$ in both $\alpha \cdot k_i$ and $\beta \cdot k_i$?}
 \begin{proposition}
     \label{PropConvergenceStrategies}
     There exists a sequence of increasing real numbers, $c_1 < c_2 < c_3 < \dotsc < c$, and finite memory strategies $\sigma_0^1, \sigma_0^2, \sigma_0^3, \dotsc$ of Player~0 such that for each $c_i$, we have $\mathbf{ASV}^{\epsilon} (\sigma_0^i)(v) > c_i$ and there exists a play $\pi_i$ that is a witness for $ \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$, where $\pi_i= \pi_{1}(l^{\alpha \cdot k_i}_{1} \cdot \pi_{2} \cdot l^{\beta \cdot k_i}_{2} \cdot \pi_{3})^{\omega}$. Note that $\pi_1, \pi_2$ and $\pi_3$ are some finite plays and $l_1, l_2$ are simple cycles in the game $\mathcal{G}$.
@@ -70,14 +70,15 @@ For the sequence of strategies $(\sigma_0^i)_{i \in \mathbb{N}}$, we note that t
     \label{PropMonotonicDi}
     The sequence $(d_i)_{i \in \mathbb{N}}$ is monotonic. 
 \end{proposition}
-\mbcomment{i vs $k_i$}
-We have that $\lim \limits_{i \to \infty} \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) = c$. Let $\pi_{i \to \infty} = \pi_* = \pi_1 \rho_1 \rho_2 \rho_3 \dotsc$ where $\rho_i = (l^{\alpha}_{1})^i \cdot \pi_{2} \cdot (l^{\beta}_{2})^i \cdot \pi_{3}$. We have that $\underline{\mathbf{MP}}_0(\pi_*) = c$, and we let $\underline{\mathbf{MP}}_1(\pi_*) = d$. Note that in the limit, Player~0 uses an infinite memory strategy. Let $\sigma_0^*$ be this infinite memory strategy of Player~0.
+% \mbcomment{i vs $k_i$}
+We have that $\lim \limits_{i \to \infty} \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) = c$. Let $\pi_{i \to \infty} = \pi_* = \pi_1 \rho_1 \rho_2 \rho_3 \dotsc$ where $\rho_i = (l^{\alpha}_{1})^{k_i} \cdot \pi_{2} \cdot (l^{\beta}_{2})^{k_i} \cdot \pi_{3}$. We have that $\underline{\mathbf{MP}}_0(\pi_*) = c$, and we let $\underline{\mathbf{MP}}_1(\pi_*) = d$. Note that in the limit, Player~0 uses an infinite memory strategy. Let $\sigma_0^*$ be this infinite memory strategy of Player~0.
 
 Now, we prove that any play that could be enforced by Player~1 in response to Player~0's strategy $\sigma_0^*$ could be enforced in response to any strategy $\sigma_0^i$ of Player~0, for all $i \in \mathbb{N}$. Formally, we state that:
 
 \begin{proposition}
     \label{PropContradictionPlayEnforcable}
-    If Player~1 deviates from the play $\pi_*$ by playing strategy $\sigma_1'$ to get an outcome $\pi' = \mathbf{Out}(\sigma_0^*, \sigma_1')$, then Player~1 could have played the same strategy in response to $\sigma_0^i$ to get the same outcome $\pi'$, for all $i \in \mathbb{N}$. \sgcomment{What if the deviation by Player $1$ for $\sigma_j$ leads to some $\pi_i$ for $i < j$?}
+    If Player~1 deviates from the play $\pi_*$ by playing strategy $\sigma_1'$ to get an outcome $\pi' = \mathbf{Out}(\sigma_0^*, \sigma_1')$, then Player~1 could have played the same strategy in response to $\sigma_0^i$ to get the same outcome $\pi'$, for all $i \in \mathbb{N}$. 
+    % \sgcomment{What if the deviation by Player $1$ for $\sigma_j$ leads to some $\pi_i$ for $i < j$?}
 \end{proposition}
 \begin{proof}
     From \textbf{\cref{PropConvergenceStrategies}}, we know that the sequence of $(\pi_i)$s, for all $i \in \mathbb{N}$, differ only in the $\alpha \cdot k_i$ and $\beta \cdot k_i$ values.

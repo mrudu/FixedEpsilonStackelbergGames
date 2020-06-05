@@ -19,6 +19,11 @@
 \newenvironment{caseof}{\setcounter{casenum}{1}}{\vskip.5\baselineskip}
 \newcommand{\case}[2]{\vskip.5\baselineskip\par\noindent {\bfseries Case \arabic{casenum}:} #1\\#2\addtocounter{casenum}{1}}
 
+% macros for uniformity
+\newcommand{\CS}{\mathbb{C}(S)}
+\newcommand{\CH}[1]{{\sf CH}(#1)}
+\newcommand{\Fmin}[1]{{\sf F_{\min}}{(#1)}}
+
 % For Thm, Lem, etc Statements
 \usepackage{amsthm}
 \usepackage{cleveref}% http://ctan.org/pkg/cleveref
@@ -51,9 +56,12 @@
 \Crefname{example}{Example}{Examples}
 
 % For keeping track of changes
-\newcommand{\sgcomment}[1]{{\color{purple}[#1 - \textbf{Shibashis}]}}
-\newcommand{\mbcomment}[1]{{\color{blue}[#1 - \textbf{Mrudula}]}}
-\newcommand{\track}[1]{{\color{red}[#1]}}
+%\newcommand{\sgcomment}[1]{{\color{purple}[#1 - \textbf{Shibashis}]}}
+%\newcommand{\mbcomment}[1]{{\color{blue}[#1 - \textbf{Mrudula}]}}
+%\newcommand{\track}[1]{{\color{red}[#1]}}
+\newcommand{\sgcomment}[1]{{}}
+\newcommand{\mbcomment}[1]{{}}
+\newcommand{\track}[1]{{}}
 
 % Modifying use of subsections
 \renewcommand{\subsection}[1]{{\section*{#1}}}

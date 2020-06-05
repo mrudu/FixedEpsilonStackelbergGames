@@ -1,9 +1,9 @@
 \begin{theorem}
     \label{ThmNpForASV}
-    Given a mean-payoff game $\mathcal{G}$, a vertex $v \in V$, a rational value $c \in \mathbb{Q}$ and $\epsilon > 0$, it can be decided in non-deterministic polynomial time if $\mathbf{ASV}^{\epsilon}(v) > c$ and can be established by a finite memory strategy of Player~0.
+    Given a mean-payoff game $\mathcal{G}$, a vertex $v \in V$, a rational value $c \in \mathbb{Q}$ and $\epsilon > 0$, it can be decided in non-deterministic polynomial time if $\mathbf{ASV}^{\epsilon}(v) > c$ and a finite memory strategy of Player~0 suffices for this threshold.
 \end{theorem}
 
-\noindent The rest of this section is devoted towards proving \textbf{\cref{ThmNpForASV}}. We start by stating a property of multi-dimensional mean-payoff games proved in \cite{VCDHRR15} that we rephrase here for a 2-dimensional game which expresses a bound on the weight of every finite play $\pi^f \in \mathbf{Out}_v(\sigma_0)$ where $\sigma_0$ is a memoryless winning strategy for Player~0.
+\noindent The rest of this section is devoted towards proving \textbf{\cref{ThmNpForASV}}. We start by stating a property of multi-dimensional mean-payoff games proved in \cite{VCDHRR15} that we rephrase here for a 2-dimensional game. This property expresses a bound on the weight of every finite play $\pi^f \in \mathbf{Out}_v(\sigma_0)$ where $\sigma_0$ is a memoryless winning strategy for Player~0.
 
 \begin{lemma}
     \label{LemWeightPlayGrtThanC}
@@ -62,14 +62,14 @@
 \textbf{Modified Game} We now construct a game $\mathcal{G'}$ from the given game $\mathcal{G}$ by multiplying the first dimension on each edge by -1. It is easy to see that, for all vertices $v$ in $\mathcal{G}$, we have that $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c \land \underline{\mathbf{MP}}_1 > d-\epsilon$ if and only if for the same vertex $v$ in the game $\mathcal{G'}$, we have $v \nvDash \ll 1 \gg \overline{\mathbf{MP}}_0 \geqslant -c \land \underline{\mathbf{MP}}_1 > d-\epsilon$ for some value $d \in \mathbb{Q}$. From \textbf{\cref{ConjGrtIsGrtEq}}, for the same vertex $v$, we have $v \nvDash \ll 1 \gg \overline{\mathbf{MP}}_0 \geqslant -c \land \underline{\mathbf{MP}}_1 \geqslant d'$, for some $d' \in \mathbb{R}$ and $d' > d - \epsilon$. \\ \noindent
 We modify the game $\mathcal{G'}$ further by adding $c$ to the first dimension and subtracting $d'$ from the second dimension for all the edges in the game. Note that the edges and the vertices of both games $\mathcal{G}$ and $\mathcal{G'}$ are the same, the only difference between the two games being their edge weights.
 
-\noindent Now, we state the following proposition that relates the game $\mathcal{G}$ with the modified game $\mathcal{G'}$.
+\noindent The following proposition states that the set of winning strategies for both Player~0 and Player~1 are the same in the games $\mathcal{G}$ and $\mathcal{G'}$.
 
 \begin{proposition}
     \label{PropGamStrEqNewGamStr}
     For every vertex $v \in V$ in the game $\mathcal{G'}$, Player~0 (Player~1) can ensure that $v \nvDash \ll 1 \gg \overline{\mathbf{MP}}_0 \geqslant 0 \land \underline{\mathbf{MP}}_1 \geqslant 0$ ($v \models \ll 1 \gg \overline{\mathbf{MP}}_0 \geqslant 0 \land \underline{\mathbf{MP}}_1 \geqslant 0$) with a strategy $\sigma_0^{v}$ ($\sigma_1^{v}$) if and only if Player~0 (Player~1) can ensure that $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c \land \underline{\mathbf{MP}}_1 > d-\epsilon$ ($v \models \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c \land \underline{\mathbf{MP}}_1 > d-\epsilon$) with the same strategy $\sigma_0^{v}$ ($\sigma_1^{v}$) from vertex $v$ in the game $\mathcal{G}$.
 \end{proposition}
 
-\noindent We also refer to the following result for Multi-weighted two-player games with $\mathbf{MeanPayoffInfSup}$ objective \cite{VCDHRR15}. This result establishes that if Player~0 can achieve a $\mathbf{MeanPayoffInfSup}$ objective from a vertex $v$, then Player~0 has a memoryless strategy for doing so.
+\noindent We also refer to the following result for Multi-weighted two-player games with $\mathbf{MeanPayoffInfSup}$ objective \cite{VCDHRR15}. This result establishes that if Player~0 can ensure that Player~1 does not satisfy the $\mathbf{MeanPayoffInfSup}$ objective from a vertex $v$, then she has a memoryless strategy for doing so.
 
 \begin{theorem}
     \label{ThmMemlessStrForP2}

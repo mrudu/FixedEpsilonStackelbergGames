@@ -97,12 +97,12 @@ For all mean-payoff games $\mathcal{G}$, for all vertices $v$ in $\mathcal{G}$, 
     \rho^S_{v_0}(c) \equiv \exists x,y \cdot x > c \land \Phi_S(x,y) \land \neg \Psi_S^{\epsilon}(c, y)
 \end{equation*}
 
-\noindent where $\Phi_S(x,y)$ is the symbolic encoding of $F_{\min}(\mathsf{CH}(\mathbb{C}(S)))$ as defined in \textbf{\cref{lemCHToPlay}}. This ensures that the values $(x,y)$ are the mean-payoff values realisable by some path in $S$. By \textbf{\cref{LemPsiEpsToThrOfReal}}, $\neg \Psi_S^{\epsilon}(c, y)$ expresses that the path does not cross a $(c, y)^{\epsilon}$-bad vertex. So the conjunction $\exists x,y \cdot x > c \land \Phi_S(x,y) \land \neg \Psi_S^{\epsilon}(c, y)$ establishes the existence of a witness with mean-payoff values $(x,y)$ for the threshold $c$, and hence satisfying this formula implies that $\mathbf{ASV}^{\epsilon}(v) > c$.
+\noindent where $\Phi_S(x,y)$ is the symbolic encoding of $\Fmin{\CH{\CS}}$ as defined in \textbf{\cref{lemCHToPlay}}. This ensures that the values $(x,y)$ are the mean-payoff values realisable by some path in $S$. By \textbf{\cref{LemPsiEpsToThrOfReal}}, $\neg \Psi_S^{\epsilon}(c, y)$ expresses that the path does not cross a $(c, y)^{\epsilon}$-bad vertex. So the conjunction $\exists x,y \cdot x > c \land \Phi_S(x,y) \land \neg \Psi_S^{\epsilon}(c, y)$ establishes the existence of a witness with mean-payoff values $(x,y)$ for the threshold $c$, and hence satisfying this formula implies that $\mathbf{ASV}^{\epsilon}(v) > c$.
 % The quantification over $e > 0$ expresses that $z$ is the sup over all the thresholds $z-e$ that have a witness.
 Now we consider the formula
 \begin{equation*}
     % \rho^S_{\max,v_0}(z) \equiv \forall x \cdot \rho^S_{v_0}(z) \land \rho^S_{v_0}(x) \implies z \geqslant x
-    \rho^S_{\max,v_0}(z) \equiv \forall e \cdot \rho^S_{v_0}(z-e) \land \forall x \cdot \rho^S_{v_0}(x) \implies x < z
+    \rho^S_{\max,v_0}(z) \equiv \forall e > 0 \cdot \rho^S_{v_0}(z-e) \land \forall x \cdot \rho^S_{v_0}(x) \implies x < z
 \end{equation*}
 From this formula, we can compute the $\mathbf{ASV}^{\epsilon}$ by quantifier elimination in:
 \begin{equation*}
@@ -129,7 +129,7 @@ From this formula, we can compute the $\mathbf{ASV}^{\epsilon}$ by quantifier el
     \caption{Example to calculate $\mathbf{ASV}^{\epsilon}(v_0)$}
     \label{fig:ach_example}
 \end{figure}
-\emph{We note that in the mean-payoff game there exists exactly one $\mathsf{SCC}$ which is $S = \{v_1\}$ and it contains exactly one cycle $v_1 \to v_1$. Thus, $F_{\min}(\mathsf{CH}(\mathbb{C}(S))) = \{(3,5)\}$. 
+\emph{We note that in the mean-payoff game there exists exactly one $\mathsf{SCC}$ which is $S = \{v_1\}$ and it contains exactly one cycle $v_1 \to v_1$. Thus, $\Fmin{\CH{\CS}} = \{(3,5)\}$. 
 % Note that if the $\mathsf{SCC}$ $S$ contained multiple cycles, the set $F_{\min}(\mathsf{CH}(\mathbb{C}(S)))$ can be expressed by a set of inequations. 
 Thus, we get that $\Phi_S(x,y) \equiv x = 3 \land y = 5 $. 
 Now $ \Lambda^{\epsilon}(v) = \{(c,d) \mid c \geqslant 3 \land d < 5 + \epsilon \}$,
@@ -160,8 +160,8 @@ the mean-payoff game $\mathcal{G}$ in \textbf{\cref{Ex:CompASVTOR}}.}
 \emph{We previously showed that the $\mathbf{ASV}^{\epsilon}(v_0)$ can be computed by quantifier elimination of a formula in the theory of reals with addition. Now, we compute $\mathbf{ASV}^{\epsilon}(v_0)$ by solving a set of linear programs for every $\mathsf{SCC}$ in $\mathcal{G}$.}
 \emph{In this example, since there exists only one $\mathsf{SCC}$ $S = \{v_1\}$ in $\mathcal{G}$, we will have to solve only one linear program. 
 % We start by expressing the set $F_{\min}(\mathsf{CH}(\mathbb{C}(S)))$ as a polyhedron, i.e.
-In \cite{CDEHR10}, it has been shown that $F_{\min}(\mathsf{CH}(\mathbb{C}(S)))$ can be defined using a set of linear inequations.
-Now recall from \cref{Ex:CompASVTOR} that $F_{\min}(\mathsf{CH}(\mathbb{C}(S))=\{(3,5)\}$.
+In \cite{CDEHR10}, it has been shown that $\Fmin{\CH{\CS}}$ can be defined using a set of linear inequations.
+Now recall from \cref{Ex:CompASVTOR} that $\Fmin{\CH{\CS}}=\{(3,5)\}$.
 % \equiv \{x = 3, y = 5\}$. 
 Note that $\Lambda^{\epsilon} = \{(c,y) \:|\: c \geqslant 3 \land y < 5 + \epsilon \}$.
 % One crucial part to our approach is to compute $\Lambda^{'\epsilon}$ from $\Lambda^{\epsilon}$ by replacing the non-strict inequality in the first dimension with a strict inequality.
@@ -200,7 +200,7 @@ The algorithm to compute $\mathbf{ASV}^{\epsilon}(v)$ is defined as follows:
     \item First we note that using 
     % \textbf{\cref{lemCHToPlay}} that we have that, 
     results from \cite{CDEHR10},
-    for each $\mathsf{SCC}$ $S$ in the mean-payoff game $\mathcal{G}$, the set $F_{\min}(\mathsf{CH}(\mathbb{C}(S)))$ can be expressed as a set of exponentially many inequations.
+    for each $\mathsf{SCC}$ $S$ in the mean-payoff game $\mathcal{G}$, the set $\Fmin{\CH{\CS}}$ can be expressed as a set of exponentially many inequations.
     % \item From \textbf{\cref{LemPsiEpsToThrOfReal}}, we can compute a representation of $\Lambda^{\epsilon}(v)$ as a finite union of system of strict and non-strict inequations. Thus, we can represent the complement $(\mathbb{R}^2 - \Lambda^{\epsilon}(v))$ as a finite union of system of strict and non-strict inequations.
     % \sgcomment{I think we should define $\Lambda'^{\epsilon}(v)=\{(x,y) \:|\: x > c \land y < d+\epsilon\}$. Here $c$ and $d$ are as in the definition of $\Lambda^{\epsilon}(v)$.}
     % \mbcomment{What are the values $c$ and $d$ in this context?}
@@ -208,10 +208,10 @@ The algorithm to compute $\mathbf{ASV}^{\epsilon}(v)$ is defined as follows:
     % To compute the set $\Lambda'^{\epsilon}(v)$, we convert the non-strict inequations corresponding to the first dimension in $\Lambda^{\epsilon}(v)$ to strict inequations as explained above.
     \item For each $\mathsf{SCC}$ $S$ in the mean-payoff game $\mathcal{G}$, we see that the set of values satisfying the formula $\rho^S_{\max,v}$ can be expressed as a set of linear programs in the following manner: 
     \begin{itemize}
-      \item For each linear program, we have two variables $x$ and $y$ which represent the mean-payoff values of Player~0 and Player~1 respectively, corresponding to paths in $F_{\min}(\mathsf{CH}(\mathbb{C}(S)))$ and a third variable $c$ which represents $c$ in the formula $\rho^S_{v}(c)$.
+      \item For each linear program, we have two variables $x$ and $y$ which represent the mean-payoff values of Player~0 and Player~1 respectively, corresponding to paths in $\Fmin{\CH{\CS}}$ and a third variable $c$ which represents $c$ in the formula $\rho^S_{v}(c)$.
       \item The 
     %   set of linear inequations which represents $F_{\min}(\mathsf{CH}(\mathbb{C}(S))) \backslash \Lambda'^{\epsilon}(v)$
-      formula $\rho^S_{v}(c)$ can be expressed by a disjunction of set of linear inequations, i.e., $\bigvee_i \mathsf{Cst}_i$ where each $\mathsf{Cst}_i$ is a conjunction of linear inequations. We note that the variables $(c, d)$ satisfy the linear inequations which represent the set $\bar{\Lambda}^{\epsilon}(v)$, and the variables $(x, y)$ satisfy the linear inequations which represent the set $F_{\min}(\mathsf{CH}(\mathbb{C}(S)))$. We also include the inequation $x > c$.
+      formula $\rho^S_{v}(c)$ can be expressed by a disjunction of set of linear inequations, i.e., $\bigvee_i \mathsf{Cst}_i$ where each $\mathsf{Cst}_i$ is a conjunction of linear inequations. We note that the variables $(c, d)$ satisfy the linear inequations which represent the set $\bar{\Lambda}^{\epsilon}(v)$, and the variables $(x, y)$ satisfy the linear inequations which represent the set $\Fmin{\CH{\CS}}$. We also include the inequation $x > c$.
       Further, to emulate the formula $\rho^S_{v}(c)$, the variable $d$ should assume the value of $y$ that corresponds to the mean-payoff of Player~$1$ as stated above.
       Note that in the LP formulation, each strict inequation is replaced by a non-strict inequation.
       
