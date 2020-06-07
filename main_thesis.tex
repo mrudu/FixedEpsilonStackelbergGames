@@ -1,6 +1,9 @@
 \documentclass{report}
 \usepackage{suthesis-2e}
 
+% For combining rows in tables
+\usepackage{multirow}
+
 % For list like - (i), (ii) etc
 \usepackage{paralist}
 
@@ -56,12 +59,12 @@
 \Crefname{example}{Example}{Examples}
 
 % For keeping track of changes
-%\newcommand{\sgcomment}[1]{{\color{purple}[#1 - \textbf{Shibashis}]}}
-%\newcommand{\mbcomment}[1]{{\color{blue}[#1 - \textbf{Mrudula}]}}
-%\newcommand{\track}[1]{{\color{red}[#1]}}
-\newcommand{\sgcomment}[1]{{}}
-\newcommand{\mbcomment}[1]{{}}
-\newcommand{\track}[1]{{}}
+\newcommand{\sgcomment}[1]{{\color{purple}[#1 - \textbf{Shibashis}]}}
+\newcommand{\mbcomment}[1]{{\color{blue}[#1 - \textbf{Mrudula}]}}
+\newcommand{\track}[1]{{\color{red}[#1]}}
+% \newcommand{\sgcomment}[1]{{}}
+% \newcommand{\mbcomment}[1]{{}}
+% \newcommand{\track}[1]{{}}
 
 % Modifying use of subsections
 \renewcommand{\subsection}[1]{{\section*{#1}}}
