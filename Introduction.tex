@@ -4,11 +4,9 @@
     \item application of Stackelberg games
 \end{enumerate}}
 
-Stackelberg games were first introduced by German economist Heinrich Freiherr von Stackelberg in his book \textit{Marktform und Gleichgewicht} in 1934 \cite{S34} to better simulate how firms behave in the market. The players of this game comprise of one leader firm and follower firms. The leader starts the game by announcing her strategy and the followers respond by playing the optimal reponse to the leader's strategy.
+Stackelberg games were introduced by German economist Heinrich Freiherr von Stackelberg in \cite{S34} to simulate how firms behave in the market. The players of this game comprise of one leader firm and multiple follower firms. The leader starts the game by announcing her strategy and the followers respond by playing the optimal reponse to the leader's strategy.
 
 % Let us demonstrate why Stackelberg Equilibria produce a better payoff than their Nash counterparts with an example. Consider the period of 1894 - 1999 where the motorcycle manufacturers were in a competition to produce the fastest production motorcycle. After over a century of one-upmanship, some regulators and politicians in Europe, fearing an outbreak of illegal racing as riders try to break the 200 mph barrier, called for an import ban against high speed motorcycles. To preempt regulation and avoid negative publicity, the manufacturers voluntarily entered into a \text{Gentlemen's agreement} to limit the speed of their machines to 300 kmph (186 mph), starting with 2000 models. A Nash Equilibrium strategy would suggest that each company must break the agreement to produce a faster motorcycle, thus getting a higher market share. But breaking the agreement would likely result in an import ban regulation which would imply a huge market loss for all manufacturers involved. On the other hand, a Stackelberg Equilibrium strategy would explain why that no company must break the agreement, and thus would ideally yield equal market share for all motorcycle companies involved.\cite{WIKI00}
-
-We demonstrate here with a mean-payoff game example why Stackelberg Equilibrium produces a better payoff than a Nash equilibrium strategy. Consider the example depicted in \cref{fig:nash_vs_stackelberg}. Here, vertices of the leader, Player~0, are depicted with blue circles and the vertices of the follower, Player~1, are depicted with red squares.
 
 \begin{figure}
     \centering
@@ -17,10 +15,10 @@ We demonstrate here with a mean-payoff game example why Stackelberg Equilibrium 
       \tikzstyle{every state}=[fill=white,draw=black,text=black,minimum size=2cm]
     
       \node[squarednode]                                                 (A)              {$v_0$};
-      \node[state, draw=red!60, fill=red!5]                              (B) [left of=A]  {$v_1$};
-      \node[state, draw=red!60, fill=red!5]                              (C) [right of=A] {$v_3$};
+      \node[state, draw=red!60, fill=red!5]                              (B) [left of=A]  {$v_2$};
+      \node[state, draw=red!60, fill=red!5]                              (C) [right of=A] {$v_1$};
       \node[draw=none, fill=none, minimum size=0cm, node distance = 2cm] (D) [above of=A] {$start$};
-      \node[state, draw=red!60, fill=red!5]                              (E) [left of=B]  {$v_2$};
+      \node[state, draw=red!60, fill=red!5]                              (E) [left of=B]  {$v_3$};
       \path (A) edge              node {(1,2)} (B)
                 edge              node {(0,1)} (C)
             (B) edge [loop above] node {(1,2)} (B)
@@ -33,30 +31,76 @@ We demonstrate here with a mean-payoff game example why Stackelberg Equilibrium 
     \label{fig:nash_vs_stackelberg}
 \end{figure}
 
-In this paper, we study the notion of Stackelberg Equilibria on two-player non-zero sum infinite duration mean-payoff games played on graph arenas. We note $\Sigma_0$ the set of strategies of Player~0, also called the leader, and $\Sigma_1$ the set of strategies of Player~1, also called the follower. Additionally, the game comes with two (usually $\mathbb{R}$-valued) mean-payoff functions, $\mathbf{MP}_0$ and $\mathbf{MP}_1$, that determine the payoff each player receives: if $\sigma_0 \in \Sigma_0$ and $\sigma_1 \in \Sigma_1$ are chosen then Player~0 receives the payoff $\mathbf{MP}_0 (\mathsf{Out}(\sigma_0$, $\sigma_1))$ while Player~1 receives the payoff $\mathbf{MP}_1(\mathsf{Out}(\sigma_0$, $\sigma_1))$, where $\mathsf{Out}(\sigma_0$, $\sigma_1)$ refers to the play which is the outcome of Player~0 and Player~1 playing their respective strategies. Both players aim at maximizing their respective payoffs. As mentioned before, in a Stackelberg game, players play sequentially as follows.
+We demonstrate here with a mean-payoff game example why Stackelberg Equilibrium produces a better payoff for the leader than a Nash equilibrium strategy. Consider the example depicted in \cref{fig:nash_vs_stackelberg} where there is one leader player (blue circle) and one follower player (red square). In this game, the dominant strategy for the leader, $\sigma_L^{\mathsf{Nash}}$, is to play $v_2 \to v_3$. In this case, the follower will respond with the strategy, $\sigma_F^{Nash}$, where he plays $v_0 \to v_1$. The strategy profile ($\sigma_L^{\mathsf{Nash}}$, $\sigma_F^{\mathsf{Nash}}$) is in Nash Equilibrium and yields a payoff of 0 to the leader. However, if the leader announces a strategy $\sigma_L^{\mathsf{Stackelberg}}$ where she plays $v_2 \to v_2$, the follower will get a better payoff if he responds with a strategy $\sigma_F^{\mathsf{Stackelberg}}$ where he plays $v_0 \to v_2$. Thus, the strategy profile ($\sigma_L^{\mathsf{Stackelberg}}$, $\sigma_F^{\mathsf{Stackelberg}}$) is in Stackelberg Equilibrium and yields a payoff of 1 to the leader.
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.8cm,
+                        semithick, squarednode/.style={rectangle, draw=blue!60, fill=blue!5, very thick, minimum size=15mm}]
+      \tikzstyle{every state}=[fill=white,draw=black,text=black,minimum size=2cm]
+    
+      \node[squarednode]                                                 (A)              {$v_0$};
+      \node[state, draw=red!60, fill=red!5]                              (B) [left of=A]  {$v_2$};
+      \node[state, draw=red!60, fill=red!5]                              (C) [right of=A] {$v_1$};
+      \node[draw=none, fill=none, minimum size=0cm, node distance = 2cm] (D) [above of=A] {$start$};
+      \node[state, draw=red!60, fill=red!5]                              (E) [left of=B]  {$v_3$};
+      \path (A) edge              node {(1,2)} (B)
+                edge              node {(0,1)} (C)
+            (B) edge [loop above] node {(1,1)} (B)
+                edge              node {(2,0)} (E)
+            (C) edge [loop above] node {(0,1)} (C)
+            (E) edge [loop above] node {(2,0)} (E)
+            (D) edge [left] node {} (A);
+    \end{tikzpicture}
+    \caption{An example in which Stackelberg equilibrium for Player $0$ gives better payoff than Nash equilibrium.}
+    \label{fig:cooperative_vs_adversarial}
+\end{figure}
+
+Thus, we can see that the leader with the power to communicate her strategy can incentivise the follower to play a strategy which she desires and thereby get a better payoff. Both the leader and the follower aim at maximizing their respective payoffs. However, the follower can have multiple optimal responses to the leader's strategy. Two different scenarious can be considered in this setting: either the optimal-response strategy is imposed by the leader (or equivalently chosen cooperatively by the two players), or the optimal-response strategy is chosen adversarially by the follower. We demonstrate the two scenarios with an example depicted in \cref{fig:cooperative_vs_adversarial}. Similar to the previous example in \cref{fig:nash_vs_stackelberg}, the leader can announce her strategy $\sigma_L$ where she plays $v_2 \to v_2$. However, in this example the follower has two optimal responses, i.e. he can play $v_0 \to v_1$ or $v_0 \to v_2$. If the follower is co-operative, then he will choose the strategy which also maximizes the leader's payoff. In this example, the co-operative follower will choose to play the strategy $v_0 \to v_2$. Thus, in the cooperative setting, the leader receives a payoff of 2 and the follower receives a payoff of 1. But if the follower is adversarial, he will choose the strategy which minimizes the payoff of the leader. In this example, the adversarial follower will choose to play $v_0 \to v_1$. Thus, in the cooperative setting, the leader receives a payoff of 0 and the follower receives a payoff of 1.
+
+The adversarial case is more interesting because it allows us to model the situation in which the leader can only choose her strategy and must be prepared to face any rational response of follower, i.e. if follower has several possible optimal responses then the leader's strategy should be designed to face all of them.
+
+In this paper, we study the notion of Adversarial Stackelberg Equilibria on two-player non-zero sum infinite duration mean-payoff games played on graph arenas. Here, the two players are the leader, also called Player~0 and the follower, also called Player~1. The game comes with two (usually $\mathbb{R}$-valued) mean-payoff functions that determine the payoff each player receives. As mentioned before, in a Stackelberg game, players play sequentially as follows.
 \begin{inparaenum}[(i)]
-\item Player~0, the leader, announces her choice of strategy $\sigma_0 \in \Sigma_0$. 
-\item Player~1, the follower, announces his choice of strategy $\sigma_1 \in \Sigma_1$ in response to the leader's strategy. 
-\item Both players receive their respective payoffs: $\mathbf{MP}_0 (\mathsf{Out}(\sigma_0$, $\sigma_1))$ and $\mathbf{MP}_1 (\mathsf{Out}(\sigma_0$, $\sigma_1))$.
+\item Player~0, the leader, announces her choice of strategy $\sigma_0$. 
+\item Player~1, the follower, announces his choice of strategy $\sigma_1$ in response to the leader's strategy $\sigma_0$. 
+\item Both players receive their respective mean-payoffs determined by their respective mean-payoff functions.
 \end{inparaenum}
-Due to the sequential nature of the game, Player~1 knows the strategy $\sigma_0$, and so to act rationally (s)he should choose a strategy $\sigma_1$ that maximizes the payoff $\mathbf{MP}_1 (\mathsf{Out}(\sigma_0$, $\sigma_1))$. If such a strategy $\sigma_1$ exists, it is called a best-response to the strategy $\sigma_0 \in \Sigma_0$.
-In this paper, we assume that Player~1 is not completely rational, and hence Player~1 would choose an $\epsilon$-optimal best-response to the strategy $\sigma_0 \in \Sigma_0$. In \cite{FGR20}, we establish that there always exists an $\epsilon$-optimal best response for Player~1 for every strategy $\sigma_0 \in \Sigma_0$ of Player~0.
-In turn, if the leader assumes an almost-rational response of the follower to her strategy, this should guide the leader when choosing $\sigma_0 \in \Sigma_0$.
-Indeed, the leader should choose a strategy $\sigma_0 \in \Sigma_0$ such that the value $\mathbf{MP}_0 (\mathsf{Out}(\sigma_0$, $\sigma_1))$ is as large as possible when $\sigma_1$ is an $\epsilon$-optimal best-response of the follower.
+Due to the sequential nature of the game, Player~1 knows the strategy $\sigma_0$, and so to act rationally (s)he should choose a strategy that maximizes his payoff. If such a strategy exists, it is called a best-response to Player~0's strategy $\sigma_0$. However, best-responses are not guaranteed to always exist [\cite{FGR20}]. Thus, we introduce the concept of $\epsilon$-optimal best responses. Here, the follower, i.e., Player~1 is plays any strategy that gives him a payoff that is upto an $\epsilon$ amount lesser than the best payoff he can recieve. In \cite{FGR20}, we establish that there always exists an $\epsilon$-optimal best response for Player~1 for every strategy of Player~0. In this paper, we assume that Player~1 is not completely rational, and hence Player~1 would always choose an $\epsilon$-optimal best-response to Player~0's strategy $\sigma_0$
+In turn, if the leader assumes an almost-rational response of the follower to her strategy, this should guide the leader when choosing her strategy $\sigma_0$.
+Indeed, the leader should choose a strategy $\sigma_0 $ such that payoff she receives is as large as possible when the follower plays an adversarial $\epsilon$-optimal best-response.
 
-Two different scenarios can be considered in this setting: either the best-response $\sigma_1 \in \Sigma_1$ is imposed by the leader (or equivalently chosen cooperatively by the two players), or the best-response is chosen adversarially by Player~1. But, the adversarial case is more interesting because it allows us to model the situation in which the leader can only choose $\sigma_0 \in \Sigma_0$ and must be prepared to face any almost rational response of Player~1, i.e. if Player~1 has several possible $\epsilon$-best responses then $\sigma_0$ should be designed to face all of them. In this paper, our main contribution is to investigate the second route.
+\textbf{Related Work} 
 
-\textbf{Related Work} In \cite{FKL10}, we study the notion of rational synthesis in the co-operative setting, whereas in \cite{KPV16}, we study the notion of rational synthesis in adversarial setting. In \cite{CFGR16}, we study the complexity of rational synthesis for various omega-regular objectives in both the adversarial and co-operative setting. In \cite{GS14}, we study multi-player mean-payoff Stackelberg games in the co-operative setting (here the leader assigns strategies to herself and her followers). 
+In \cite{FKL10}, the authors introduce the notion of rational synthesis in the co-operative setting for omega-regular objectives. In \cite{KPV16}, the authors study the notion of adversarial rational synthesis. In \cite{CFGR16}, the complexity of rational synthesis for various omega-regular objectives is established in both the adversarial and co-operative setting. In \cite{GS14}, the authors study multi-player mean-payoff Stackelberg games in the co-operative setting.
 
 % In \cite{GS18}, we study Bi-Matrix Stackelberg games in both co-operative and adversarial setting. In \cite{GSTDP16}, we study the concept of Incentive Stackelberg mean-payoff games, where in addition to assigning strategies to all players, the leader can also transfer parts of her payoff to other players to incentivise to follow the assigned strategy. In \cite{CHJ06}, we study the concept of Secure Equilibrium in two-player non-zero sum games where the players are adversarial.  This is very similar to Adversarial Stackelberg Equilibrium but in the case of Adversarial Secure Equilibrium, there exists no leader player in the game. 
 
-\track{In \cite{GS18}, the authors study both Stackelberg (leader) equilibrium and incentive equilibrium over bimatrix games. It is not difficult to see that the leader can improve upon the payoff by providing an incentive to her follower which is actually a share of her own payoff. They define the leader strategy profile as one in which the follower cannot improve his payoff by deviating, and hence every Nash equlibrium is a leader strategy profile. A leader equilibrium is a leader strategy profile that gives the highest payoff to the leader. Every leader strategy profile is an incentive strategy profile with incentive value $0$. Since in this work, the authors consider mixed strategies, the existence of Nash equilibrium in bimatrix games \cite{Nash50,LH64} implies the existence of leader and incentive equilibria.}
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[]
+    \centering
+    \begin{tabular}{ll|c|c|}
+        \cline{3-4}
+        & & \multicolumn{2}{c|}{Player I} \\ 
+        \cline{3-4} 
+        & & I & II \\ 
+        \hline
+        \multicolumn{1}{|c|}{\multirow{2}{*}{Player II}} & \multicolumn{1}{c|}{I}  & (1, 4) & (4, 2)\\ 
+        \cline{2-4} 
+        \multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{II} & (1, 3) & (3, 5) \\
+        \hline
+    \end{tabular}
+    \caption{Example of Nash vs Stackelberg Equilibrium in a bi-matrix game}
+    \label{tab:bi-matrix-game}
+\end{table}
+\track{In \cite{GS18}, the authors study both Stackelberg (leader) equilibrium and incentive equilibrium over bi-matrix games. It is not difficult to see that the leader can improve upon the payoff by providing an incentive to her follower which is actually a share of her own payoff. They define the leader strategy profile as one in which the follower cannot improve his payoff by deviating, and hence every Nash equlibrium is a leader strategy profile. A leader equilibrium is a leader strategy profile that gives the highest payoff to the leader. Every leader strategy profile is an incentive strategy profile with incentive value $0$. Since in this work, the authors consider mixed strategies, the existence of Nash equilibrium in bi-matrix games \cite{Nash50,LH64} implies the existence of leader and incentive equilibria.}
 
 \track{In \cite{CHJ06}, the authors study secure Nash equilibrium, where the objectives are considered in a lexicographic order. The two players try to first maximise their own payoffs, and then minimize the payoff of the other player. A secure Nash equilibrium is a Nash equilibrium.}
 
-We illustrate these equilibria stated above with the help of a bimatrix game.
-\sgcomment{Add the bimatrix example from the slides}
-Consider the bimatrix game shown in Table \ref{tab:bimatrix}. Considering pure strategy profiles, the only pure strategy Nash equilibrium (and thus a secure Nash equilibrium) is the profile (I, I), while the profile (II, II) is a leader equilibrium.
+We illustrate these equilibria stated above with the help of a bi-matrix game.
+\sgcomment{Add the bi-matrix example from the slides}
+Consider the bi-matrix game shown in \cref{tab:bi-matrix-game}. Considering pure strategy profiles, the only pure strategy Nash equilibrium (and thus a secure Nash equilibrium) is the profile (I, I), while the profile (II, II) is a leader equilibrium.
 
 In \cite{GSTDP16}, we study the concept of Incentive Stackelberg mean-payoff games, where in addition to assigning strategies to all players, the leader can also transfer parts of her payoff to other players to incentivise to follow the assigned strategy. 
 
