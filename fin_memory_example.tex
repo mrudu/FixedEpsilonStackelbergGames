@@ -5,12 +5,12 @@ There exists a mean-payoff game $\mathcal{G}$ with vertex $v$ such that a finite
 \begin{figure}
     \centering
     \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.8cm,
-                        semithick, squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=15mm}]
+                        semithick, squarednode/.style={rectangle, draw=blue!60, fill=blue!5, very thick, minimum size=15mm}]
       \tikzstyle{every state}=[fill=white,draw=black,text=black,minimum size=2cm]
     
       \node[squarednode]   (A)                    {$v_0$};
-      \node[state]         (B) [left of=A] {$v_1$};
-      \node[state]         (C) [right of=A] {$v_2$};
+      \node[state, draw=red!60, fill=red!5]         (B) [left of=A] {$v_1$};
+      \node[state, draw=red!60, fill=red!5]         (C) [right of=A] {$v_2$};
       \node[draw=none, fill=none, minimum size=0cm, node distance = 2cm]         (D) [above of=A] {$start$};
       \path (A) edge [bend left, below] node {(1,1)} (B)
                 edge              node {(0,1)} (C)
