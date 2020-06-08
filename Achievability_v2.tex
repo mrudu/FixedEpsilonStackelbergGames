@@ -71,7 +71,11 @@ For the sequence of strategies $(\sigma_0^i)_{i \in \mathbb{N}}$, we note that t
     The sequence $(d_i)_{i \in \mathbb{N}}$ is monotonic. 
 \end{proposition}
 % \mbcomment{i vs $k_i$}
-We have that $\lim \limits_{i \to \infty} \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) = c$. Let $\pi_{i \to \infty} = \pi_* = \pi_1 \rho_1 \rho_2 \rho_3 \dotsc$ where $\rho_i = (l^{\alpha}_{1})^{k_i} \cdot \pi_{2} \cdot (l^{\beta}_{2})^{k_i} \cdot \pi_{3}$. We have that $\underline{\mathbf{MP}}_0(\pi_*) = c$, and we let $\underline{\mathbf{MP}}_1(\pi_*) = d$. Note that in the limit, Player~0 uses an infinite memory strategy. Let $\sigma_0^*$ be this infinite memory strategy of Player~0.
+We have that $\lim \limits_{i \to \infty} \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) = c$.
+
+Consider a  sequence $(\delta_i)_{i \in \mathbb{N}}$ of strictly decreasing positive rational numbers. We construct a play $\pi*$ as follows: for $i \in \{1, 2, 3, \dots\}$, the play $\pi*$ follows the play $\pi_i$ until the mean-payoff of the prefix of the play $\pi*$ becomes greater than $c_i - \delta_i$. Then the play $\pi*$ follows the play $\pi_(i+1)$ and so on. We define a strategy $\sigma_0^*$ for Player~0 as follows: if Player~1 follows the play $\pi*$, then Player~0 follows the play $\pi*$. If Player~1 deviates from $\pi*$, then Player~0 employs the memoryless strategy described by \cref{RemarkStratEqual}.
+
+% Let $\pi_{i \to \infty} = \pi_* = \pi_1 \rho_1 \rho_2 \rho_3 \dotsc$ where $\rho_i = (l^{\alpha}_{1})^{k_i} \cdot \pi_{2} \cdot (l^{\beta}_{2})^{k_i} \cdot \pi_{3}$. We have that $\underline{\mathbf{MP}}_0(\pi_*) = c$, and we let $\underline{\mathbf{MP}}_1(\pi_*) = d$. Note that in the limit, Player~0 uses an infinite memory strategy. Let $\sigma_0^*$ be this infinite memory strategy of Player~0.
 
 Now, we prove that any play that could be enforced by Player~1 in response to Player~0's strategy $\sigma_0^*$ could be enforced in response to any strategy $\sigma_0^i$ of Player~0, for all $i \in \mathbb{N}$. Formally, we state that:
 
@@ -84,7 +88,7 @@ Now, we prove that any play that could be enforced by Player~1 in response to Pl
     From \textbf{\cref{PropConvergenceStrategies}}, we know that the sequence of $(\pi_i)$s, for all $i \in \mathbb{N}$, differ only in the $\alpha \cdot k_i$ and $\beta \cdot k_i$ values.
     For every $i \in \mathbb{N}$, we describe the strategy $\sigma_0^i$ which ensures that $\mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$. Now, we recall that if Player~1 deviates from $\pi_i$, then for each vertex $v$ appearing in the path $\pi_i$, Player~0 employs a memoryless strategy that establishes $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c_i \land \underline{\mathbf{MP}}_0 > d_i - \epsilon$.
 
-    From \textbf{\cref{RemarkStratEqual}}, we know that the memoryless strategy employed by Player~0 is the same for all $\sigma_0^i$, for every $i \in \mathbb{N}$. Thus, at the limit $i \to \infty$, if Player~1 deviates from $\pi_*$, Player~0 employs the same memoryless strategy which it would have apped if Player~1 had deviated from any play $\pi_i$, for all $i \in \mathbb{N}$.
+    From \textbf{\cref{RemarkStratEqual}}, we know that the memoryless strategy employed by Player~0 is the same for all $\sigma_0^i$, for every $i \in \mathbb{N}$. Thus, at the limit $i \to \infty$, if Player~1 deviates from $\pi_*$, Player~0 employs the same memoryless strategy which it would have applied if Player~1 had deviated from any play $\pi_i$, for all $i \in \mathbb{N}$.
 \end{proof}
 
 Now, we have the tools to prove \textbf{\cref{ConjAchiev}}.
