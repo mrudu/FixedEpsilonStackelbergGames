@@ -6,7 +6,7 @@
 
 Stackelberg games were introduced by German economist Heinrich Freiherr von Stackelberg in \cite{S34} to simulate how firms behave in the market. The players of this game comprise of one leader firm and multiple follower firms. The leader starts the game by announcing her strategy and the followers respond by playing the optimal response to the leader's strategy.
 
-\begin{table}[]
+\begin{table}[h]
     \centering
     \begin{tabular}{ll|c|c|}
         \cline{3-4}
@@ -174,7 +174,7 @@ In \cite{GS18}, the authors consider a class of Arms Race game as an example for
     \item Emmanuel Filiot, Raffaella Gentilini, and Jean-François Raskin. The Adversarial Stackelberg Value in Quantitative Games
 \end{enumerate}}
 
-\textbf{Structure of the \document} In \cref{sec:prelim}, we introduce the necessary preliminaries for our definitions and developments. 
+\textbf{Structure of the \mydoc} In \cref{sec:prelim}, we introduce the necessary preliminaries for our definitions and developments. 
 In \cref{sec:examples}, we examine the memory requirements of both players for playing their strategies. We establish that Player~0 may require infinite memory to achieve the $\mathbf{ASV}^{\epsilon}$ as shown in \cref{ThmExNeedInfMem}. We also establish that Player~1 may require infinite memory to play an $\epsilon$-optimal best response as shown in \cref{ThmP1NeedInfMem}. 
 In \cref{sec:ThresholdProblem}, we consider the threshold problem, i.e. checking if $\mathbf{ASV}^{\epsilon} > c$. We define a notion of $\epsilon$-witness for $\mathbf{ASV}^{\epsilon} > c$ and show that $\mathbf{ASV}^{\epsilon} > c$ if and only if there exists an $\epsilon$-witness for $\mathbf{ASV}^{\epsilon} > c$, as shown in \cref{ThmWitnessASVInfMem}. We also define a notion of $\epsilon$-regular-witness and construct a finite memory strategy for Player~0 in $\mathsf{NP}$-time that achieves $\mathbf{ASV}^{\epsilon} > c$ as shown in \cref{ThmNpForASV}. We also study the effect of limiting Player~0 to playing finite memory strategies on the $\mathbf{ASV}^{\epsilon}$. We show in \cref{CorASVEqASVFin} that there is no effect on $\mathbf{ASV}^{\epsilon}$.
 In \cref{sec:ComputeASV}, we present an algorithm to compute the $\mathbf{ASV}^{\epsilon}$. We first express $\mathbf{ASV}^{\epsilon}$ as a formula in Theory of Reals with addition, as shown in \cref{ThmComputeASV}. We then express this formula as a set of linear programs and thus show that $\mathbf{ASV}^{\epsilon}$ can be computed in $\mathsf{ExpTime}$, as shown in \cref{ExpTimeForComputeASV}.
