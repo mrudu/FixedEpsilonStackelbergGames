@@ -1,12 +1,25 @@
 In this work, we have studied the notion of adversarial Stackelberg equilibrium on two-player non-zero sum infinite duration mean-payoff games played on graph arenas. We also assumed that the follower is not completely rational, and hence would always choose an $\epsilon$-optimal best-response to the leader's strategy.
 
 We show that infinite memory is required for the leader to achieve the $\mathbf{ASV}^{\epsilon}$. We also show that the follower may require infinite memory to play an $\epsilon$-optimal best-response. 
-Next we considered the threshold Problem, i.e, checking if $\mathbf{ASV}^{\epsilon} > c$, and showed that it can be decided in $\mathsf{NP}$-time. Additionally, if $\mathbf{ASV}^{\epsilon} > c$, we can construct a finite memory strategy for the leader to achieve this threshold. We show that the $\mathbf{ASV}^{\epsilon}$ can be expressed as a formula in the theory of reals with addition. Furthermore, we establish that this formula can be expressed as a set of linear programs, which can be solved in $\mathsf{EXP}$-time to compute the $\mathbf{ASV}^{\epsilon}$. Finally, we show that $\mathbf{ASV}^{\epsilon}$ is always achievable.
+Next we considered the threshold problem, i.e, checking if $\mathbf{ASV}^{\epsilon} > c$, and showed that it can be decided in $\mathsf{NP}$-time. Additionally, we show that if $\mathbf{ASV}^{\epsilon} > c$, we can construct a finite memory strategy for the leader to achieve this threshold. 
+We then considered the problem of computing the $\mathbf{ASV}^{\epsilon}$.
+We show that the $\mathbf{ASV}^{\epsilon}$ can be expressed as a formula in the theory of reals with addition. Furthermore, we establish that this formula can be expressed as a set of exponentially many linear programs, which can be solved in $\mathsf{EXP}$-time to compute the $\mathbf{ASV}^{\epsilon}$.
+We also consider the Adversarial Stackelberg Value when Player~$0$ is restricted to use only finite memory strategies.
+This value is denoted by $\mathbf{ASV}^{\epsilon}_{\sf FM}$.
+We show that $\mathbf{ASV}^{\epsilon}_{\sf FM} = \mathbf{ASV}^{\epsilon}$.
+Finally, we show that $\mathbf{ASV}^{\epsilon}$ is always achievable.
 
-For future work, we consider the following directions.
+For future work, we consider several short-term and long-term research directions.
+Though we looked at the upper bounds of different problems, we have not yet looked at the hardness of problems that we studied here, for example, the threshold problem.
+We conjecture that the threshold problem is at least as hard as deciding the existence of a winning strategy for zero-sum mean-payoff games in a bi-weighted game graph which is an open problem.
+As a first step, we plan to study the relative hardness result mentioned above.
+We would also like to explore possible characterization of Stackelberg mean-payoff games where a finite memory strategy of Player~$0$ suffices to achieve the $\mathbf{ASV}^{\epsilon}$.
+This will allow us to get an estimate of how ``complex" the game is in terms of the memory required by Player~$0$ in order to achieve the $\mathbf{ASV}^{\epsilon}$.
 \begin{enumerate}
-    \item \textbf{Multiple followers}: In this work, we studied stackelberg mean-payoff games with one adversarial $\epsilon$-optimal follower. One obvious line of research is to extend this work to sudy stackelberg mean-payoff games with multiple adversarial $\epsilon$-optimal followers. This would model how players would react in a more realistic situation.
-    \item \textbf{Other Quantitative Objectives}: In this work, we studied stackelberg mean-payoff games where  each player has mean-payoff objectives. We can also extend this work to study stackelberg games with where the players have other quantitative objectives such as discounted sum and quantitative reachability.
-    \item \textbf{Other Solution Concepts:} The main solution concept that was focused on in this work was Nash Equilibrium. Going forward, we could study other forms of solution concepts such as subgame perfect equilibrium in both the co-operative as well as adversarial setting.
-    \item \textbf{Multiple leaders}: It would be interesting to explore a scenario where there are several leaders who are in an equilibrium (such as Nash), and each leader has several followers. Here, we can explore many lexicographically ordered objectives. For example, we could consider scenarios where the leaders are rational yet adversarial and thus, would try to maximize their own payoff first and then minimize the payoff of other leaders. 
+    \item \textbf{Multiple followers}: So far, we studied Stackelberg mean-payoff games with one adversarial $\epsilon$-optimal follower. One natural extension to this work is to study Stackelberg mean-payoff games with multiple $\epsilon$-optimal adversarial followers.
+    % This would model how players would react in a more realistic situation.
+    \item \textbf{Other Quantitative Objectives} In this work, we studied Stackelberg mean-payoff games where  each player has mean-payoff objectives. We can also extend this work to study Stackelberg games where the players have other quantitative objectives such as discounted sum or quantitative reachability.
+    One can even consider extensions with combinations of various quantitative objectives.
+    \item \textbf{Other Solution Concepts} The main solution concept that is focused on in this work is Nash Equilibrium. Going forward, we also plan to study other forms of solution concepts such as subgame perfect equilibrium in both the co-operative as well as the adversarial setting.
+    \item \textbf{Multiple leaders} It would be interesting to explore a scenario where there are several leaders who are in an equilibrium (such as Nash), and each leader has several followers. Here, we can also explore lexicographically ordered objectives. For example, we may consider scenarios where the leaders are rational yet adversarial and thus, would try to maximize their own payoff first and then minimize the payoff of the other leaders. 
 \end{enumerate}
