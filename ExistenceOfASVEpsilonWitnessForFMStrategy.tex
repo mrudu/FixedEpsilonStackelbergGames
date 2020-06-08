@@ -4,6 +4,7 @@ Given a mean-payoff game $\mathcal{G}$, we study the problem of computing $\math
 A play $\pi$ is called an $\epsilon$-regular-witness of $\mathbf{ASV}_{\mathsf{FM}}^{\epsilon}(v) > c$ if it is a $(c',d)^{\epsilon}$-witness of $\mathbf{ASV}_{\mathsf{FM}}^{\epsilon}(v) > c$ for some $c',d$ and it can be expressed as $\pi = \pi_1 (\pi_2)^{\omega}$, where $\pi_1, \pi_2$ are paths in $\mathcal{G}$.
 
 \mbcomment{Also explain the variation of why it is different from the iCalp paper}
+Note that in \cite{FGR20}, no regular witness has been studied. In fact, there, only infinite memory strategies have been considered for the threshold problem.
 
 \begin{lemma}
 \label{lemWitnessASVForFinStrat}
@@ -16,7 +17,7 @@ Given a mean-payoff game $\mathcal{G}$ with a set $V$ of vertices, a vertex $v \
 	We do this by defining a strategy $\sigma_0$ for Player~0 such that:
 	\begin{enumerate}
 		\item $\forall h \leqslant \pi$, and $last(h)$ is a Player~0 vertex, $\sigma_0(h)$ follows $\pi$. This is a finite memory strategy.
-		\item $\forall h \nleqslant \pi$, where there has been a deviation from $\pi$ by Player~1, we assume Player~0 switches to a strategy that we call \textit{punishing}. This strategy is defined as follows: In the subgame after history $h'$, where $last(h')$ is the first vertex at which Player~1 deviated from $\pi$, we know that Player~0 has a strategy to enforce the objective: $\underline{\mathbf{MP}}_0(\pi) > c$ $\lor$ $ \underline{\mathbf{MP}}_1(\pi) \leqslant d-\epsilon$. This is true because $\pi$ does not cross any $(c,d)^{\epsilon}$-bad vertex and because n-dimension mean-payoff games are determined. We show that this is a memoryless strategy in Section 4.
+		\item $\forall h \nleqslant \pi$, where there has been a deviation from $\pi$ by Player~1, we assume Player~0 switches to a strategy that we call \textit{punishing}. This strategy is defined as follows: In the subgame after history $h'$, where $last(h')$ is the first vertex at which Player~1 deviated from $\pi$, we know that Player~0 has a strategy to enforce the objective: $\underline{\mathbf{MP}}_0(\pi) > c$ $\lor$ $ \underline{\mathbf{MP}}_1(\pi) \leqslant d-\epsilon$. This is true because $\pi$ does not cross any $(c,d)^{\epsilon}$-bad vertex and because n-dimension mean-payoff games are determined. We show that this is a memoryless strategy in \myChapter 4.
 		\item For all other histories $h$ Player~0 can behave arbitrarily as those histories are never reached when Player~0 plays as defined in point 1 and 2 above.
 	\end{enumerate}
 	
@@ -26,6 +27,6 @@ Given a mean-payoff game $\mathcal{G}$ with a set $V$ of vertices, a vertex $v \
 	\begin{equation*}
 	    d = \sup\limits_{\sigma_1 \in \mathbf{BR}_1^{\epsilon}(\sigma_0)} \underline{\mathbf{MP}}_1(\mathbf{Out}_v(\sigma_0, \sigma_1))
 	\end{equation*}
-	Let $\sigma_0$ be a finite memory strategy of size $M$. When Player~0 plays $\sigma_0$ on $\mathcal{G}$, we can construct a single player game for Player~1 of size $|\mathcal{G}|\times M$. We call this game $\mathcal{G}^M_{\sigma_0}$. In the game $\mathcal{G}^M_{\sigma_0}$, Player~1 has a memoryless strategy to obtain maximum mean-payoff value, i.e. the $\sup$ $d$ is reached. This memoryless strategy in $\mathcal{G}^M_{\sigma_0}$ can be translated to a finite memory strategy $\sigma_1$ in $\mathcal{G}$ such that $\underline{\mathbf{MP}}_1(\mathbf{Out}_v(\sigma_0, \sigma_1)) = d$.[\track{Cite sources}]
+	Let $\sigma_0$ be a finite memory strategy of size $M$. When Player~0 plays $\sigma_0$ on $\mathcal{G}$, we can construct a single player game for Player~1 of size $|\mathcal{G}|\times M$. We call this game $\mathcal{G}^M_{\sigma_0}$. In the game $\mathcal{G}^M_{\sigma_0}$, Player~1 has a memoryless strategy to obtain maximum mean-payoff value, i.e. the $\sup$ $d$ is reached. This memoryless strategy in $\mathcal{G}^M_{\sigma_0}$ can be translated to a finite memory strategy $\sigma_1$ in $\mathcal{G}$ such that $\underline{\mathbf{MP}}_1(\mathbf{Out}_v(\sigma_0, \sigma_1)) = d$.
 	Consider $\pi = \mathbf{Out}_v(\sigma_0, \sigma_1)$. Since both the players play finite memory strategies in $\pi$, we have that $\pi = \pi_1(\pi_2)^{\omega}$ where $\pi_1, \pi_2$ are finite plays/paths. Consider some $\pi' \in \mathbf{Out}_v(\sigma_0))$. Clearly, if $\underline{\mathbf{MP}}_1(\pi') > d-\epsilon$, then there exists a strategy $\sigma'_1 \in \mathbf{BR}_1^{\epsilon}(\sigma_0)$ such that $\pi' = \mathbf{Out}_v(\sigma_0, \sigma'_1)$ and we conclude that $\underline{\mathbf{MP}}_0(\pi') > c$. So all deviations of Player~1 w.r.t $\pi$ against $\sigma_0$ either give him $\underline{\mathbf{MP}}_0(\pi') > c$ or $\underline{\mathbf{MP}}_1(\pi') \leqslant d-\epsilon$. Thus, $\pi$ becomes a $\epsilon$-witness for $\mathbf{ASV}_{\mathsf{FM}}^{\epsilon}(v) > c$ as it never crosses a $(c,d)^{\epsilon}$-bad vertex.
 \end{proof}

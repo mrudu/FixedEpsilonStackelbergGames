@@ -1,11 +1,11 @@
 Given a two-dimensional mean-payoff game $\mathcal{G}$, a vertex $v$ in $\mathcal{G}$, we now show how to compute $\mathbf{ASV}^{\epsilon}(v)$.
-\track{We first show a method to compute $\mathbf{ASV}^{\epsilon}(v)$ using the theory of reals with additions. This approach is very similar to the one followed in \cite{FGR20} with the difference that we use the formula $\Psi_v^{\epsilon}$ instead of $\Psi_v$ as has been described below.
+We first show a method to compute $\mathbf{ASV}^{\epsilon}(v)$ using the theory of reals with additions. This approach is very similar to the one followed in \cite{FGR20} with the difference that we use the formula $\Psi_v^{\epsilon}$ instead of $\Psi_v$ as has been described below.
 This approach also gives us the necessary intuition to compute $\mathbf{ASV}^{\epsilon}(v)$, using a second method, by solving a set of linear programs (LP) leading to establishing an {\sf EXPTime} algorithm.
 This second method is new to this work, and does not appear in \cite{FGR20}.
 Moreover, \cite{FGR20} does not provide any complexity for the computation of $\mathbf{ASV}$. 
-One can show that, with small modifications to our method involving solving linear programs, it is possible to compute $\mathbf{ASV}$ as well in {\sf EXPTime}.}
+One can show that, with small modifications to our method involving solving linear programs, it is possible to compute $\mathbf{ASV}$ as well in {\sf EXPTime}.
 
-In the previous section, we establish the existence of a notion of witness for the Adversarial Stackelberg value in non-zero sum two-player mean-payoff games. This notion of witness can be used to decide the threshold problem in $\mathbf{NP}$ time. We now show how to use this notion to effectively compute the $\mathbf{ASV}^{\epsilon}(v)$. To do this, we refer to the following lemma which has been established in \cite{FGR20}. 
+In the previous \mychapter, we establish the existence of a notion of witness for the Adversarial Stackelberg value in non-zero sum two-player mean-payoff games. This notion of witness can be used to decide the threshold problem in $\mathbf{NP}$ time. We now show how to use this notion to effectively compute the $\mathbf{ASV}^{\epsilon}(v)$. To do this, we refer to the following lemma which has been established in \cite{FGR20}. 
 In \cite{FGR20}, the set $\Lambda(v)$ has been defined as $\Lambda(v) = \{(c,d) \in \mathbb{R}^2 \mid v \models \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c \land \underline{\mathbf{MP}}_1 \geqslant d \}$.
 
 \begin{lemma}
@@ -146,7 +146,7 @@ It follows that $\mathbf{ASV}^{\epsilon}(v_0) = 3$ since we have a single SCC in
 \subsection{Computing $\mathbf{ASV}^{\epsilon}(v)$ by solving LP}
 % \sgcomment{We are still working on this part.}
 % We now develop an exponential time algorithm to compute $\mathbf{ASV}^{\epsilon}(v)$.
-In this section, we provide another approach for computing $\mathbf{ASV}^{\epsilon}(v)$.
+In this \mychapter, we provide another approach for computing $\mathbf{ASV}^{\epsilon}(v)$.
 We use LP to solve the problem and obtain an $\mathsf{ExpTime}$ upper bound for the computation of $\mathbf{ASV}^{\epsilon}(v)$.
 We do this by expressing the formula $\rho^S_{\max,v_0}$, for each $\mathsf{SCC}$ $S$, as a set of linear programs such that the maximum value over the set of solutions over all {\sf SCC}s corresponds to $\mathbf{ASV}^{\epsilon}$. 
 We first illustrate our approach with the help of the following example.
@@ -189,7 +189,7 @@ Thus, when we compare the areas in the graph $\mathbb{R} \times \mathbb{R}$ gene
 We can further extend this idea to all mean-payoff games which contain multiple $\mathsf{SCC}$s with each $\mathsf{SCC}$ containing multiple cycles.
 \end{comment}
 
-Now we state the main result of this section.
+Now we state the main result of this \mychapter.
 % This expressed in the following theorem.
 \begin{theorem}
     \label{ExpTimeForComputeASV}

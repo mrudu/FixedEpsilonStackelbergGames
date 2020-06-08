@@ -7,10 +7,12 @@
 
 % For list like - (i), (ii) etc
 \usepackage{paralist}
+\usepackage{hyperref}
 
 % For Math Symbols
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{comment}
 
 % For Graphs and Automatas
 \usepackage{xcolor}
@@ -29,8 +31,9 @@
 \newcommand{\Fmin}[1]{{\sf F_{\min}}{(#1)}}
 
 % For calling this document as Thesis
-\newcommand{\document}{{thesis}}
-
+\newcommand{\mydoc}{{thesis}}
+\newcommand{\mychapter}{{chapter}}
+\newcommand{\myChapter}{{Chapter}}
 
 % For Thm, Lem, etc Statements
 \usepackage{amsthm}
@@ -54,7 +57,8 @@
 \crefname{proposition}{Proposition}{Propositions}
 \crefname{figure}{Figure}{Figures}
 \crefname{example}{Example}{Examples}
-\crefname{section}{Section}{Sections}
+\crefname{chapter}{Chapter}{Chapters}
+\crefname{section}{Chapter}{Chapters}
 \crefname{table}{Table}{Tables}
 \Crefname{lemma}{Lemma}{Lemmas}
 \Crefname{remark}{Remark}{Remarks}
@@ -64,15 +68,16 @@
 \Crefname{proposition}{Proposition}{Propositions}
 \Crefname{figure}{Figure}{Figures}
 \Crefname{example}{Example}{Examples}
-\Crefname{section}{Section}{Sections}
+\Crefname{section}{Chapter}{Chapters}
+\Crefname{chapter}{Chapter}{Chapters}
 \Crefname{table}{Table}{Tables}
 
 % For keeping track of changes
-\newcommand{\sgcomment}[1]{{\color{purple}[#1 - \textbf{Shibashis}]}}
-\newcommand{\mbcomment}[1]{{\color{blue}[#1 - \textbf{Mrudula}]}}
+% \newcommand{\sgcomment}[1]{{\color{purple}[#1 - \textbf{Shibashis}]}}
+% \newcommand{\mbcomment}[1]{{\color{blue}[#1 - \textbf{Mrudula}]}}
 \newcommand{\track}[1]{{\color{red}[#1]}}
-% \newcommand{\sgcomment}[1]{{}}
-% \newcommand{\mbcomment}[1]{{}}
+\newcommand{\sgcomment}[1]{{}}
+\newcommand{\mbcomment}[1]{{}}
 % \newcommand{\track}[1]{{}}
 
 % Modifying use of subsections

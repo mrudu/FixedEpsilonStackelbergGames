@@ -35,13 +35,13 @@ his $\epsilon$-best responses to to $\sigma_0$, for $\epsilon > 0$, noted $\math
 \end{enumerate}
 Note that for the $\epsilon$ best response when $\epsilon > 0$, we use $>$ instead of $\geqslant$.
 
-We define the adversarial value that Player~0, respectively Player~1 can enforce in the game $\mathcal{G}$ from vertex $v$ as:
-\begin{equation*}
-    \mathbf{WCV}_0(v) = \sup\limits_{\sigma_0 \in \Sigma_0} \inf\limits_{\sigma_1 \in \Sigma_1} \mathbf{MP}_1(\mathbf{Out}_v(\sigma_0,\sigma_1)) = \inf\limits_{\sigma_1 \in \Sigma_1} \sup\limits_{\sigma_0 \in \Sigma_0} \mathbf{MP}_1(\mathbf{Out}_v(\sigma_0,\sigma_1))
-\end{equation*}
-\begin{equation*}
-    \mathbf{WCV}_1(v) = \sup\limits_{\sigma_1 \in \Sigma_1} \inf\limits_{\sigma_0 \in \Sigma_0} \mathbf{MP}_1(\mathbf{Out}_v(\sigma_0,\sigma_1)) = \inf\limits_{\sigma_0 \in \Sigma_0} \sup\limits_{\sigma_1 \in \Sigma_1} \mathbf{MP}_1(\mathbf{Out}_v(\sigma_0,\sigma_1))
-\end{equation*}
+% We define the adversarial value that Player~0, respectively Player~1 can enforce in the game $\mathcal{G}$ from vertex $v$ as:
+% \begin{equation*}
+%     \mathbf{WCV}_0(v) = \sup\limits_{\sigma_0 \in \Sigma_0} \inf\limits_{\sigma_1 \in \Sigma_1} \mathbf{MP}_1(\mathbf{Out}_v(\sigma_0,\sigma_1)) = \inf\limits_{\sigma_1 \in \Sigma_1} \sup\limits_{\sigma_0 \in \Sigma_0} \mathbf{MP}_1(\mathbf{Out}_v(\sigma_0,\sigma_1))
+% \end{equation*}
+% \begin{equation*}
+%     \mathbf{WCV}_1(v) = \sup\limits_{\sigma_1 \in \Sigma_1} \inf\limits_{\sigma_0 \in \Sigma_0} \mathbf{MP}_1(\mathbf{Out}_v(\sigma_0,\sigma_1)) = \inf\limits_{\sigma_0 \in \Sigma_0} \sup\limits_{\sigma_1 \in \Sigma_1} \mathbf{MP}_1(\mathbf{Out}_v(\sigma_0,\sigma_1))
+% \end{equation*}
 
 We also introduce the following notation for zero-sum games (that are needed as intermediary steps in our algorithms). Let $\mathcal{A}$ be an arena, $v \in V$ one of its states, and $\mathcal(O) \subseteq \mathbf{Plays}_{\mathcal{A}}$ be a set of plays (called objective), then we write $ \mathcal{A}, v \models \ll i \gg \mathcal{O}$, if:
 \begin{equation*}
@@ -66,7 +66,7 @@ Given a finite set of dimension $d$, rational vectors $X \subset \mathbb{Q}^d$, 
 \\
 \textbf{Mean-payoffs induced by simple cycles} Given a play $\pi \in \mathbf{Plays}_{\mathcal{A}}$, we note that $\inf(\pi)$ the set of vertices $v$ that appear infinitely many times along $\pi$, i.e., $\inf(\pi) = \{v \in V \mid \forall in \in \mathbb{N}\cdot \exists j \in \mathbb{N}, j \geqslant i: \pi(j) = v \}$. It is easy to see that $\inf(\pi)$ forms an SCC in the underlying graph of the arena $\mathcal{A}$. A \textit{cycle} $c$ is a sequence of edges that starts and stops in a given vertex $v$, it is simple if it does not contain any other repetition of vertices. Given an SCC S, we write $\CS$ for the set of simple cycles inside $S$. Given a simple cycle $c$, for $i \in \{0,1\}$, let $\mathbf{MP}_i(c) = \frac{w_i(c)}{\mid c \mid}$ be the mean $\mid c \mid$ of $w_i$ weights along edges in the simple cycle $c$, and we call the pair $(\mathbf{MP}_0(c), \mathbf{MP}_1(c))$ the mean-payoff coordinate of the cycle $c$. We write $\CH{\CS}$ for the convex-hull of the set of mean-payoff coordinates of simple cycles of S.
 
-\mbcomment{Make it more precise - use Thm 3 in Mean-Payoff Automaton Expressions.}
+% \mbcomment{Make it more precise - use Thm 3 in Mean-Payoff Automaton Expressions.}
 \begin{lemma}
 \label{lemCHToPlay}
 \textbf{\emph{(\cite{FGR20,CDEHR10})}} Let $S$ be an SCC in the arena $\mathcal{A}$, the following three properties hold:

@@ -1,11 +1,11 @@
 % \sgcomment{Add an intro for this section: What this section is about.}
-While it has been shown in \cite{FGR20} that \textbf{$\mathbf{ASV}$} may not be achievable, in this section, we show that $\mathbf{ASV}^{\epsilon}$ is indeed achievable. This is expressed in the following theorem.
+While it has been shown in \cite{FGR20} that \textbf{$\mathbf{ASV}$} may not be achievable, in this \mychapter, we show that $\mathbf{ASV}^{\epsilon}$ is indeed achievable. This is expressed in the following theorem.
 \begin{theorem}
     \label{ConjAchiev}
     For all mean-payoff games $\mathcal{G}$, for all vertices $v$ in $\mathcal{G}$, and for all $\epsilon > 0$ we have that $\mathbf{ASV}^{\epsilon}(v)$ is achievable.
 \end{theorem}
 
-The rest of this section is devoted entirely to proving \textbf{\cref{ConjAchiev}}. We start by defining the concept of a witness for $\mathbf{ASV}^{\epsilon}(\sigma_0^i)$.
+The rest of this \mychapter is devoted entirely to proving \textbf{\cref{ConjAchiev}}. We start by defining the concept of a witness for $\mathbf{ASV}^{\epsilon}(\sigma_0^i)$.
 
 \textbf{Witness for $\mathbf{ASV}^{\epsilon}(\sigma_0^i)$}
 Given a mean-payoff game $\mathcal{G}$ and an $\epsilon > 0$, we say that a play $\pi_i$ is a witness for $\mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) > c_i$ for the strategy $\sigma_0^i$ of Player~0 if the strategy $\sigma_0^i$ is defined as follows:
@@ -34,7 +34,6 @@ We note from \textbf{\cref{LemPlaysAsWitnessForASV}} that there exists a witness
 %     \item If Player~1 deviates from $\pi_i$, then for each vertex $v \in \pi_i$, Player~0 employs a memoryless strategy that establishes $v \nvDash \ll 1 \gg \underline{\mathbf{MP}}_0 \leqslant c_i \land \underline{\mathbf{MP}}_1 > d_i - \epsilon$, where $d_i = \underline{\mathbf{MP}}_1(\pi_i)$.
 % \end{itemize}
 
-\mbcomment{proper introduction needed.}
 Now, we construct a sequence of plays which serve as witnesses for the sequence of finite memory strategies as described above. These plays in the sequence differ from each other only in the $k_i$ value. Formally, we state this in the following proposition.
 % \begin{proposition}
 %     \label{PropConvergenceStrategies}
@@ -71,9 +70,7 @@ For the sequence of strategies $(\sigma_0^i)_{i \in \mathbb{N}}$, we note that t
     The sequence $(d_i)_{i \in \mathbb{N}}$ is monotonic. 
 \end{proposition}
 % \mbcomment{i vs $k_i$}
-We have that $\lim \limits_{i \to \infty} \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) = c$.
-
-Consider a  sequence $(\delta_i)_{i \in \mathbb{N}}$ of strictly decreasing positive rational numbers. We construct a play $\pi_*$ as follows: for $i \in \{1, 2, 3, \dots\}$, the play $\pi_*$ follows the play $\pi_i$ until the mean-payoff of the prefix of the play $\pi_*$ becomes greater than $c_i - \delta_i$. Then the play $\pi_*$ follows the play $\pi_(i+1)$ and so on. We define a strategy $\sigma_0^*$ for Player~0 as follows: if Player~1 follows the play $\pi_*$, then Player~0 follows the play $\pi*$. If Player~1 deviates from $\pi_*$, then Player~0 employs the memoryless strategy described by \cref{RemarkStratEqual}. Clearly, we can see that $\underline{\mathbf{MP}}_1(\pi_*) = c$. We let $\underline{\mathbf{MP}}_1(\pi_*) = d$.
+We have that $\lim \limits_{i \to \infty} \mathbf{ASV}^{\epsilon}(\sigma_0^i)(v) = c$. We construct a play $\pi_*$ as follows: for $i \in \{1, 2, 3, \dots\}$, the play $\pi_*$ follows the play $\pi_i$ until the mean-payoff of the prefix of the play $\pi_*$ becomes greater than $c_i$. Then the play $\pi_*$ follows the play $\pi_{i+1}$ and so on. We define a strategy $\sigma_0^*$ for Player~0 as follows: if Player~1 follows the play $\pi_*$, then Player~0 follows the play $\pi*$. If Player~1 deviates from $\pi_*$, then Player~0 employs the memoryless strategy described by \cref{RemarkStratEqual}. Clearly, we can see that $\underline{\mathbf{MP}}_1(\pi_*) = c$. We let $\underline{\mathbf{MP}}_1(\pi_*) = d$.
 
 % Let $\pi_{i \to \infty} = \pi_* = \pi_1 \rho_1 \rho_2 \rho_3 \dotsc$ where $\rho_i = (l^{\alpha}_{1})^{k_i} \cdot \pi_{2} \cdot (l^{\beta}_{2})^{k_i} \cdot \pi_{3}$. We have that $\underline{\mathbf{MP}}_0(\pi_*) = c$, and we let $\underline{\mathbf{MP}}_1(\pi_*) = d$. Note that in the limit, Player~0 uses an infinite memory strategy. Let $\sigma_0^*$ be this infinite memory strategy of Player~0.
 
@@ -114,12 +111,12 @@ We start with the first case; the sequence ($d_i$)$_{i \in \mathbb{N}}$ is non-d
 
 Assume for contradiction that $\mathbf{ASV}^{\epsilon}(v)$ is not achievable, i.e. Player~1 deviates from $\sigma_0^*$ to enforce the path $\pi'$. 
 
-Since ($d_i$)$_{i \in \mathbb{N}}$ is non-decreasing, for all $j \in \mathbb{N}$ we have that $d' > d_j - \epsilon$. We know that the sequence ($c_i$)$_{i \in \mathbb{N}}$ is increasing. Thus, there exists a $j \in \mathbb{N}$ such that $c' \leqslant c_j$. \sgcomment{We use $c' < c_j$ later. I think we can change to $c'< c_j$.} Note that if $\pi'$ is a result of the deviation of Player~1 following some path $\pi_{r}$ for some index $r$, we consider some $j$ which is also greater than $r$.
+Since ($d_i$)$_{i \in \mathbb{N}}$ is non-decreasing, for all $j \in \mathbb{N}$ we have that $d' > d_j - \epsilon$. We know that the sequence ($c_i$)$_{i \in \mathbb{N}}$ is increasing. Thus, there exists a $j \in \mathbb{N}$ such that $c' < c_j$. Note that if $\pi'$ is a result of the deviation of Player~1 following some path $\pi_{r}$ for some index $r$, we consider some $j$ which is also greater than $r$.
 
 Consider the strategy $\sigma_0^j$ of Player~0 which follows the play $\pi_j$. We know that $\underline{\mathbf{MP}}_0(\pi_j) > c_j$ and $\underline{\mathbf{MP}}_1(\pi_j) = d_j$. We also know from \textbf{\cref{LemPlaysAsWitnessForASV}} that the play $\pi_j$ does not cross a $(c_j, d_j)^{\epsilon}$-bad vertex. 
-
+\begin{comment}
 *****************************************
-
+\end{comment}
 From \textbf{\cref{PropContradictionPlayEnforcable}}, we have that Player~1 can enforce the play $\pi'$ in response to the strategy $\sigma_0^j$ of Player~0. As $\underline{\mathbf{MP}}_0(\pi') < c_j$ and $ \underline{\mathbf{MP}}_1(\pi') > d_j-\epsilon$ and $\pi'(0) = \pi_j(0) = v$, it follows that the play $\pi_j$ crosses a $(c_j, d_j)^{\epsilon}$-bad vertex $v$. Thus, the existence of $\pi'$ is a contradiction, which implies that $\mathbf{ASV}^{\epsilon}$ is achievable.
 
 Now, we consider the case where the sequence ($d_i$)$_{i \in \mathbb{N}}$ is monotonically decreasing.
@@ -133,7 +130,8 @@ We know that since ($c_i$)$_{i \in \mathbb{N}}$ is a strictly increasing sequenc
 Consider the strategy $\sigma_0^j$ of Player~0 which follows the play $\pi_j$. We know that $\underline{\mathbf{MP}}_0(\pi_j) > c_j$ and $ \underline{\mathbf{MP}}_1(\pi_j) = d_j$. We also know from \textbf{\cref{LemPlaysAsWitnessForASV}}, the play $\pi_j$ does not cross a $(c_j, d_j)^{\epsilon}$-bad vertex. 
 
 From \textbf{\cref{PropContradictionPlayEnforcable}}, we have that $\pi'$ can be enforced in response to strategy $\sigma_0^j$ of Player~0. Thus, we can establish that the play $\pi_j$ crosses a $(c_j, d_j)^{\epsilon}$-bad vertex $v$ as $\underline{\mathbf{MP}}_0(\pi') < c_j$ and $ \underline{\mathbf{MP}}_1(\pi') > d_j-\epsilon$ and $\pi'(0) = \pi_j(0) = v$. This implies that the existence of $\pi'$ is a contradiction. We conclude that the $\mathbf{ASV}^{\epsilon}(v)$ is achievable.
-
+\end{proof}
+\begin{comment}
 *********************************************
 
 \sgcomment{How about the following? This does not use \cref{RemarkStratEqual} (same as the last bullet above) and \cref{PropContradictionPlayEnforcable}}.
@@ -156,4 +154,6 @@ Thus for every vertex $v$ in $\pi_j$ in $\pi_*$, Player $1$ does not have a stra
 Recall that, by \cref{PropConvergenceStrategies}, the set of vertices appearing in $\pi_*$ is the same as the set of vertices appearing in $\pi_j$.
 Since $c' < c_j$ and $d' > d_j-\epsilon$, it also follows that $v \not \models \ll 1 \gg \underline{\mathbf{MP}}_0(\pi) \leqslant c' \land \underline{\mathbf{MP}}_1(\pi) > d'$.
 Now the contradiction follows exactly as above where the sequence ($d_i$)$_{i \in \mathbb{N}}$ is monotonically non-decreasing.
-\end{proof}
+
+\end{comment}
+% \end{proof}
