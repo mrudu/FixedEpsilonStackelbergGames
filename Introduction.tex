@@ -1,12 +1,13 @@
-\sgcomment{We write here about 
-\begin{enumerate}
-    \item Stackelberg games including history (Refer to 1934 paper by Stackelberg); comparison with Nash equilibrium and state that Stackelberg strategy may produce greater payoff for the leader than in the Nash equilibrium.
-    \item application of Stackelberg games
-\end{enumerate}}
+% \sgcomment{We write here about 
+% \begin{enumerate}
+%     \item Stackelberg games including history (Refer to 1934 paper by Stackelberg); comparison with Nash equilibrium and state that Stackelberg strategy may produce greater payoff for the leader than in the Nash equilibrium.
+%     \item application of Stackelberg games
+% \end{enumerate}}
 
 Stackelberg games were introduced by German economist Heinrich Freiherr von Stackelberg in \cite{S34} to simulate how firms behave in the market. The players of this game comprise of one leader firm and multiple follower firms. The leader starts the game by announcing her strategy and the followers respond by playing the optimal response to the leader's strategy.
+A well-known notion of equilibrium is the Nash Equilibrium \cite{Nash50}, which is a profile of strategies for each player such that no player can deviate from her current strategy in the profile unilaterally, and thereby get benefitted.
 
-\begin{table}[h]
+\begin{table}[]
     \centering
     \begin{tabular}{ll|c|c|}
         \cline{3-4}
@@ -23,7 +24,7 @@ Stackelberg games were introduced by German economist Heinrich Freiherr von Stac
     \label{tab:bi-matrix-game}
 \end{table}
 
-We demonstrate here with a classical bi-matrix game shown in \cref{tab:bi-matrix-game} how the power to communicate her strategy would help the leader achieve better payoff. Considering pure strategy profiles, the only pure strategy Nash equilibrium is the profile (I, I). It gives a payoff of 1 to the leader and a payoff of 4 to the follower. However, if the leader announces that she will play strategy II, the best response for the follower is to play strategy II as it gives him the highest payoff. Thus, the strategy profile (II, II) is a Stackelberg equilibrium and gives the leader a payoff of 3.
+Stackelberg Games have been studied for bimatrix games \cite{GS18}. We demonstrate here with a classical bi-matrix game shown in \cref{tab:bi-matrix-game} how the power to communicate her strategy would help the leader achieve better payoff. Considering pure strategy profiles, the only pure strategy Nash equilibrium is the profile (I, I). It gives a payoff of 1 to the leader and a payoff of 4 to the follower. However, if the leader announces that she will play strategy II, the best response for the follower is to play strategy II as it gives him the highest payoff. Thus, the strategy profile (II, II) is a Stackelberg equilibrium and gives the leader a payoff of 3.
 
 % Let us demonstrate why Stackelberg Equilibria produce a better payoff than their Nash counterparts with an example. Consider the period of 1894 - 1999 where the motorcycle manufacturers were in a competition to produce the fastest production motorcycle. After over a century of one-upmanship, some regulators and politicians in Europe, fearing an outbreak of illegal racing as riders try to break the 200 mph barrier, called for an import ban against high speed motorcycles. To preempt regulation and avoid negative publicity, the manufacturers voluntarily entered into a \text{Gentlemen's agreement} to limit the speed of their machines to 300 kmph (186 mph), starting with 2000 models. A Nash Equilibrium strategy would suggest that each company must break the agreement to produce a faster motorcycle, thus getting a higher market share. But breaking the agreement would likely result in an import ban regulation which would imply a huge market loss for all manufacturers involved. On the other hand, a Stackelberg Equilibrium strategy would explain why that no company must break the agreement, and thus would ideally yield equal market share for all motorcycle companies involved.\cite{WIKI00}
 
@@ -50,7 +51,7 @@ We demonstrate here with a classical bi-matrix game shown in \cref{tab:bi-matrix
     \label{fig:nash_vs_stackelberg}
 \end{figure}
 
-We demonstrate here with a more realistic setting such as a mean-payoff game why the Stackelberg Equilibrium produces a better payoff for the leader than a Nash equilibrium strategy. Consider the example depicted in \cref{fig:nash_vs_stackelberg} where there is one leader player (red circle) and one follower player (blue square). In this game, the dominant strategy for the leader, $\sigma_L^{\mathsf{Nash}}$, is to play $v_2 \to v_3$. In this case, the follower will respond with the strategy, $\sigma_F^{\mathsf{Nash}}$, where he plays $v_0 \to v_1$. The strategy profile ($\sigma_L^{\mathsf{Nash}}$, $\sigma_F^{\mathsf{Nash}}$) is in Nash Equilibrium and yields a payoff of 0 to the leader. However, if the leader announces a strategy $\sigma_L^{\mathsf{Stackelberg}}$ where she plays $v_2 \to v_2$, the follower will get a better payoff if he responds with a strategy $\sigma_F^{\mathsf{Stackelberg}}$ where he plays $v_0 \to v_2$. Thus, the strategy profile ($\sigma_L^{\mathsf{Stackelberg}}$, $\sigma_F^{\mathsf{Stackelberg}}$) is in Stackelberg Equilibrium and yields a payoff of 1 to the leader.
+We demonstrate here with a more realistic setting such as a mean-payoff game why the Stackelberg Equilibrium produces a better payoff for the leader than a Nash equilibrium. Consider the example depicted in \cref{fig:nash_vs_stackelberg}. There are two players: we call them the leader and the follower. The leader owns the circle vertices and the square vertices are owned by the follower. Now, consider the strategy $\sigma_L^{\mathsf{Nash}}$ of the leader is which she plays $v_1 \to v_1$, $v_2 \to v_3$ and $v_3 \to v_3$. Let $\sigma_F^{\mathsf{Nash}}$ be a strategy of the follower in whcih he plays $v_0 \to v_1$. Clearly, the strategy profile ($\sigma_L^{\mathsf{Nash}}$, $\sigma_F^{\mathsf{Nash}}$) is a Nash Equilibrium that yields a payoff of 0 to the leader. However, if the leader announces a strategy $\sigma_L^{\mathsf{Stackelberg}}$ where she plays $v_1 \to v_1$, $v_2 \to v_2$ and $v_3 \to v_3$, the follower will get a better payoff if he responds with a strategy $\sigma_F^{\mathsf{Stackelberg}}$ where he plays $v_0 \to v_2$. Thus, the strategy profile ($\sigma_L^{\mathsf{Stackelberg}}$, $\sigma_F^{\mathsf{Stackelberg}}$) is a Stackelberg Equilibrium and yields a payoff of 1 for the leader.
 
 \begin{figure}
     \centering
@@ -75,7 +76,7 @@ We demonstrate here with a more realistic setting such as a mean-payoff game why
     \label{fig:cooperative_vs_adversarial}
 \end{figure}
 
-Thus, we can see that the leader with the power to communicate her strategy can incentivise the follower to play a strategy which she desires and thereby get a better payoff. Both the leader and the follower aim at maximising their respective payoffs. However, the follower can have multiple optimal responses to the leader's strategy. Two different scenarios can be considered in this setting: either the optimal-response strategy is imposed by the leader (or equivalently chosen cooperatively by the two players), or the optimal-response strategy is chosen adversarially by the follower. We demonstrate the two scenarios with an example depicted in \cref{fig:cooperative_vs_adversarial}. Similar to the previous example in \cref{fig:nash_vs_stackelberg}, the leader can announce her strategy $\sigma_L$ where she plays $v_2 \to v_2$. However, in this example the follower has two optimal responses, i.e. he can play $v_0 \to v_1$ or $v_0 \to v_2$. If the follower is co-operative, then he will choose the strategy which also maximises the leader's payoff. In this example, the co-operative follower will choose to play the strategy $v_0 \to v_2$. Thus, in the cooperative setting, the leader receives a payoff of 2 and the follower receives a payoff of 1. But if the follower is adversarial, he will choose the strategy which minimises the payoff of the leader. In this example, the adversarial follower will choose to play $v_0 \to v_1$. Thus, in the cooperative setting, the leader receives a payoff of 0 and the follower receives a payoff of 1.
+Thus, we can see that the leader with the power to communicate her strategy can influence the follower to play a strategy which she desires and thereby get a better payoff for herself. Both the leader and the follower aim at maximising their respective payoffs. However, the follower can have multiple optimal responses to the leader's strategy. Two different scenarios can be considered in this setting: either the optimal-response strategy is imposed by the leader (or equivalently chosen cooperatively by the two players), or the optimal-response strategy is chosen adversarially by the follower. We demonstrate the two scenarios with an example depicted in \cref{fig:cooperative_vs_adversarial}. Here, the leader can announce her strategy $\sigma_L$ where she plays $v_2 \to v_2$. However, in this example the follower has two optimal responses, i.e. he can play $v_0 \to v_1$ or $v_0 \to v_2$. If the follower is co-operative, then he will choose the strategy which also maximises the leader's payoff. In this example, the co-operative follower will choose to play the strategy $v_0 \to v_2$. Thus, in the cooperative setting, the leader receives a payoff of 1 and the follower receives a payoff of 1. But if the follower is adversarial, he will choose the strategy which minimises the payoff of the leader. In this example, the adversarial follower will choose to play $v_0 \to v_1$. Thus, in the cooperative setting, the leader receives a payoff of 0 and the follower receives a payoff of 1.
 
 The adversarial case is more interesting because it allows us to model the situation in which the leader can only choose her strategy and must be prepared to face any rational response of follower, i.e. if follower has several possible optimal responses then the leader's strategy should be designed to face all of them.
 
@@ -85,12 +86,10 @@ In this work, we study the notion of Adversarial Stackelberg Equilibria on two-p
 \item Player~1, the follower, announces his choice of strategy $\sigma_1$ in response to the leader's strategy $\sigma_0$. 
 \item Both players receive their respective mean-payoffs determined by their respective mean-payoff functions.
 \end{inparaenum}
-Due to the sequential nature of the game, Player~1 knows the strategy $\sigma_0$, and so to act rationally (s)he should choose a strategy that maximises his payoff. If such a strategy exists, it is called a best-response to Player~0's strategy $\sigma_0$. However, best-responses are not guaranteed to always exist \cite{FGR20}. Thus, we introduce the concept of $\epsilon$-optimal best responses. Here, the follower, i.e., Player~1  plays any strategy that gives him a payoff that is up to an $\epsilon$ amount lesser than the best payoff he can receive. In \cite{FGR20}, it is  established that for every $\epsilon > 0$, there always exists an $\epsilon$-optimal best response of Player~1 to every strategy of Player~0. The leader will choose a strategy such that payoff she receives is as large as possible when the follower plays any adversarial $\epsilon$-optimal best response, for every $\epsilon > 0$. We call the supremum of payoffs obtained by the leader over all possible $\epsilon$ values when she plays such a strategy as the Adversarial Stackelberg Value, or simply, the $\mathbf{ASV}$.
+Due to the sequential nature of the game, Player~1 knows the strategy $\sigma_0$, and so to act rationally (s)he should choose a strategy that maximises his payoff. If such a strategy exists, it is called a best-response to Player~0's strategy $\sigma_0$. However, best-responses are not guaranteed to always exist \cite{FGR20}. Thus, the authors of \cite{FGR20} introduce the concept of $\epsilon$-optimal best responses. Here, the follower, i.e., Player~1  plays any strategy that gives him a payoff that is up to an $\epsilon$ amount lesser than the best payoff he can receive. In \cite{FGR20}, it is  established that for every $\epsilon > 0$, there always exists an $\epsilon$-optimal best response of Player~1 to every strategy of Player~0. The leader will choose, over all $\epsilon \geqslant 0$, a strategy such that the payoff she receives is as large as possible when the follower plays any adversarial $\epsilon$-optimal best response. We call the supremum of payoffs obtained by the leader over all possible $\epsilon$ values when she plays such a strategy as the Adversarial Stackelberg Value, or simply, the $\mathbf{ASV}$.
 
-In this work, we assume that Player~1 is not completely rational, and hence Player~1 would always choose an $\epsilon$-optimal best-response to Player~0's strategy $\sigma_0$.
-In turn, if the leader assumes an almost-rational response of the follower to her strategy, this should guide the leader when choosing her strategy $\sigma_0$.
-
-Indeed, the leader should choose a strategy $\sigma_0 $ such that payoff she receives is as large as possible when the follower plays an adversarial $\epsilon$-optimal best-response, for a fixed $\epsilon$. We call the payoff obtained by the leader when she plays such a strategy as the $\epsilon$-optimal Adversarial Stackelberg Value, or simply, the $\mathbf{ASV}^{\epsilon}$.
+In this work, we assume that Player~1 is not completely rational, and hence Player~1 would always choose an $\epsilon$-optimal best-response to Player~0's strategy $\sigma_0$, i.e., we fix the value of $\epsilon$ apriori.
+In turn, if the leader assumes an almost-rational response of the follower to her strategy, this should guide the leader when choosing her strategy $\sigma_0$. Indeed, the leader should choose a strategy $\sigma_0 $ such that payoff she receives is as large as possible when the follower plays an adversarial $\epsilon$-optimal best-response, for a fixed $\epsilon$. We call the payoff obtained by the leader when she plays such a strategy as the $\epsilon$-optimal Adversarial Stackelberg Value, or simply, the $\mathbf{ASV}^{\epsilon}$.
 
 \textbf{\bf Our contribution}
 
@@ -103,33 +102,33 @@ Indeed, the leader should choose a strategy $\sigma_0 $ such that payoff she rec
   Computing ASV &
   Achievability \\ \hline
 \begin{tabular}[c]{@{}c@{}}Adversarial \\ Follower\end{tabular} &
-  \begin{tabular}[c]{@{}c@{}}{\color[HTML]{009901} NP-Time} \\ \\ {\color[HTML]{0000FE} \textbf{Finite Memory}} \\ {\color[HTML]{0000FE} \textbf{Strategy}} \end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}{\color[HTML]{009901} NP-Time} \\ \\ {\color[HTML]{0000FE} \textbf{Finite Memory}} \\ {\color[HTML]{0000FE} \textbf{Strategy [\ref{LemFinMemWitnessASVNonEps}]}} \end{tabular} &
   {\color[HTML]{009901} Theory Of Reals} &
   {\color[HTML]{009901} No} \\ \hline
 \begin{tabular}[c]{@{}c@{}}Adversarial\\ Epsilon-Optimal \\ Follower\end{tabular} &
-  {\color[HTML]{0000FE} \textbf{\begin{tabular}[c]{@{}c@{}}NP-Time\\ \\ Finite Memory \\ Strategy\end{tabular}}} &
-  {\color[HTML]{0000FE} \textbf{\begin{tabular}[c]{@{}c@{}}Theory Of Reals/\\ \\ Solving LP \\ in EXP-Time\end{tabular}}} &
-  {\color[HTML]{0000FE} \textbf{\begin{tabular}[c]{@{}c@{}}Yes\\ \\ (Requires Infinite \\ Memory)\end{tabular}}} \\ \hline
+  {\color[HTML]{0000FE} \textbf{\begin{tabular}[c]{@{}c@{}}NP-Time\\ \\ Finite Memory \\ Strategy [\ref{ThmNpForASV}] \end{tabular}}} &
+  {\color[HTML]{0000FE} \textbf{\begin{tabular}[c]{@{}c@{}}Theory Of Reals [\ref{ThmComputeASV}]/\\ \\ Solving LP \\ in EXP-Time [\ref{ExpTimeForComputeASV}]\end{tabular}}} &
+  {\color[HTML]{0000FE} \textbf{\begin{tabular}[c]{@{}c@{}}Yes [\ref{ConjAchiev}]\\ \\ (Requires Infinite \\ Memory [\ref{ThmExNeedInfMem}])\end{tabular}}} \\ \hline
 \end{tabular}
 \caption{
-    {\color[HTML]{0000FE} \textbf{Results obtained in our work are in blue and bold-text }} whereas {\color[HTML]{009901} results obtained in \cite{FGR20} are in green and normal-text}
+    {\color[HTML]{0000FE} \textbf{Results obtained in our work are in blue and in bold-text }} whereas {\color[HTML]{009901} results obtained in \cite{FGR20} are in green and in normal-text}
 }
 \label{tab:results}
 \end{table}
 
 \track{This work is an extension of the work done in \cite{FKL10}. The authors in \cite{FKL10} assume that the follower is rational and will always play an adversarial best response for a given strategy of leader. In this work, we assume that the follower is almost rational and will always play an $\epsilon$-optimal adversarial best response to the strategy of the leader, for a fixed $\epsilon > 0$. This has produced results which are described below and also tabulated in \cref{tab:results}.}
 
-We begin by showing that infinite memory is required for Player~0 to achieve the $\mathbf{ASV}^{\epsilon}$. This is similar to the result obtained in \cite{FGR20} which shows that the leader, Player~0, needs infinite memory to achieve $\mathbf{ASV}$. 
+We begin by showing that infinite memory is required for Player~0 to achieve the $\mathbf{ASV}^{\epsilon}$ [\cref{ThmExNeedInfMem}]. A similar is shown in \cite{FGR20} in which the leader, Player~0, needs infinite memory to achieve $\mathbf{ASV}$.
 
-We also show that Player~1 may require infinite memory to play $\epsilon$-optimal best-responses. We do this by describing a mean-payoff game where for a given strategy of Player~0, no finite memory strategy of Player~1 is sufficient to play an $\epsilon$-optimal best response.
+We also consider the memory required by Player~1 to play $\epsilon$-optimal best responses to a strategy of Player~0. We show that Player~1 may require infinite memory to play an $\epsilon$-optimal best-response. \track{We do this by describing a mean-payoff game where for a given strategy of Player~0, no finite memory strategy of Player~1 is sufficient to play an $\epsilon$-optimal best response.} Indeed, we show that there does not exist an $\epsilon$-optimal best response that uses finite memory [\cref{ThmP1NeedInfMem}].
 
-For a given mean-payoff game and a rational value $c$, the Threshold Problem is defined as checking if $\mathbf{ASV}^{\epsilon} > c$. Similar to the results obtained in \cite{FGR20}, we introduce a notion of $\epsilon$-witness for proving that $\mathbf{ASV}^{\epsilon} > c$. But here, we go a step further by developing a finite memory strategy for Player~0 to achieve this $\mathbf{ASV}^{\epsilon}$ threshold value. This finite memory strategy can be constructed in $\mathsf{NP}$-time. Additionally, we prove that a finite memory strategy is sufficient to achieve $\mathbf{ASV} > c$. 
+Recall that for a given mean-payoff game and a rational value $c$, the Threshold Problem is defined as checking if $\mathbf{ASV}^{\epsilon} > c$. Similar to the results obtained in \cite{FGR20}, we introduce a notion of $\epsilon$-witness for proving that $\mathbf{ASV}^{\epsilon} > c$ [\cref{ThmWitnessASVInfMem}]. But here, we go a step further by developing a finite memory strategy for Player~0 to achieve this $\mathbf{ASV}^{\epsilon}$ threshold value. This finite memory strategy can be synthesised in $\mathsf{NP}$-time [\cref{ThmNpForASV}]. Additionally, we prove that a finite memory strategy is sufficient to achieve $\mathbf{ASV} > c$ [\cref{LemFinMemWitnessASVNonEps}]. Besides, our proof for the existence of an $\epsilon$-witness uses techniques that are very different from the ones used in \cite{FGR20}.
 
-We explore the effect of limiting Player~0's memory on the Adversarial Stackelberg Value. We define $\mathbf{ASV}^{\epsilon}_{\mathsf{FM}}$ as the Adversarial Stackelberg Value obtained by Player~0 when she is limited to playing only finite memory strategies. In this work, we show that $\mathbf{ASV}^{\epsilon}_{\mathsf{FM}} = \mathbf{ASV}^{\epsilon}$, i.e., the finite memory constraint has no effect on the Adversarial Stackelberg Value.
+We explore the effect of limiting Player~0's memory on the Adversarial Stackelberg Value. We define $\mathbf{ASV}^{\epsilon}_{\mathsf{FM}}$ as the Adversarial Stackelberg Value obtained by Player~0 when she is limited to playing only finite memory strategies. In this work, we show that $\mathbf{ASV}^{\epsilon}_{\mathsf{FM}} = \mathbf{ASV}^{\epsilon}$, i.e., the finite memory constraint has no effect on the Adversarial Stackelberg Value[\cref{CorASVEqASVFin}].
 
-In \cite{FGR20}, it has been established that the $\mathbf{ASV}$ can be expressed as a formula in the theory of reals with addition. Similarly, we also express the $\mathbf{ASV}^{\epsilon}$ as a formula in the theory of reals with addition. Furthermore, we establish that this formula can be expressed as a set of linear programs, where each linear program has exponential number of constraints. This set of linear programs can be solved in $\mathsf{EXP}$-time to compute the $\mathbf{ASV}^{\epsilon}$, which is in a improvement (time-wise) on the algorithm to compute $\mathbf{ASV}$ using the theory of reals.
+Next we study the problem of computation of $\mathbf{ASV}^{\epsilon}$. In \cite{FGR20}, it has been established that the $\mathbf{ASV}$ can be expressed as a formula in the theory of reals with addition and can be computed with quantifier elimination. However, no precise complexity results have been provided. In this work, we show that we can adopt the methods used in \cite{FGR20} to express the $\mathbf{ASV}^{\epsilon}$ as a formula in the theory of reals with addition [\cref{ThmComputeASV}]. Further, this approach of using theory of reals with addition gives us the necessary intuition to formulate the problem of computing $\mathbf{ASV}^{\epsilon}$ using a set of linear programs, where each linear program has exponential number of constraints, thus giving us a $\mathsf{EXP}$-time algorithm to compute the $\mathbf{ASV}^{\epsilon}$ [\cref{ExpTimeForComputeASV}]. 
 
-Finally, we show that $\mathbf{ASV}^{\epsilon}$ is always achievable. This is in contrast to the results obtained in \cite{FGR20}, as $\mathbf{ASV}$ is not always achievable.
+Finally, we study the problem of achievability of $\mathbf{ASV}^{\epsilon}$. The $\mathbf{ASV}^{\epsilon}$ is said to be achievable if there exists a strategy $\sigma_0$ for Player~0 such that the strategy $\sigma_0$ ensures that the payoff that Player~0 receives is greater than or equal to the $\mathbf{ASV}^{\epsilon}$. While in \cite{FGR20}, it has been shown that $\mathbf{ASV}$ is not always achievable, here, in contrast to the results obtained in \cite{FGR20}, we show that $\mathbf{ASV}^{\epsilon}$ is always achievable [\cref{ConjAchiev}].
 
 \textbf{Related Work}
 
@@ -145,11 +144,15 @@ In \cite{GS18}, the authors study both Stackelberg (leader) equilibrium and ince
 
 In \cite{CHJ06}, the authors study secure Nash equilibrium, where the objectives are considered in a lexicographic order. The two players try to first maximise their own payoffs, and then minimize the payoff of the other player. A secure Nash equilibrium is a Nash equilibrium. 
 
-In \cite{PFKSV14}, the authors study Secure Equilibrium in multi-player games.
+In \cite{PFKSV14}, the authors study Secure Equilibrium in multi-player games in two different settings: 
+\begin{inparaenum}[(i)]
+    \item In the first setting, the games have probabilistic transitions, i.e. the play moves from one state to another state according to a probability measure, which may depend on the current state and the chosen action of the player who owns the state. The games in this setting have bounded and continuous payoff functions.
+    \item In the second setting, the games have deterministic transitions. The games in this setting have qualitative Borel payoff functions.
+\end{inparaenum}
 
 In \cite{GSTDP16}, the authors study the concept of Incentive Stackelberg mean-payoff games, where in addition to assigning strategies to all players, the leader can also transfer parts of her payoff to other players to incentivise to follow the assigned strategy. This ability to incentivise her followers provides the leader with more freedom in selecting strategy profiles, and thus can improve the payoff for the leader in such games even when comparison with Stackelberg Equilibrium.
 
-In \cite{GS15}, the authors study the effects of limited memory on both Nash and Stackelberg Equilibria in Multi-player discounted sum games. 
+In \cite{GS15}, the authors study the effects of limited memory on both Nash and Stackelberg(or Leader) Equilibria in Multi-player discounted sum games. In this work, there exists one powerful player (leader) with the ability to select the strategies of all players for Nash and Leader equilibria, where in Leader equilibria the Nash condition is waived for the strategy of this powerful player.
 
 In \cite{FGR20}, the authors study Stackelberg Mean-Payoff Games in adversarial setting and  Stackelberg Discount Sum Games in both adversarial and co-operative setting.
 
@@ -158,25 +161,25 @@ Adversarial Stackelberg games can be relevant in several contexts. Consider two 
 In \cite{GS18}, the authors consider a class of Arms Race game as an example for incentive equilibrium.
 
 
-\sgcomment{{\bf Related Work} We should look at the following papers:
-\begin{enumerate}
-    \item Dana Fisman, Orna Kupferman, and Yoad Lustig. Rational synthesis. (Even these papers possibly talk about the cooperative setting, and not the adversarial setting.)
-    \item Orna Kupferman, Giuseppe Perelli, and Moshe Y. Vardi. Synthesis with rational environments.
-    \item Rodica Condurache, Emmanuel Filiot, Raffaella Gentilini, and Jean-François Raskin. The complexity of rational synthesis.
-    \item Emmanuel Filiot, Raffaella Gentilini, and Jean-François Raskin. Rational synthesis under imperfect information.
-    \item Anshul Gupta and Sven Schewe. Quantitative verification in rational environments.
-    \item Anshul Gupta, Sven Schewe. Buying Optimal Payoffs in Bi-Matrix Games
-    \item Anshul Gupta, Sven Schewe, Ashutosh Trivedi, Maram Sai Krishna Deepak, and Bharath Kumar Padarthi. Incentive stackelberg mean-payoff games.
-    \item \mbcomment{We should also look at the literature for stochastic Stackelberg games}
-    \item Krishnendu Chatterjee, Thomas A. Henzinger, Marcin Jurdzinski. Games with Secure Equilibria
-    \item Julie De Pril, János Flesch, Jeroen Kuipers, Gijs Schoenmakers, Koos Vrieze. Existence of Secure Equilibrium in Multi-player Games with Perfect Information
-    \item Anshul Gupta, Sven Schewe, and Dominik Wojtczak. Making the best of limited memory in multi-player discounted sum games
-    \item Emmanuel Filiot, Raffaella Gentilini, and Jean-François Raskin. The Adversarial Stackelberg Value in Quantitative Games
-\end{enumerate}}
+% \sgcomment{{\bf Related Work} We should look at the following papers:
+% \begin{enumerate}
+%     \item Dana Fisman, Orna Kupferman, and Yoad Lustig. Rational synthesis. (Even these papers possibly talk about the cooperative setting, and not the adversarial setting.)
+%     \item Orna Kupferman, Giuseppe Perelli, and Moshe Y. Vardi. Synthesis with rational environments.
+%     \item Rodica Condurache, Emmanuel Filiot, Raffaella Gentilini, and Jean-François Raskin. The complexity of rational synthesis.
+%     \item Emmanuel Filiot, Raffaella Gentilini, and Jean-François Raskin. Rational synthesis under imperfect information.
+%     \item Anshul Gupta and Sven Schewe. Quantitative verification in rational environments.
+%     \item Anshul Gupta, Sven Schewe. Buying Optimal Payoffs in Bi-Matrix Games
+%     \item Anshul Gupta, Sven Schewe, Ashutosh Trivedi, Maram Sai Krishna Deepak, and Bharath Kumar Padarthi. Incentive stackelberg mean-payoff games.
+%     \item \mbcomment{We should also look at the literature for stochastic Stackelberg games}
+%     \item Krishnendu Chatterjee, Thomas A. Henzinger, Marcin Jurdzinski. Games with Secure Equilibria
+%     \item Julie De Pril, János Flesch, Jeroen Kuipers, Gijs Schoenmakers, Koos Vrieze. Existence of Secure Equilibrium in Multi-player Games with Perfect Information
+%     \item Anshul Gupta, Sven Schewe, and Dominik Wojtczak. Making the best of limited memory in multi-player discounted sum games
+%     \item Emmanuel Filiot, Raffaella Gentilini, and Jean-François Raskin. The Adversarial Stackelberg Value in Quantitative Games
+% \end{enumerate}}
 
 \textbf{Structure of the \mydoc} In \cref{sec:prelim}, we introduce the necessary preliminaries for our definitions and developments. 
 In \cref{sec:examples}, we examine the memory requirements of both players for playing their strategies. We establish that Player~0 may require infinite memory to achieve the $\mathbf{ASV}^{\epsilon}$ as shown in \cref{ThmExNeedInfMem}. We also establish that Player~1 may require infinite memory to play an $\epsilon$-optimal best response as shown in \cref{ThmP1NeedInfMem}. 
 In \cref{sec:ThresholdProblem}, we consider the threshold problem, i.e. checking if $\mathbf{ASV}^{\epsilon} > c$. We define a notion of $\epsilon$-witness for $\mathbf{ASV}^{\epsilon} > c$ and show that $\mathbf{ASV}^{\epsilon} > c$ if and only if there exists an $\epsilon$-witness for $\mathbf{ASV}^{\epsilon} > c$, as shown in \cref{ThmWitnessASVInfMem}. We also define a notion of $\epsilon$-regular-witness and construct a finite memory strategy for Player~0 in $\mathsf{NP}$-time that achieves $\mathbf{ASV}^{\epsilon} > c$ as shown in \cref{ThmNpForASV}. We also study the effect of limiting Player~0 to playing finite memory strategies on the $\mathbf{ASV}^{\epsilon}$. We show in \cref{CorASVEqASVFin} that there is no effect on $\mathbf{ASV}^{\epsilon}$.
 In \cref{sec:ComputeASV}, we present an algorithm to compute the $\mathbf{ASV}^{\epsilon}$. We first express $\mathbf{ASV}^{\epsilon}$ as a formula in Theory of Reals with addition, as shown in \cref{ThmComputeASV}. We then express this formula as a set of linear programs and thus show that $\mathbf{ASV}^{\epsilon}$ can be computed in $\mathsf{ExpTime}$, as shown in \cref{ExpTimeForComputeASV}.
-In \cref{sec:FMASV}, we present a memory improvement for a previous result established in \cite{FGR20}, i.e, we show the existence of finite memory strategy to achieve the threshold problem of $\mathbf{ASV} > c$. 
+In \cref{sec:FMASV}, we present a memory improvement for a previous result established in \cite{FGR20}, i.e, we show the existence of finite memory strategy to achieve the threshold problem of $\mathbf{ASV} > c$, as shown in \cref{LemFinMemWitnessASVNonEps}. 
 In \cref{sec:Achievability}, we show that the $\mathbf{ASV}^{\epsilon}$ is always achievable.
